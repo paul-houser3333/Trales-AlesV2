@@ -1,0 +1,14 @@
+.search-wrap {
+    padding-top: 1rem;
+}
+
+.land-image {
+    background-image: url(https://www.outsideonline.com/sites/default/files/styles/full-page/public/2020/02/10/2020-jmt-southernyosemitemountainguides_h.jpg?itok=k2MXxQyx);
+    background-size: 100%;
+}
+
+.over-img {
+    background-color: white;
+    width: fit-content;
+    margin: 0 auto;
+}
