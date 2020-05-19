@@ -2,10 +2,10 @@
 let searchbox;
 let theMap;
 let brew;
-let beerArray = [];
+// let beerArray = [];
 let trailArray = [];
 let results;
-let beerIcon;
+// let beerIcon;
 let trailIcon;
 
 //Setting default center point on map
@@ -60,11 +60,11 @@ getLatLon = () => {
             $(".input").attr("placeholder", "Enter Valid City");
         }
         // If beer array is not empty, remove each previous icons
-        if (beerArray !== []) {
-            beerArray.forEach(b => {
-                theMap.removeLayer(b)
-            });
-        }
+        // if (beerArray !== []) {
+        //     beerArray.forEach(b => {
+        //         theMap.removeLayer(b)
+        //     });
+        // }
         //if trail array is not empty remove each previous icon
         if (trailArray !== []) {
             trailArray.forEach(t => {
@@ -74,7 +74,7 @@ getLatLon = () => {
         //set mapview to searched location
         theMap.panTo(new L.LatLng(searchLat, searchLon));
         trailSearch(searchLat, searchLon);
-        brewerySearch(city, state);
+        // brewerySearch(city, state);
     });
 
     //Call to REI hiking trails api
@@ -99,34 +99,34 @@ getLatLon = () => {
     };
 
     //Call to Open Brewery API
-    brewerySearch = (city, state) => {
-        let settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + city + "&by_state=" + state,
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
-                "x-rapidapi-key": "cdc0ac54bamshcdd268cd5c832d8p100753jsn8ab4fd9912f8"
-            }
-        };
-        $.ajax(settings).done(function (response) {
-            brew = response;
-            beerIcon = L.icon({
-                iconUrl: "assets/beer-yellow-map-pin.png",
-                iconSize: [20, 39.7],
-                iconAnchor: [10, 39.7],
-                popupAnchor: [-9, -39.7]
-            })
-            for (let i = 0; i < response.length; i++) {
-                if (response[i].latitude !== null) {
-                    let marker = L.marker([response[i].latitude, response[i].longitude], { icon: beerIcon }).addTo(theMap);
-                    marker.bindPopup("Brewery: " + response[i].name + "<br>" + "Address: " + response[i].street).openPopup();
-                    beerArray.push(marker);
-                }
-            }
-        });
-    };
+    // brewerySearch = (city, state) => {
+    //     let settings = {
+    //         "async": true,
+    //         "crossDomain": true,
+    //         "url": "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries?by_city=" + city + "&by_state=" + state,
+    //         "method": "GET",
+    //         "headers": {
+    //             "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com",
+    //             "x-rapidapi-key": "cdc0ac54bamshcdd268cd5c832d8p100753jsn8ab4fd9912f8"
+    //         }
+    //     };
+    //     $.ajax(settings).done(function (response) {
+    //         brew = response;
+    //         beerIcon = L.icon({
+    //             iconUrl: "assets/beer-yellow-map-pin.png",
+    //             iconSize: [20, 39.7],
+    //             iconAnchor: [10, 39.7],
+    //             popupAnchor: [-9, -39.7]
+    //         })
+    //         for (let i = 0; i < response.length; i++) {
+    //             if (response[i].latitude !== null) {
+    //                 let marker = L.marker([response[i].latitude, response[i].longitude], { icon: beerIcon }).addTo(theMap);
+    //                 marker.bindPopup("Brewery: " + response[i].name + "<br>" + "Address: " + response[i].street).openPopup();
+    //                 beerArray.push(marker);
+    //             }
+    //         }
+    //     });
+    // };
 
 }
 
