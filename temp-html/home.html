@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- materialize icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -38,24 +35,20 @@
     </section>
 
     <section class="hero is-success is-fullheight">
-
-        <!-- search field, absolutely positioned over map div -->
-        <div class="search-div input-field">
-            <form class="search-bar">
-                <input class="input validate searchTooltip" title="ex. Richmond, Virginia" type="text"
-                    placeholder="City and State" name="search">
-                <button class="btn-flat the-button" type="submit" id="user-input">
-                    <i class="material-icons">explore</i>
-                </button>
+        <div class="hero-head">
+            <form>
+                <div class="field has-addons has-addons-centered search-wrap">
+                    <input class="input validate city-search" type="text" placeholder="City, State" name="search">
+                    <button class="button" type="submit" id="user-input">
+                        Search
+                    </button>
+                </div>
             </form>
         </div>
 
-        <!-- main content : map -->
-        <main>
-            <div class="map-div" id="map-content">
+        <div class="hero-body" id="map-content">
 
-            </div>
-        </main>
+        </div>
 
     </section>
 

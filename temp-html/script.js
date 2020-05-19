@@ -23,7 +23,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 $("#user-input").on("click", function (event) {
     event.preventDefault();
     //Reset placeholder attribute value
-    $(".input").attr("placeholder", "City and State");
+    $(".input").attr("placeholder", "City, State");
     searchbox = $(this).prev().val();
     getLatLon();
     // clearing out input field
@@ -151,23 +151,23 @@ $(".searchTooltip")
     $(".tooltip").css({ top: mousey, left: mousex })
 });
 
-// Tooltip Spans (creator names)
-$(".spanTooltip")
-.hover(function () {
-    // Hover over code: grab and remove title attribute
-    let title = $(this).attr("title");
-    $(this).data("tipText", title).removeAttr("title");
-    // Create <p> element
-    $("<p class='tooltip'></p>").text(title).appendTo("body").fadeIn("slow");
-    }, 
-    function () {
-        // Hover out code: return title attribute and remove <p> element
-        $(this).attr("title", $(this).data("tipText"));
-        $(".tooltip").remove();
-    }
-).mousemove(function (e) {
-    // add postition to <p> element depending on mouse coordinates
-    let mousex = e.pageX + 10; //Get X coordinates
-    let mousey = e.pageY - 80; //Get Y coordinates
-    $(".tooltip").css({ top: mousey, left: mousex })
-});
+// // Tooltip Spans (creator names)
+// $(".spanTooltip")
+// .hover(function () {
+//     // Hover over code: grab and remove title attribute
+//     let title = $(this).attr("title");
+//     $(this).data("tipText", title).removeAttr("title");
+//     // Create <p> element
+//     $("<p class='tooltip'></p>").text(title).appendTo("body").fadeIn("slow");
+//     }, 
+//     function () {
+//         // Hover out code: return title attribute and remove <p> element
+//         $(this).attr("title", $(this).data("tipText"));
+//         $(".tooltip").remove();
+//     }
+// ).mousemove(function (e) {
+//     // add postition to <p> element depending on mouse coordinates
+//     let mousex = e.pageX + 10; //Get X coordinates
+//     let mousey = e.pageY - 80; //Get Y coordinates
+//     $(".tooltip").css({ top: mousey, left: mousex })
+// });
