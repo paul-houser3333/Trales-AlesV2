@@ -91,8 +91,17 @@ getLatLon = () => {
                 popupAnchor: [-9, -39.7]
             });
             for (let i = 0; i < response.trails.length; i++) {
+                let selectedTrail = response.trails[i]
+                let trailTemplate = 
+                `
+                <b>${selectedTrail.name}</b>
+                <h4>Difficulty: ${selectedTrail.difficulty}</h4>
+                <h4>Rating: ${selectedTrail.stars}</h4>
+                <img src="${selectedTrail.imgSmall}">
+                <p>${selectedTrail.summary}</p>
+                `;
                 let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
-                marker.bindPopup("Trail: " + response.trails[i].name + "<br>" + "Length: " + response.trails[i].length + "mi.").openPopup();
+                marker.bindPopup(trailTemplate).openPopup();
                 trailArray.push(marker);
             }
         });
