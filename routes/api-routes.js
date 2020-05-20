@@ -56,4 +56,33 @@ module.exports = function(app) {
       });
     }
   });
+  //Route for getting all trailes for per guide will service. trail table to (popuplate on map: trail, cords., image)
+  // app.get("/api/guideTrail_data", function (req, res) {
+  //   if (!req.user) {
+      // The user is not logged in, redirect
+    //   res.redirect("/");
+    // } else {
+      // ???? Figure out what kind of query we want and then add to a custom ORM or find best Sequelize method
+      
+      
+      // Otherwise send back: SELECT trail.name, trail.coordinates, guide.id from trail table JOIN with trailGuide table ON trailGuide.guide_id = guide.id????
+      // find sequelize method for this^
+  //   }
+  // });
+
+  //route for getting trails for all guides to service
+  // app.get("/api/guideTrail_data", function (req, res) {
+  //   if (!req.user) {
+      // The user is not logged in, redirect
+    //   res.redirect("/");
+    // } else {
+      
+  //   }
+  // });
+
+
+
+
+
+
 };
