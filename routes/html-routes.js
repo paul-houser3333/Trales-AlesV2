@@ -50,14 +50,20 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  // TO DO: *authenticate* profile route that checkes if user has a guide profile
-  // If guide profile, send html file that has options for viewing and updating profile
-  // If not guide profile, send html file that has 'create profile' form
+  app.get("/view-profiles/:username", function(req, res) {
+    if (req.user.username === req.params.username) {
+      res.redirect("/view-my-profile");
+    } 
+    // else if (req.user) {
+    //   res.sendFile(path.join(__dirname, "../public/profile-view.html"));
+    // }
+    res.sendFile(path.join(__dirname, "../public/profile-view.html"));
+  });  
 
-  // TO DO: *authenticate* my-trails html file and route that makes api call in js to REI, 
-  // HTML page will prompt guide to "add" trails they've hiked
-  // Map pin pop-ups have button (see what progress Andrew's made with this) to "add" a trail to the Trails model table. 
-  // When a trail is added, a second button appears/become interactable for adding trail to guide's availability (adds it to trail-guide model table)
-  
+  app.get("/view-my-profile", function(req, res) {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/user-profile-view.html"));
+    }
+  });  
 
 };

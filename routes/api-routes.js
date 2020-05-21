@@ -67,4 +67,25 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/api/users", function(req, res) {
+    if (!req.user) {
+      // The guide is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the guides's info
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        firstName: req.user.first_name,
+        lastName: req.user.last_name,
+        username: req.user.username,
+        email: req.user.email,
+        location: req.user.location,
+        imgURL: req.user.guide_icon,
+        bio: req.user.bio,
+        credentials: req.user.credentials,
+        services: req.user.services
+      });
+    }
+  });
+
 };
