@@ -91,14 +91,21 @@ getLatLon = () => {
                 popupAnchor: [-9, -39.7]
             });
             for (let i = 0; i < response.trails.length; i++) {
-                let selectedTrail = response.trails[i]
+                let selectedTrail = response.trails[i];
+                var image;
+                if (selectedTrail.imgSmall !== ""){
+                     image = selectedTrail.imgSmall ;
+                }
+                else{
+                    image = "https://via.placeholder.com/150"
+                }
                 let trailTemplate = 
                 `
-                <b>${selectedTrail.name}</b>
-                <h4>Difficulty: ${selectedTrail.difficulty}</h4>
-                <h4>Rating: ${selectedTrail.stars}</h4>
-                <img src="${selectedTrail.imgSmall}">
+                <b class="trail-name">${selectedTrail.name}</b>
+                <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
+                <img src="${image}">
                 <p>${selectedTrail.summary}</p>
+                <button class="button is-success is-small popup-button">test button</button>
                 `;
                 let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                 marker.bindPopup(trailTemplate).openPopup();
