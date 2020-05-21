@@ -17,3 +17,8 @@
 .city-search {
     width: 35%;
 }
+
+.center-yourself {
+    margin: 0 auto;
+    width: 65%;
+}

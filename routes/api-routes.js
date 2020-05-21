@@ -18,11 +18,17 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    db.Guide.create({
+    // console.log(req.body);
+    db.User.create({
       first_name: req.body.firstName,
       last_name: req.body.lastName,
       username: req.body.username,
       email: req.body.email,
+      location: req.body.location,
+      guide_icon: req.body.imgURL,
+      bio: req.body.bio,
+      credentials: req.body.credentials,
+      services: req.body.services,
       password: req.body.password
     })
       .then(function() {
@@ -42,18 +48,23 @@ module.exports = function(app) {
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
-      // The user is not logged in, send back an empty object
+      // The guide is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
+      // Otherwise send back the guides's info
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        firstName: req.user.firstName,
-        lastName: req.user.lastName,
+        firstName: req.user.first_name,
+        lastName: req.user.last_name,
         username: req.user.username,
         email: req.user.email,
-        id: req.user.id
+        location: req.user.location,
+        imgURL: req.user.guide_icon,
+        bio: req.user.bio,
+        credentials: req.user.credentials,
+        services: req.user.services
       });
     }
   });
+
 };
