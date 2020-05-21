@@ -15,8 +15,10 @@ theMap = L.map("map-content", {
 });
 
 // Setting map aesthetics (???)
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey={apikey}', {
+	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	apikey: '2c1769c0bc874cc39e5e9cdf3c845267',
+	maxZoom: 22
 }).addTo(theMap);
 
 //Click event on user input box
@@ -79,7 +81,7 @@ getLatLon = () => {
 
     //Call to REI hiking trails api
     trailSearch = (searchLat, searchLon) => {
-        let reiURL = "https://www.hikingproject.com/data/get-trails?lat=" + searchLat + "&lon=" + searchLon + "&maxDistance=20&maxResults=500&key=200708264-a5ce732ab3823333a148cde68ddfa0ce";
+        let reiURL = "https://www.hikingproject.com/data/get-trails?lat=" + searchLat + "&lon=" + searchLon + "&maxDistance=40&maxResults=500&key=200708264-a5ce732ab3823333a148cde68ddfa0ce";
         $.ajax({
             url: reiURL,
             method: "GET"
@@ -102,7 +104,7 @@ getLatLon = () => {
                     image = "https://via.placeholder.com/150"
                 }
                 //sets description to empty string if api summary is "needs summary" or "needs adoption"
-                if (selectedTrail.summary !== "Needs Summary" && selectedTrail.summary !== "Needs Adoption!"&&selectedTrail.summary !== "This trail could use a short summary!"||selectedTrail.summary !== "Needs Adoption") {
+                if (selectedTrail.summary.trim() !== "Needs Summary" && selectedTrail.summary !== "Needs Adoption!"&& selectedTrail.summary !== "This trail could use a short summary!"&& selectedTrail.summary !== "Needs Adoption") {
                     trailSummary = selectedTrail.summary;
                 }
                 else {
