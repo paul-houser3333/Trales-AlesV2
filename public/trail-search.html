@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Guide Home</title>
+    <title>Search Trails</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <link rel="stylesheet" href="./stylesheets/style2.css">
@@ -12,7 +12,7 @@
 
 <body>
     <!-- TO DO: add navbar with logo and menu/hamburger to hero -->
-    <section class="hero is-fullheight land-image">
+    <section class="hero land-image">
 
         <div class="hero-head">
             <!-- TO DO: if removing "container", added a little left and right padding/margin to navbar header -->
@@ -32,19 +32,15 @@
                     </div>
                     <div id="navbarMenuHeroC" class="navbar-menu">
                         <div class="navbar-end">
-                            <a class="navbar-item" href="/view-my-profile">
-                                <!-- eventual sub options: View Profile (will show visitor view), Edit Profile -->
-                                My Profile
+                            <a class="navbar-item is-active">
+                                Search Trails
                             </a>
                             <a class="navbar-item">
-                                <!-- maybe: eventual sub options: Add Trails, Edit Trails -->
-                                My Trails
+                                Search Guides
                             </a>
-                            <span class="navbar-item ">
-                                <a class="button is-success" href="/logout">
-                                    Log Out
-                                </a>
-                            </span>
+                            <a class="navbar-item">
+                                Become A Guide
+                            </a>
                         </div>
                     </div>
                 <!-- </div> -->
@@ -53,22 +49,39 @@
 
         <div class="hero-body">
             <div class="container has-text-centered">
-                <!-- TO DO: make "WELCOME" title an image that matches logo -->
+                <!-- TO DO: make "HELLO HIKER" title an image that matches logo -->
                 <h1 class="title over-img">
-                    Hello
+                    HELLO
                 </h1>
                 <h1 class="title over-img">
-                    <span class="member-name"></span>
+                    HIKER
                 </h1>
             </div>
         </div>
     </section>
+    <!-- TO DO: add some sotr of guiding text/inviting text for users to search trails and their guides? some kind of text -->
+    <section class="hero is-success is-fullheight">
+        <div class="hero-head">
+            <form>
+                <div class="field has-addons has-addons-centered search-wrap">
+                    <input class="input validate city-search" type="text" placeholder="City, State" name="search">
+                    <button class="button" type="submit" id="user-input">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
 
+        <div class="hero-body" id="map-content">
+
+        </div>
+
+    </section>
 
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="./js/members.js"></script>
+    <script src="./js/home.js"></script>
 
 </body>
 
