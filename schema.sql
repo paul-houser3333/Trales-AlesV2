@@ -3,7 +3,9 @@ drop database test_guides;
 CREATE DATABASE hike_hire;
 use hike_hire;
 
-CREATE TABLE user_account (
+-- ids and primary keys handled by sequelizes by default
+
+CREATE TABLE user (
     user_account_id int NOT NULL AUTO_INCREMENT,
     user_name varchar(128) NOT NULL,
     password varchar(32) NOT NULL,
@@ -14,15 +16,15 @@ CREATE TABLE user_account (
 );
 
 
-CREATE TABLE hiker (
-    hiker_id int NOT NULL AUTO_INCREMENT,
-    hiker_user_account_id int NOT NULL,
-    registration_date date NOT NULL,
-    location varchar(255) ,
-	CONSTRAINT hiker_pk PRIMARY KEY (hiker_id),
-	FOREIGN KEY (hiker_user_account_id)
-        REFERENCES user_account(user_account_id)
-);
+-- CREATE TABLE hiker (
+--     hiker_id int NOT NULL AUTO_INCREMENT,
+--     hiker_user_account_id int NOT NULL,
+--     registration_date date NOT NULL,
+--     location varchar(255),
+-- 	CONSTRAINT hiker_pk PRIMARY KEY (hiker_id),
+-- 	FOREIGN KEY (hiker_user_account_id)
+--         REFERENCES user_account(user_account_id)
+-- );
 
 
 CREATE TABLE guide (
@@ -44,7 +46,23 @@ CREATE TABLE trail (
 ) ;
 
 
-CREATE TABLE Hiker_trail_guide (
+-- CREATE TABLE Hiker_trail_guide (
+--     hiker_trail_guide_id int NOT NULL AUTO_INCREMENT,
+--     hiker_id int ,
+--     trail_id int ,
+--     guide_id int ,
+-- 	guide_rating int,
+--     trail_rating int,
+--     CONSTRAINT hiker_trail_guide_id_pk PRIMARY KEY (hiker_trail_guide_id),
+--         FOREIGN KEY (hiker_id)
+--         REFERENCES hiker(hiker_id),
+--         FOREIGN KEY (trail_id)
+--         REFERENCES trail(trail_id),
+--         FOREIGN KEY (guide_id)
+--         REFERENCES guide(guide_id)
+--    );
+
+CREATE TABLE guide_trail (
     hiker_trail_guide_id int NOT NULL AUTO_INCREMENT,
     hiker_id int ,
     trail_id int ,
