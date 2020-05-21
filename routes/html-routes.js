@@ -50,20 +50,21 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/view-profiles/:username", function(req, res) {
-    if (req.user.username === req.params.username) {
-      res.redirect("/view-my-profile");
-    } 
-    // else if (req.user) {
-    //   res.sendFile(path.join(__dirname, "../public/profile-view.html"));
-    // }
-    res.sendFile(path.join(__dirname, "../public/profile-view.html"));
-  });  
+  // app.get("/view-profiles/:username", function(req, res) {
+  //   if (req.user.username === req.params.username) {
+  //     res.redirect("/view-my-profile");
+  //   } 
+  //   // else if (req.user) {
+  //   //   res.sendFile(path.join(__dirname, "../public/profile-view.html"));
+  //   // }
+  //   res.sendFile(path.join(__dirname, "../public/profile-view.html"));
+  // });  
 
   app.get("/view-my-profile", function(req, res) {
-    if (req.user) {
-      res.sendFile(path.join(__dirname, "../public/user-profile-view.html"));
+    if (!req.user) {
+      res.redirect("/signup");
     }
+    res.sendFile(path.join(__dirname, "../public/user-profile-view.html"));
   });  
 
 };

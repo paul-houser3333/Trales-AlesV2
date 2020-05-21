@@ -3,7 +3,7 @@ $(document).ready(function () {
     let imgEl = $("#get-image");
     let usernameEl = $("#get-username");
     let locationEl = $("#get-location");
-    let bioEl = $("#get-gio");
+    let bioEl = $("#get-bio");
     let credentialsEl = $("#get-credentials");
     let servicesEl = $("#get-services");
 
