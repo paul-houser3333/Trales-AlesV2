@@ -93,18 +93,27 @@ getLatLon = () => {
             for (let i = 0; i < response.trails.length; i++) {
                 let selectedTrail = response.trails[i];
                 var image;
-                if (selectedTrail.imgSmall !== ""){
-                     image = selectedTrail.imgSmall ;
+                var trailSummary
+                //puts in default image if api doesnt contain an image
+                if (selectedTrail.imgSmall !== "") {
+                    image = selectedTrail.imgSmall;
                 }
-                else{
+                else {
                     image = "https://via.placeholder.com/150"
                 }
-                let trailTemplate = 
-                `
+                //sets description to empty string if api summary is "needs summary" or "needs adoption"
+                if (selectedTrail.summary !== "Needs Summary" && selectedTrail.summary !== "Needs Adoption!"&&selectedTrail.summary !== "This trail could use a short summary!"||selectedTrail.summary !== "Needs Adoption") {
+                    trailSummary = selectedTrail.summary;
+                }
+                else {
+                    trailSummary = ""
+                }
+                let trailTemplate =
+                    `
                 <b class="trail-name">${selectedTrail.name}</b>
                 <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                 <img src="${image}">
-                <p>${selectedTrail.summary}</p>
+                <p>${trailSummary}</p>
                 <button class="button is-success is-small popup-button">test button</button>
                 `;
                 let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
