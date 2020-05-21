@@ -22,3 +22,12 @@
     margin: 0 auto;
     width: 65%;
 }
+.trail-name{
+    font-size: 18px;
+}
+.leaflet-popup-content-wrapper {
+    width: 300px;
+}
+.popup-button{
+    color: blue;
+}
