@@ -6,6 +6,7 @@ $(document).ready(function () {
     let bioEl = $("#get-bio");
     let credentialsEl = $("#get-credentials");
     let servicesEl = $("#get-services");
+    let emailEl = $("#get-email");
 
     $.get("/api/user_data").then(function(data) {
         firstNameEl.text(data.firstName);
@@ -15,5 +16,6 @@ $(document).ready(function () {
         bioEl.text(data.bio);
         credentialsEl.text(data.credentials);
         servicesEl.text(data.services);
+        emailEl.text(data.email);
     });
 });
