@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  signUpUser = (firstName, lastName, username, email, password) => {
+   signUpUser = (firstName, lastName, username, email, password) => {
     $.post("/api/signup", {
       firstName: firstName,
       lastName: lastName,
@@ -47,7 +47,7 @@ $(document).ready(function() {
       .catch(handleLoginErr);
   }
 
-  handleLoginErr = err => {
+   handleLoginErr = err => {
     $("#alert .msg").text("Oops! Something went wrong. Try again!");
     $("#alert").fadeIn(500);
   }
