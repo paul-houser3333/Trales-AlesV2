@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Trails</title>
+    <title>Search Trails</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="./stylesheets/style2.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <header class="navbar">
                 <!-- <div class="container"> -->
                     <div class="navbar-brand">
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="/">
                             <!-- TO DO: replace with HIKE HIRE logo -->
                             <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
                             HIKE HIRE
@@ -33,14 +33,16 @@
                     <div id="navbarMenuHeroC" class="navbar-menu">
                         <div class="navbar-end">
                             <a class="navbar-item is-active">
-                                My Profile
+                                Search Trails
                             </a>
                             <a class="navbar-item">
-                                My Trails
+                                Search Guides
                             </a>
-                            <a class="button is-success navbar-item">
-                                Logout
-                            </a>
+                            <span class="navbar-item ">
+                                <a class="navbar-item button is-success" href="/signup">
+                                    Become a Guide
+                                </a>
+                            </span>
                         </div>
                     </div>
                 <!-- </div> -->
@@ -51,10 +53,10 @@
             <div class="container has-text-centered">
                 <!-- TO DO: make "HELLO HIKER" title an image that matches logo -->
                 <h1 class="title over-img">
-                    <span class="member-name"></span>'s
+                    HELLO
                 </h1>
                 <h1 class="title over-img">
-                    Trails
+                    HIKER
                 </h1>
             </div>
         </div>
@@ -81,7 +83,7 @@
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="./js/home.js"></script>
+    <script src="../js/visitor/trail-search.js"></script>
 
 </body>
 
