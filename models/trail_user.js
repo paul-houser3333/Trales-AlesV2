@@ -1,9 +1,9 @@
  
 // Creating our trailGuide model
 module.exports = function (sequelize, DataTypes) {
-    const Trail_Guide = sequelize.define("Trail_Guide", {
+    const Trail_User = sequelize.define("Trail_User", {
         // The email cannot be null, and must be a proper email before creation
-        guide_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -13,5 +13,5 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         }
     });
-    return Trail_Guide;
+    return Trail_User;
 };
