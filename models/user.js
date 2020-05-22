@@ -1,14 +1,13 @@
-
 const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define("User", {
         first_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         last_name: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: true
         },
         username: {
             type: DataTypes.STRING,
@@ -28,22 +27,22 @@ module.exports = function (sequelize, DataTypes) {
         },
         guide_icon: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: true
 //             validate: {
 //                 isUrl: true
 //             }
         },
         bio: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         credentials: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         services: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,

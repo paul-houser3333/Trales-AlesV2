@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     // Global Variables
     let searchbox;
@@ -88,8 +87,8 @@ $(document).ready(function () {
                 console.log(response.trails);
                 for (let i = 0; i < response.trails.length; i++) {
                     let selectedTrail = response.trails[i];
-                    var image;
-                    var trailSummary
+                    let image;
+                    let trailSummary;
                     //puts in default image if api doesnt contain an image
                     if (selectedTrail.imgSmall !== "") {
                         image = selectedTrail.imgSmall;
