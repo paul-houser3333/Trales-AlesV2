@@ -29,9 +29,9 @@ module.exports = function (sequelize, DataTypes) {
         guide_icon: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                isUrl: true
-            }
+//             validate: {
+//                 isUrl: true
+//             }
         },
         bio: {
             type: DataTypes.TEXT,
