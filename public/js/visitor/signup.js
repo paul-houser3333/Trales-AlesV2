@@ -12,6 +12,10 @@ $(document).ready(function () {
   let credentialsInput = $("textarea#credentials-input");
   let servicesInput = $("textarea#services-input");
   let passwordInput = $("input#password-input");
+  let modal = document.getElementById("error-modal");
+  let span = document.getElementById("close-modal");
+  let errorMessage = $("#error-message");
+  
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function (event) {
@@ -30,6 +34,7 @@ $(document).ready(function () {
     };
 
     if (!userData.firstName || !userData.username || !userData.email || !userData.password) {
+      handleLoginErr();
       return;
     }
     // If we have an email and password, run the signUpUser function
@@ -70,6 +75,16 @@ $(document).ready(function () {
   }
 
   handleLoginErr = err => {
-    console.log(JSON.stringify(err));
-  }
+    console.log(err);
+    errorMessage.text("Oops! It looks like something went wrong. Please try again! (Hints: You may not have filled out all the required fields. Your email address may not be unique.");
+    modal.style.display = "block";
+    span.onclick = function() {
+      modal.style.display = "none";
+    };
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      };
+    };
+  };
 });
