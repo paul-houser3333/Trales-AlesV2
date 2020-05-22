@@ -14,7 +14,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/home.html"));
+    res.sendFile(path.join(__dirname, "../public/visitor-views/home.html"));
   });
 
   app.get("/login", function(req, res) {
@@ -22,7 +22,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "../public/visitor-views/login.html"));
   });
 
   app.get("/signup", function(req, res) {
@@ -30,16 +30,17 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.sendFile(path.join(__dirname, "../public/visitor-views/signup.html"));
   });
 
   app.get("/trail-search", function(req, res) {
     // If the user already has an account send them to the members page
     // TO DO: make html file for guides to search trails that they are availbale to guide on, for not, redirect to members account page
     if (req.user) {
-      res.redirect("/members");
+      res.sendFile(path.join(__dirname, "../public/user-views/trail-search.html"));
+    } else {
+      res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
     }
-    res.sendFile(path.join(__dirname, "../public/trail-search.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -47,10 +48,10 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     // if user is in guide table, direct to member.html
     // else direct to create-guide.html
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.sendFile(path.join(__dirname, "../public/user-views/members.html"));
   });
 
-  // app.get("/view-profiles/:username", function(req, res) {
+  // app.get("/search-guides/:username", function(req, res) {
   //   if (req.user.username === req.params.username) {
   //     res.redirect("/view-my-profile");
   //   } 
@@ -64,7 +65,7 @@ module.exports = function(app) {
     if (!req.user) {
       res.redirect("/signup");
     }
-    res.sendFile(path.join(__dirname, "../public/user-profile-view.html"));
+    res.sendFile(path.join(__dirname, "../public/user-views/profile-view.html"));
   });  
 
 };
