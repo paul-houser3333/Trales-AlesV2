@@ -25,7 +25,7 @@ body {
 }
 .trail-name{
     font-size: 18px;
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: "'Open Sans', sans-serif" !important;
     color: black !important;
     text-shadow: 0 !important;
 }
@@ -42,14 +42,14 @@ body {
 }
 
 .logo-text {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Margarine', cursive;
     font-size: 1.5rem;
     color: rgb(128, 189, 30);
     text-shadow: -1.1px 1.1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
 }
 
 .logo-text-big1 {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Margarine', cursive;
     color: rgb(128, 189, 30);
     text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     margin-bottom: 0 !important;
@@ -58,7 +58,7 @@ body {
 }
 
 .logo-text-big2 {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Margarine', cursive;
     color: rgb(128, 189, 30);
     text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     padding: 0;
@@ -67,7 +67,7 @@ body {
 }
 
 .logo-text-med {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Margarine', cursive;
     color: rgb(128, 189, 30);
     text-shadow: -2px 2px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     padding: 0;
