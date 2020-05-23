@@ -87,8 +87,8 @@ $(document).ready(function () {
                 console.log(response.trails);
                 for (let i = 0; i < response.trails.length; i++) {
                     let selectedTrail = response.trails[i];
-                    var image;
-                    var trailSummary
+                    let image;
+                    let trailSummary;
                     //puts in default image if api doesnt contain an image
                     if (selectedTrail.imgSmall !== "") {
                         image = selectedTrail.imgSmall;
@@ -101,7 +101,7 @@ $(document).ready(function () {
                         trailSummary = selectedTrail.summary;
                     }
                     else {
-                        trailSummary = ""
+                        trailSummary = "";
                     }
                     let trailTemplate =
                         `
@@ -109,17 +109,48 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button class="button is-success is-small popup-button">test button</button>
+                        <button class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
-                }
+                    let apiId = selectedTrail.id;
+                    let trailName = selectedTrail.name;
+                    let trailLat = selectedTrail.latitude;
+                    let trailLon = selectedTrail.longitude;
+
+                    $("body").off().on("click", "button#add-trail", event => {
+                        event.preventDefault();
+                        console.log("hello there!");
+                        addTrail(apiId, trailName, trailLat, trailLon);
+                        console.log(apiId, trailName, trailLat, trailLon);
+                    });
+
+                    addTrail = (apiId, trailName, trailLat, trailLon) => {
+                        console.log(apiId, trailName);
+                        $.post("/api/trailadd", {
+                            userId: 1,
+                            apiTrailId: apiId,
+                            trailName: trailName,
+                            latitude: trailLat,
+                            longitude: trailLon
+                        })
+                        .then(alert(`Successfully added ${trailName} to your trails!`))
+                        .catch(function(err) {
+                            console.log(err);
+                        })
+                    };
+                };
             });
         };
-
     };
 });
+
+// addTrail.on("click", function (event) {
+//     event.preventDefault();
+//     console.log("hey dickhead");
+// });
+
 
 // // Tooltip Search Input
 // $(".searchTooltip")
