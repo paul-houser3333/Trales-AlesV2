@@ -1,29 +1,33 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .search-wrap {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
 
 .land-image {
-    background-image: url(https://www.outsideonline.com/sites/default/files/styles/full-page/public/2020/02/10/2020-jmt-southernyosemitemountainguides_h.jpg?itok=k2MXxQyx);
-    background-size: 100%;
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
 }
-
-.over-img {
-    background-color: white;
-    width: fit-content;
-    margin: 0 auto;
-}
-
 .city-search {
-    width: 35%;
+    border-radius: 1rem;
+    width: 20rem;
 }
 
 .center-yourself {
     margin: 0 auto;
-    width: 65%;
+    width: 40rem;
 }
 .trail-name{
     font-size: 18px;
+    font-family: "'Open Sans', sans-serif" !important;
+    color: black !important;
+    text-shadow: 0 !important;
 }
 .leaflet-popup-content-wrapper {
     width: 300px;
@@ -32,7 +36,120 @@
     color: blue;
 }
 
+.logo-text:hover {
+    color: rgb(170, 156, 192) !important;
+    cursor: pointer;
+}
 
+.logo-text {
+    font-family: 'Margarine', cursive;
+    font-size: 1.5rem;
+    color: rgb(128, 189, 30);
+    text-shadow: -1.1px 1.1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
+.logo-text-big1 {
+    font-family: 'Margarine', cursive;
+    color: rgb(128, 189, 30);
+    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin-bottom: 0 !important;
+    padding: 0;
+    font-size: 8rem;
+}
+
+.logo-text-big2 {
+    font-family: 'Margarine', cursive;
+    color: rgb(128, 189, 30);
+    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    padding: 0;
+    margin-top: -1.5rem !important;
+    font-size: 8rem;
+}
+
+.logo-text-med {
+    font-family: 'Margarine', cursive;
+    color: rgb(128, 189, 30);
+    text-shadow: -2px 2px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding: 0;
+    font-size: 4rem;
+}
+
+.is-success {
+    background-color: rgb(128, 189, 30) !important;
+}
+
+.is-success:hover {
+    background-color: rgb(170, 156, 192) !important;
+}
+
+section.is-success:hover {
+    background-color:rgb(128, 189, 30) !important;
+}
+
+.button {
+    font-size: 1.25rem;
+    border-radius: 1.5rem;
+    /* text-shadow: 0; */
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+#user-input {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    color: rgb(170, 156, 192);
+}
+
+.over-img {
+    color: white;
+    font-size: 1.25rem;
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+#menu-nav:hover {
+    background-color: transparent !important;
+    color: rgb(170, 156, 192) !important;
+}
+
+
+.over-img-sub1 {
+    width: fit-content;
+    color: white;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    text-shadow: -1px 1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+.over-img-sub2 {
+    width: fit-content;
+    margin: 0 auto;
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: -1px 1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+    margin-bottom: 0rem !important;
+}
+
+/* #purple-pop:hover {
+    background-color: rgb(170, 156, 192);
+} */
+
+@media only screen and (max-width: 645px) {
+    .center-yourself {
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
+
+@media only screen and (max-width: 493px) {
+    .city-search {
+        border-radius: 2rem;
+        width: 70%;
+    }
+}
+
+/* Daniel's css, delete css from above that may be repeated here */
+/* also, organize css */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
