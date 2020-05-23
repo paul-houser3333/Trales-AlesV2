@@ -1,3 +1,5 @@
+let addTrail = $("#add-trail");
+
 $(document).ready(function () {
     // Global Variables
     let searchbox;
@@ -87,8 +89,8 @@ $(document).ready(function () {
                 console.log(response.trails);
                 for (let i = 0; i < response.trails.length; i++) {
                     let selectedTrail = response.trails[i];
-                    var image;
-                    var trailSummary
+                    let image;
+                    let trailSummary;
                     //puts in default image if api doesnt contain an image
                     if (selectedTrail.imgSmall !== "") {
                         image = selectedTrail.imgSmall;
@@ -101,7 +103,7 @@ $(document).ready(function () {
                         trailSummary = selectedTrail.summary;
                     }
                     else {
-                        trailSummary = ""
+                        trailSummary = "";
                     }
                     let trailTemplate =
                         `
@@ -109,17 +111,31 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button class="button is-success is-small popup-button">test button</button>
+                        <button class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
-                }
+
+                    $("body").off().on("click", "button#add-trail", event => {
+                        event.preventDefault();
+                        console.log("hello there!");
+                    })
+                    // L.DomEvent.addListener(marker, "click", function (event) {
+                    //     console.log("hey dickhead");
+                    // });
+
+                };
             });
         };
-
     };
 });
+
+// addTrail.on("click", function (event) {
+//     event.preventDefault();
+//     console.log("hey dickhead");
+// });
+
 
 // // Tooltip Search Input
 // $(".searchTooltip")
