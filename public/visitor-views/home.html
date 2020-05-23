@@ -7,7 +7,9 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="./stylesheets/style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body>
@@ -18,25 +20,26 @@
         <!-- TO DO: add logo image center of body -->
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title over-img">
+                <h1 class="title logo-text-big1">
                     HIKE
                 </h1>
-                <h1 class="title over-img">
+                <h1 class="title logo-text-big2">
                     HIRE
                 </h1>
+                <br>
                 <!-- TO DO: decide on styling for subtitles, buttons ok? -->
-                <h2 class="subtitle over-img">
-                    Become a trail guide for hire with Hike Hire.
+                <h2 class="subtitle over-img-sub1" id="purple-pop">
+                    Become a trail guide for hire.
                 </h2>
                 <div class="field is-grouped is-grouped-centered">
-                    <p class="control"><a class="button is-success is-medium" href="/signup">Sign Up</a>
-                    <p class="control"><a class="button is-success is-medium" href="/login">Log In</a>
+                    <p class="control" id="button"><a class="button is-success is-medium" href="/signup">Sign Up</a>
+                    <p class="control" id="button"><a class="button is-success is-medium" href="/login">Log In</a>
                 </div>
                
-                <h2 class="subtitle over-img">
-                    Looking for a guide? Search desired hiking trails to see who's availble to lead your outdoor
-                    adventure!
+                <h2 class="subtitle over-img-sub1" id="purple-pop">
+                    Looking for a guide?
                 </h2>
+
                 <div class="field is-grouped is-grouped-centered">
                     <p class="control"><a class="button is-success is-medium" href="/trail-search">Start Search</a>
                 </div>
@@ -49,7 +52,7 @@
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="./js/home.js"></script>
+    
 
 </body>
 

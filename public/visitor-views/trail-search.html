@@ -7,7 +7,9 @@
     <title>Search Trails</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="./stylesheets/style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body>
@@ -19,7 +21,7 @@
             <header class="navbar">
                 <!-- <div class="container"> -->
                     <div class="navbar-brand">
-                        <a class="navbar-item">
+                        <a class="navbar-item logo-text" href="/">
                             <!-- TO DO: replace with HIKE HIRE logo -->
                             <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
                             HIKE HIRE
@@ -31,16 +33,18 @@
                         </span>
                     </div>
                     <div id="navbarMenuHeroC" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item is-active">
+                        <div class="navbar-end over-img">
+                            <a class="navbar-item over-img" id="menu-nav">
                                 Search Trails
                             </a>
-                            <a class="navbar-item">
+                            <a class="navbar-item over-img" id="menu-nav">
                                 Search Guides
                             </a>
-                            <a class="navbar-item">
-                                Become A Guide
-                            </a>
+                            <span class="navbar-item ">
+                                <a class="navbar-item button is-success" href="/signup">
+                                    Become a Guide
+                                </a>
+                            </span>
                         </div>
                     </div>
                 <!-- </div> -->
@@ -50,11 +54,8 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <!-- TO DO: make "HELLO HIKER" title an image that matches logo -->
-                <h1 class="title over-img">
-                    HELLO
-                </h1>
-                <h1 class="title over-img">
-                    HIKER
+                <h1 class="title logo-text-med">
+                    HELLO, HIKER!
                 </h1>
             </div>
         </div>
@@ -65,9 +66,9 @@
             <form>
                 <div class="field has-addons has-addons-centered search-wrap">
                     <input class="input validate city-search" type="text" placeholder="City, State" name="search">
-                    <button class="button" type="submit" id="user-input">
-                        Search
-                    </button>
+                    <a class="title logo-text" type="submit" id="user-input">
+                        SEARCH
+                    </a>
                 </div>
             </form>
         </div>
@@ -81,7 +82,7 @@
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="./js/home.js"></script>
+    <script src="../js/visitor/trail-search.js"></script>
 
 </body>
 

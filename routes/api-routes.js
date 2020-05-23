@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+let db = require("../models");
+let passport = require("../config/passport");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -37,6 +37,39 @@ module.exports = function (app) {
       .catch(function (err) {
         res.status(401).json(err);
       });
+  });
+
+  // app.post("/api/trail-search", function (req, res) {
+  //   console.log(req.body.userId);
+  //   db.Trail.create({
+  //     user_id: req.body.userId,
+  //     api_trail_id: req.body.apiTrailId,
+  //     trail_name: req.body.trailName,
+  //     latitude: req.body.latitude,
+  //     longitude: req.body.longitude
+  //   })
+  //     .catch(function (err) {
+  //       res.status(401).json(err);
+  //     });
+  // });
+
+  app.post("/api/trailadd", async (req, res, next) => {
+    try {
+      const trailids = await db.Trail.findOrCreate({
+        where: {
+          api_trail_id: req.body.apiTrailId,
+          trail_name: req.body.trailName,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude
+        }
+      });
+      const id = 1;
+      const currentUser = await db.User.findByPk(id);
+      await currentUser.addTrail(trailids[0]);
+      res.json(trailids[0]);
+    } catch (error) {
+      next(error);
+    }
   });
 
   // Route for logging user out

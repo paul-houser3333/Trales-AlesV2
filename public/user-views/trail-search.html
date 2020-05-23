@@ -4,22 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Guide Home</title>
+    <title>Add Trails</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="./stylesheets/style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body>
     <!-- TO DO: add navbar with logo and menu/hamburger to hero -->
-    <section class="hero is-fullheight land-image">
+    <section class="hero land-image">
 
         <div class="hero-head">
             <!-- TO DO: if removing "container", added a little left and right padding/margin to navbar header -->
             <header class="navbar">
                 <!-- <div class="container"> -->
                     <div class="navbar-brand">
-                        <a class="navbar-item">
+                        <a class="navbar-item logo-text" href="/">
                             <!-- TO DO: replace with HIKE HIRE logo -->
                             <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
                             HIKE HIRE
@@ -32,19 +34,18 @@
                     </div>
                     <div id="navbarMenuHeroC" class="navbar-menu">
                         <div class="navbar-end">
-                            <a class="navbar-item" href="/view-my-profile">
-                                <!-- eventual sub options: View Profile (will show visitor view), Edit Profile -->
+                            <a class="navbar-item over-img" id="menu-nav" href="/view-my-profile">
                                 My Profile
                             </a>
-                            <a class="navbar-item">
-                                <!-- maybe: eventual sub options: Add Trails, Edit Trails -->
+                            <a class="navbar-item over-img" id="menu-nav">
                                 My Trails
                             </a>
-                            <span class="navbar-item ">
-                                <a class="button is-success" href="/logout">
+                            <span class="navbar-item" id="button">
+                                <a class="button is-success navbar-item" href="/logout">
                                     Log Out
                                 </a>
                             </span>
+                           
                         </div>
                     </div>
                 <!-- </div> -->
@@ -53,22 +54,39 @@
 
         <div class="hero-body">
             <div class="container has-text-centered">
-                <!-- TO DO: make "WELCOME" title an image that matches logo -->
-                <h1 class="title over-img">
-                    Hello
-                </h1>
-                <h1 class="title over-img">
-                    <span class="member-name"></span>
+                <!-- TO DO: make "HELLO HIKER" title an image that matches logo -->
+                <h1 class="title logo-text-med">
+                    ADD YOUR TRAILS
                 </h1>
             </div>
         </div>
     </section>
+    <!-- TO DO: add some sotr of guiding text/inviting text for users to search trails and their guides? some kind of text -->
+    <section class="hero is-success is-fullheight">
+        <div class="hero-head">
+            <form>
+                <div class="field has-addons has-addons-centered search-wrap">
+                    <input class="input validate city-search" type="text" placeholder="City, State" name="search">
+                    <a class="title logo-text" type="submit" id="user-input">
+                        Search
+                    </a>
+                </div>
+            </form>
+        </div>
 
+        <div class="hero-body" id="map-content">
+
+        </div>
+
+    </section>
 
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="./js/members.js"></script>
+    <!-- needs to js for having trails they can interact with and add to their services -->
+    <!-- or whatever we eventually decide for this feature -->
+    <script src="../js/user/members.js"></script>
+    <script src="../js/user/trail-search.js"></script>
 
 </body>
 

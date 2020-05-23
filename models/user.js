@@ -1,14 +1,18 @@
-
 const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define("User", {
+        user_id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         first_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         last_name: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: true
         },
         username: {
             type: DataTypes.STRING,
@@ -28,22 +32,22 @@ module.exports = function (sequelize, DataTypes) {
         },
         guide_icon: {
             type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isUrl: true
-            }
+            allowNull: true
+//             validate: {
+//                 isUrl: true
+//             }
         },
         bio: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         credentials: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         services: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,
@@ -59,5 +63,15 @@ module.exports = function (sequelize, DataTypes) {
     User.addHook("beforeCreate", function (user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
+
+    User.associate = function(models) {
+        User.belongsToMany(models.Trail, {
+            through: "trail_user",
+            as: "trails",
+            foreignKey: "user_id",
+            // defaultValue: 1
+        });
+    };
+
     return User;
 };
