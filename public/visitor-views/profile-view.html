@@ -7,6 +7,8 @@
     <title>View Profile</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
@@ -18,7 +20,7 @@
             <header class="navbar">
                 <!-- <div class="container"> -->
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="/">
+                    <a class="navbar-item logo-text" href="/">
                         <!-- TO DO: replace with HIKE HIRE logo -->
                         <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
                         HIKE HIRE
@@ -31,14 +33,14 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item" href="/trail-search">
+                        <a class="navbar-item over-img" href="/trail-search" id="menu-nav">
                             Search Trails
                         </a>
                         <!-- add href for html route that dispays all guide alphabetically or by location in cards or list -->
-                        <a class="navbar-item" href="">
+                        <a class="navbar-item over-img" href="" id="menu-nav">
                             Search Guides
                         </a>
-                        <span class="navbar-item ">
+                        <span class="navbar-item">
                             <a class="navbar-item button is-success" href="/signup">
                                 Become a Guide
                             </a>
@@ -52,12 +54,9 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <!-- TO DO: make "WELCOME" title an image that matches logo -->
-                <h1 class="title over-img">
-                    GUIDE
+                <h1 class="title logo-text-med">
+                    GUIDE <span id="get-firstName"></span> 
                  </h1>
-                <h1 class="title over-img">
-                   <span id="get-firstName"></span> 
-                </h1>
             </div>
         </div>
     </section>
