@@ -1,5 +1,3 @@
-let addTrail = $("#add-trail");
-
 $(document).ready(function () {
     // Global Variables
     let searchbox;
@@ -117,14 +115,28 @@ $(document).ready(function () {
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
 
+                    let apiId = selectedTrail.id;
+                    let trailName = selectedTrail.name;
+
                     $("body").off().on("click", "button#add-trail", event => {
                         event.preventDefault();
                         console.log("hello there!");
-                    })
-                    // L.DomEvent.addListener(marker, "click", function (event) {
-                    //     console.log("hey dickhead");
-                    // });
+                        addTrail(apiId, trailName);
+                        console.log(apiId, trailName);
+                    });
 
+                    addTrail = (apiId, trailName) => {
+                        console.log(apiId);
+                        console.log(trailName);
+                        $.post("/api/trail-search", {
+                            apiId: apiId,
+                            trailName: trailName
+                        })
+                        .then(alert(`Successfully added ${trailName} to your trails!`))
+                        .catch(function(err) {
+                            console.log(err);
+                        })
+                    };
                 };
             });
         };

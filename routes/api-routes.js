@@ -39,6 +39,16 @@ module.exports = function (app) {
       });
   });
 
+  app.post("/api/trail-search", function (req, res) {
+    db.Trail.create({
+      api_id: req.body.apiId,
+      trail_name: req.body.trailName
+    })
+    .catch(function (err) {
+      res.status(401).json(err);
+    });
+  });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();

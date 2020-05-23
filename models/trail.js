@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     const Trail = sequelize.define("Trail",
         {
             api_id: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             trail_name: {
