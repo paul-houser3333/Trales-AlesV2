@@ -68,7 +68,8 @@ module.exports = function (sequelize, DataTypes) {
         User.belongsToMany(models.Trail, {
             through: "trail_user",
             as: "trails",
-            foreignKey: "user_id"
+            foreignKey: "user_id",
+            // defaultValue: 1
         });
     };
 

@@ -55,7 +55,7 @@ module.exports = function (app) {
 
   app.post("/api/trailadd", async (req, res, next) => {
     try {
-      const trailids = await trail.findOrCreate({
+      const trailids = await db.Trail.findOrCreate({
         where: {
           api_trail_id: req.body.apiTrailId,
           trail_name: req.body.trailName,
@@ -63,7 +63,8 @@ module.exports = function (app) {
           longitude: req.body.longitude
         }
       });
-      const currentUser = await User.findById(req.body.userId);
+      const id = 1;
+      const currentUser = await db.User.findByPk(id);
       await currentUser.addTrail(trailids[0]);
       res.json(trailids[0]);
     } catch (error) {

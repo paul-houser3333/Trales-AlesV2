@@ -1,10 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
     const Trail = sequelize.define("Trail",
         {
-            user_id: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
+            // user_id: {
+            //     type: DataTypes.INTEGER,
+            //     allowNull: false
+            // },
             api_trail_id: {
                 type: DataTypes.STRING,
                 allowNull: false,
@@ -30,7 +30,8 @@ module.exports = function (sequelize, DataTypes) {
         Trail.belongsToMany(models.User, {
             through: "trail_user",
             as: "users",
-            foreignKey: "api_trail_id"
+            foreignKey: "api_trail_id",
+            // defaultValue: 1
         });
     };
     return Trail;
