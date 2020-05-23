@@ -114,23 +114,26 @@ $(document).ready(function () {
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
-
                     let apiId = selectedTrail.id;
                     let trailName = selectedTrail.name;
+                    let trailLat = selectedTrail.latitude;
+                    let trailLon = selectedTrail.longitude;
 
                     $("body").off().on("click", "button#add-trail", event => {
                         event.preventDefault();
                         console.log("hello there!");
-                        addTrail(apiId, trailName);
-                        console.log(apiId, trailName);
+                        addTrail(apiId, trailName, trailLat, trailLon);
+                        console.log(apiId, trailName, trailLat, trailLon);
                     });
 
-                    addTrail = (apiId, trailName) => {
-                        console.log(apiId);
-                        console.log(trailName);
-                        $.post("/api/trail-search", {
-                            apiId: apiId,
-                            trailName: trailName
+                    addTrail = (apiId, trailName, trailLat, trailLon) => {
+                        console.log(apiId, trailName);
+                        $.post("/api/trailadd", {
+                            userId: 1,
+                            apiTrailId: apiId,
+                            trailName: trailName,
+                            latitude: trailLat,
+                            longitude: trailLon
                         })
                         .then(alert(`Successfully added ${trailName} to your trails!`))
                         .catch(function(err) {

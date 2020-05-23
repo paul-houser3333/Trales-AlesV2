@@ -39,14 +39,36 @@ module.exports = function (app) {
       });
   });
 
-  app.post("/api/trail-search", function (req, res) {
-    db.Trail.create({
-      api_id: req.body.apiId,
-      trail_name: req.body.trailName
-    })
-    .catch(function (err) {
-      res.status(401).json(err);
-    });
+  // app.post("/api/trail-search", function (req, res) {
+  //   console.log(req.body.userId);
+  //   db.Trail.create({
+  //     user_id: req.body.userId,
+  //     api_trail_id: req.body.apiTrailId,
+  //     trail_name: req.body.trailName,
+  //     latitude: req.body.latitude,
+  //     longitude: req.body.longitude
+  //   })
+  //     .catch(function (err) {
+  //       res.status(401).json(err);
+  //     });
+  // });
+
+  app.post("/api/trailadd", async (req, res, next) => {
+    try {
+      const trailids = await trail.findOrCreate({
+        where: {
+          api_trail_id: req.body.apiTrailId,
+          trail_name: req.body.trailName,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude
+        }
+      });
+      const currentUser = await User.findById(req.body.userId);
+      await currentUser.addTrail(trailids[0]);
+      res.json(trailids[0]);
+    } catch (error) {
+      next(error);
+    }
   });
 
   // Route for logging user out
