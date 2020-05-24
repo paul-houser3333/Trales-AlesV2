@@ -11,6 +11,8 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript">
+    </script>
 </head>
 
 <body>
@@ -70,6 +72,7 @@
 
                 <div class="column is-one-third content-wrapper">
 
+                    <button onclick="showUploadWidget()">upload</button>
                     <figure class="image is-256x256" id="image-wrapper">
                         <img class="is-rounded" id="get-image" src="">
                     </figure>
@@ -81,6 +84,8 @@
                     </div>
 
                 </div>
+
+
 
                 <div class="column clear-it" id="guide-deep">
                     <h1 class="logo-text-prof purple-color">ABOUT ME</h1>
@@ -105,9 +110,67 @@
 
     </section>
     <!-- scripts -->
+
+
+    <script type="text/javascript">
+        function showUploadWidget() {
+            cloudinary.openUploadWidget({
+                cloudName: "dcyyaezfa",
+                uploadPreset: "apncsmvw",
+                sources: [
+                    "local",
+                    "url",
+                    "camera",
+                    "dropbox",
+                    "instagram",
+                    "shutterstock"
+                ],
+                showAdvancedOptions: false,
+                cropping: true,
+                multiple: false,
+                defaultSource: "local",
+                styles: {
+                    palette: {
+                        window: "#FFFFFF",
+                        windowBorder: "#90A0B3",
+                        tabIcon: "#0078FF",
+                        menuIcons: "#5A616A",
+                        textDark: "#000000",
+                        textLight: "#FFFFFF",
+                        link: "#0078FF",
+                        action: "#FF620C",
+                        inactiveTabIcon: "#0E2F5A",
+                        error: "#F44235",
+                        inProgress: "#0078FF",
+                        complete: "#20B832",
+                        sourceBg: "#E4EBF1"
+                    },
+                    fonts: {
+                        default: {
+                            active: true
+                        }
+                    }
+                }
+            },
+                (err, info) => {
+                    if (!err) {
+                        // console.log("Upload Widget event - ", info);
+                        if (info && info.event && info.event === "queues-end") {
+                            console.log("this is the image url: " + info.info.files[0].uploadInfo.url)
+                        }
+
+                    }
+                });
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="../js/user/profile-view.js"></script>
     <script src="../js/hamburger.js"></script>
+
+
+
+
 
 
 </body>
