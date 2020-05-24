@@ -5,11 +5,11 @@ body {
 }
 
 .green-back {
-    background-color: rgb(127, 197, 47) !important;
+    background-color: rgb(125, 195, 59) !important;
 }
 
 .green-color {
-    color: rgb(127, 197, 47);
+    color: rgb(125, 195, 59) ;
 }
 
 .purple-color {
@@ -27,8 +27,8 @@ body {
 
 .logo-text {
     font-family: 'Margarine', cursive;
-    font-size: 1.75rem;
-    text-shadow: -1.1px 1.1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+    font-size: 2rem;
+    text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
 }
 
 .logo-text-med {
@@ -53,7 +53,7 @@ body {
 }
 
 .app-button:hover, .nav-app-button:hover {
-    background-color: rgb(170, 156, 192);
+    background-color: rgb(170, 156, 192) !important;
 
 }
 
@@ -66,7 +66,6 @@ body {
 
 #navbarMenuHeroC {
     background-color: transparent;
-    align-content: center;
     box-shadow: none;
     text-align: right;
 }
@@ -83,8 +82,8 @@ body {
 }
 
 #menu-nav:hover {
-    color: rgb(170, 156, 192);
-    background-color: transparent !important;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.246) !important;
 }
 
 /* background image for fullheight heros */
@@ -100,20 +99,21 @@ body {
 .land-image2 {
     background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center top;
+    background-size: auto 100%;
+    background-position: center;
     background-attachment: fixed;
 }
 
 /* HOME.HTML LANDING PAGE*/
 /* _____________________________________________________________________________________________________________ */
 .over-img-sub {
+    font-family: 'Margarine', cursive;
     width: fit-content;
     color: white;
     margin: 0 auto;
     margin-bottom: 0.75rem !important;
-    font-size: 1.75rem;
-    text-shadow: -1px 1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+    font-size: 2rem;
+    text-shadow: -1.5px 1.5px black, -0.9px 0 black, 0 0.9px black, 0.9px 0 black, 0 -0.9px black;
 }
 
 .logo-text-big1 {
@@ -156,11 +156,14 @@ body {
     }
 }
 
+.map-back {
+    background-color: transparent !important;
+}
+
 #map-button {
-    color: white;
-    margin-top: 0.3rem;
+    margin-top: 0.25rem;
     margin-left: 0.5rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .trail-name{
