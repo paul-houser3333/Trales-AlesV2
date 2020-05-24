@@ -29,10 +29,18 @@ module.exports = function(app) {
 
   app.get("/trail-search", function(req, res) {
     if (req.user) {
-      res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
+      res.sendFile(path.join(__dirname, "../public/user-views/trail-search.html"));
     } else {
       res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
     }
+  });
+
+  app.get("/search-all-guides", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/visitor-views/search-all-guides.html"));
+  });
+
+  app.get("/available-guides", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/visitor-views/available-guides.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.

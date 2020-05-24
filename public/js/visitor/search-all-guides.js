@@ -1,6 +1,10 @@
 // api call to get all guide's picture, name, and location
 // Store those data objects in an array and for each, create a card with template literals to push to a body section
-
+$(document).ready(function() {
+    $.get("/api/guidesdisplay").then(function (data) {
+        console.log(data);
+    });
+});
 
 // TO DO: make href route of "Visit Profile" button 
 let guideCard = `                
