@@ -120,6 +120,41 @@ module.exports = function (app) {
     }
   });
 
+  app.get("/api/traildisplay", async (req, res, next) => {
+    try {
+      const mytrails = await db.User.findOne({
+        where: { user_id: req.user.user_id },
+        include: [{
+          model: db.Trail, as: 'trails'
+        }]
+      })
+      .then(data => {
+              res.send(data);
+            })
+          } catch (error) {
+            next(error);
+          }
+        });
+
+  // app.get("/api/traildisplay", async (req, res, next) => {
+  //   try {
+  //     const currentUser = await db.User.findOne(req.user.user_id);
+  //     const mytrails = await db.User.findAll({
+  //       where: { user_id: '1' },
+  //       include: [{
+  //         model: db.Trail, as: 'trails',
+  //         through: { attributes: [] }
+  //       }]
+  //     })
+  //     .then(data => {
+  //             res.send(data);
+  //           })
+  //         } catch (error) {
+  //           next(error);
+  //         }
+  //       });
+  //       await currentUser.addTrail(trailAdd[0]);
+  //       res.json(trailAdd[0]);
   // app.get("/api/guides", function (req, res) {
   // sequelize method for selecting all in users table
   // get back basic data for each (no password)
