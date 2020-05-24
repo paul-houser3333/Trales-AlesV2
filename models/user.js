@@ -1,6 +1,11 @@
 const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define("User", {
+        user_id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         first_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -58,5 +63,15 @@ module.exports = function (sequelize, DataTypes) {
     User.addHook("beforeCreate", function (user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
+
+    User.associate = function(models) {
+        User.belongsToMany(models.Trail, {
+            through: "trail_user",
+            as: "trails",
+            foreignKey: "user_id",
+            // defaultValue: 1
+        });
+    };
+
     return User;
 };
