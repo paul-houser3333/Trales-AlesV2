@@ -53,19 +53,38 @@ module.exports = function (app) {
   //     });
   // });
 
+  // app.post("/api/trailadd", async (req, res, next) => {
+  //   try {
+  //     const trailids = await db.Trail.findOrCreate({
+  //       where: {
+  //         api_trail_id: req.body.apiTrailId,
+  //         trail_name: req.body.trailName,
+  //         latitude: req.body.latitude,
+  //         longitude: req.body.longitude
+  //       }
+  //     });
+  //     const currentUser = await db.User.findByPk(req.user.user_id);
+  //     await currentUser.addTrail(trailids[0]);
+  //     res.json(trailids[0]);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // });
+
   app.post("/api/trailadd", async (req, res, next) => {
     try {
-      const trailids = await db.Trail.findOrCreate({
+      const currentUser = await db.User.findByPk(req.user.user_id);
+      const trailAdd = await db.Trail.findOrCreate({
         where: {
           api_trail_id: req.body.apiTrailId,
-          // trail_name: req.body.trailName,
-          // latitude: req.body.latitude,
-          // longitude: req.body.longitude
+          trail_name: req.body.trailName,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude
         }
       });
-      const currentUser = await db.User.findByPk(req.user.user_id);
-      await currentUser.addTrail(trailids[0]);
-      res.json(trailids[0]);
+      await currentUser.addTrail(trailAdd[0]);
+      res.json(trailAdd[0]);
+      // }
     } catch (error) {
       next(error);
     }
