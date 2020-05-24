@@ -128,7 +128,6 @@ $(document).ready(function () {
                         let trailLon = $("button").data("lon");
                         console.log(apiId, trailName, trailLat, trailLon);
                         addTrail(apiId, trailName, trailLat, trailLon);
-                        // console.log(apiId, trailName, trailLat, trailLon);
                     });
                     addTrail = (apiId, trailName, trailLat, trailLon) => {
                         // console.log(apiId, trailName);
