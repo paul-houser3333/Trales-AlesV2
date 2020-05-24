@@ -8,7 +8,7 @@ $(document).ready(function () {
     let servicesEl = $("#get-services");
     let emailEl = $("#get-email");
 
-    $.get("/api/user_data").then(function(data) {
+    $.get("/api/user_data").then(function (data) {
         firstNameEl.text(data.firstName);
         imgEl.attr("src", data.imgURL);
         usernameEl.text(data.username);
@@ -18,4 +18,7 @@ $(document).ready(function () {
         servicesEl.text(data.services);
         emailEl.text(data.email);
     });
+
+    
 });
+
