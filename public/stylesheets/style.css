@@ -1,39 +1,23 @@
+/* ALL HTML PAGES */
+/* _____________________________________________________________________________________________________________ */
 body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.search-wrap {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+#green-back {
+    background-color: rgb(128, 189, 30);
 }
 
-.land-image {
-    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: center;
-    background-attachment: fixed;
-}
-.city-search {
-    border-radius: 1rem;
-    width: 20rem;
+#green-color {
+    color: rgb(128, 189, 30);
 }
 
-.center-yourself {
-    margin: 0 auto;
-    width: 40rem;
+#shadow {
+
 }
-.trail-name{
-    font-size: 18px;
-    font-family: "'Open Sans', sans-serif" !important;
-    color: black !important;
-    text-shadow: 0 !important;
-}
-.leaflet-popup-content-wrapper {
-    width: 300px;
-}
-.popup-button{
-    color: blue;
+
+#heavy-shadow {
+
 }
 
 .logo-text:hover {
@@ -74,18 +58,6 @@ body {
     font-size: 4rem;
 }
 
-.is-success {
-    background-color: rgb(128, 189, 30) !important;
-}
-
-.is-success:hover {
-    background-color: rgb(170, 156, 192) !important;
-}
-
-section.is-success:hover {
-    background-color:rgb(128, 189, 30) !important;
-}
-
 .button {
     font-size: 1.25rem;
     border-radius: 1.5rem;
@@ -93,14 +65,7 @@ section.is-success:hover {
     text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
 }
 
-#user-input {
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    font-size: 1.25rem;
-    color: rgb(170, 156, 192);
-}
-
+/* text on img backgrounds */
 .over-img {
     color: white;
     font-size: 1.25rem;
@@ -109,10 +74,27 @@ section.is-success:hover {
 
 #menu-nav:hover {
     background-color: transparent !important;
-    color: rgb(170, 156, 192) !important;
 }
 
+/* background image for fullheight heros */
+.land-image {
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
 
+/* background image for regular heros */
+.land-image2 {
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+/* HOME.HTML LANDING PAGE*/
+/* _____________________________________________________________________________________________________________ */
 .over-img-sub1 {
     width: fit-content;
     color: white;
@@ -129,17 +111,22 @@ section.is-success:hover {
     margin-bottom: 0rem !important;
 }
 
-/* #purple-pop:hover {
-    background-color: rgb(170, 156, 192);
-} */
+/* BOTH VIEW-PROFILE HTMLS */
+/* _____________________________________________________________________________________________________________ */
 
-@media only screen and (max-width: 645px) {
-    .center-yourself {
-        margin: 0 auto;
-        width: 95%;
-    }
+
+/* BOTH TRAIL-SEARCH HTMLS */
+/* _____________________________________________________________________________________________________________ */
+.search-wrap {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
+/* rename: city-search-input*/
+.city-search {
+    border-radius: 1rem;
+    width: 20rem;
+}
 
 @media only screen and (max-width: 493px) {
     .city-search {
@@ -148,8 +135,42 @@ section.is-success:hover {
     }
 }
 
-/* Daniel's css, delete css from above that may be repeated here */
-/* also, organize css */
+/* rename: trail-search-button */
+#user-input {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.trail-name{
+    font-size: 18px;
+    font-family: "'Open Sans', sans-serif" !important;
+    color: black !important;
+    text-shadow: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    width: 300px;
+}
+
+.popup-button{
+    color: blue;
+}
+
+/* SIGN UP / LOG IN HTMLS */
+/* _____________________________________________________________________________________________________________ */
+.center-yourself {
+    margin: 0 auto;
+    width: 40rem;
+}
+
+@media only screen and (max-width: 645px) {
+    .center-yourself {
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -161,28 +182,28 @@ section.is-success:hover {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+}
   
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+}
   
-  /* The Close Button */
-  #close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
+/* The Close Button */
+#close-modal {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
   
-  #close-modal:hover,
-  #close-modal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+#close-modal:hover,
+#close-modal:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
