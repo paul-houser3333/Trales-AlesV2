@@ -1,24 +1,32 @@
-/* ALL HTML PAGES */
+/* MULTIPLE HTML PAGES */
 /* _____________________________________________________________________________________________________________ */
 body {
     font-family: 'Open Sans', sans-serif;
 }
 
-#green-back {
-    background-color: rgb(128, 189, 30);
+.green-back {
+    background-color: rgb(127, 197, 47) !important;
 }
 
-#green-color {
-    color: rgb(128, 189, 30);
+.green-color {
+    color: rgb(127, 197, 47);
 }
 
-#shadow {
+.purple-color {
+    color: rgb(170, 156, 192) !important;
+}
+
+.purple-back {
+    background-color: rgb(170, 156, 192) !important;
+}
+
+/* #shadow {
 
 }
 
 #heavy-shadow {
 
-}
+} */
 
 .logo-text:hover {
     color: rgb(170, 156, 192) !important;
@@ -27,42 +35,33 @@ body {
 
 .logo-text {
     font-family: 'Margarine', cursive;
-    font-size: 1.5rem;
-    color: rgb(128, 189, 30);
+    font-size: 1.75rem;
     text-shadow: -1.1px 1.1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-}
-
-.logo-text-big1 {
-    font-family: 'Margarine', cursive;
-    color: rgb(128, 189, 30);
-    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    margin-bottom: 0 !important;
-    padding: 0;
-    font-size: 8rem;
-}
-
-.logo-text-big2 {
-    font-family: 'Margarine', cursive;
-    color: rgb(128, 189, 30);
-    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    padding: 0;
-    margin-top: -1.5rem !important;
-    font-size: 8rem;
 }
 
 .logo-text-med {
     font-family: 'Margarine', cursive;
-    color: rgb(128, 189, 30);
     text-shadow: -2px 2px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     padding: 0;
     font-size: 4rem;
 }
 
-.button {
+.app-button {
     font-size: 1.25rem;
     border-radius: 1.5rem;
     /* text-shadow: 0; */
     text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+.nav-app-button {
+    font-size: 1.15rem;
+    border-radius: 1.25rem;
+    /* text-shadow: 0; */
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+.app-button:hover, .nav-app-button:hover {
+    background-color: rgb(170, 156, 192) !important;
 }
 
 /* text on img backgrounds */
@@ -72,7 +71,12 @@ body {
     text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
 }
 
+#menu-nav {
+    font-size: 1.15rem;
+}
+
 #menu-nav:hover {
+    color: rgb(170, 156, 192);
     background-color: transparent !important;
 }
 
@@ -90,25 +94,35 @@ body {
     background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: center;
+    background-position: center top;
+    background-attachment: fixed;
 }
 
 /* HOME.HTML LANDING PAGE*/
 /* _____________________________________________________________________________________________________________ */
-.over-img-sub1 {
+.over-img-sub {
     width: fit-content;
     color: white;
     margin: 0 auto;
-    font-size: 1.5rem;
+    margin-bottom: 0.75rem !important;
+    font-size: 1.75rem;
     text-shadow: -1px 1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
 }
-.over-img-sub2 {
-    width: fit-content;
-    margin: 0 auto;
-    color: white;
-    font-size: 1.5rem;
-    text-shadow: -1px 1px black, -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-    margin-bottom: 0rem !important;
+
+.logo-text-big1 {
+    font-family: 'Margarine', cursive;
+    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin-bottom: 0 !important;
+    padding: 0;
+    font-size: 8rem;
+}
+
+.logo-text-big2 {
+    font-family: 'Margarine', cursive;
+    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    padding: 0;
+    margin-top: -1.5rem !important;
+    font-size: 8rem;
 }
 
 /* BOTH VIEW-PROFILE HTMLS */
@@ -135,11 +149,11 @@ body {
     }
 }
 
-/* rename: trail-search-button */
-#user-input {
-    margin-top: 0.5rem;
+#map-button {
+    color: white;
+    margin-top: 0.3rem;
     margin-left: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1.8rem;
 }
 
 .trail-name{
@@ -155,6 +169,14 @@ body {
 
 .popup-button{
     color: blue;
+}
+
+.logo-sub {
+    font-family: "Margarine", cursive;
+    font-size: 2rem;
+    color: white;
+    margin-top: -2rem;
+    text-shadow: -1.5px 1.5px black, -0.9px 0 black, 0 0.9px black, 0.9px 0 black, 0 -0.9px black;
 }
 
 /* SIGN UP / LOG IN HTMLS */
