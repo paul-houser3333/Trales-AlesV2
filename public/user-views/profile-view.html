@@ -74,7 +74,7 @@
 
                     <button onclick="showUploadWidget()">upload</button>
                     <figure class="image is-256x256" id="image-wrapper">
-                        <img class="is-rounded" id="get-image" src="">
+                        <img class="is-rounded prof-img" id="get-image" src="">
                     </figure>
                     <div class="has-text-centered" id="basic-info">
                         <h1 class="white-color logo-text-prof"><span class="get-firstName"></span> <span
@@ -157,6 +157,7 @@
                         // console.log("Upload Widget event - ", info);
                         if (info && info.event && info.event === "queues-end") {
                             console.log("this is the image url: " + info.info.files[0].uploadInfo.url)
+                            // ajax call to update just picture url in user table beloning to  (id of user logged on)
                         }
 
                     }
@@ -164,8 +165,7 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="../js/user/profile-view.js"></script>
+    <script src="../js/user/my-profile-view.js"></script>
     <script src="../js/hamburger.js"></script>
 
 
