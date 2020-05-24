@@ -109,25 +109,29 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
+                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
-                    let apiId = selectedTrail.id;
-                    let trailName = selectedTrail.name;
-                    let trailLat = selectedTrail.latitude;
-                    let trailLon = selectedTrail.longitude;
+
+                    // let apiId = selectedTrail.id;
+                    // let trailName = selectedTrail.name;
+                    // let trailLat = selectedTrail.latitude;
+                    // let trailLon = selectedTrail.longitude;
 
                     $("body").off().on("click", "button#add-trail", event => {
                         event.preventDefault();
-                        console.log("hello there!");
-                        addTrail(apiId, trailName, trailLat, trailLon);
+                        let apiId = $("button").data("id");
+                        let trailName = $("button").data("name");
+                        let trailLat = $("button").data("lat");
+                        let trailLon = $("button").data("lon");
                         console.log(apiId, trailName, trailLat, trailLon);
+                        addTrail(apiId, trailName, trailLat, trailLon);
+                        // console.log(apiId, trailName, trailLat, trailLon);
                     });
-
                     addTrail = (apiId, trailName, trailLat, trailLon) => {
-                        console.log(apiId, trailName);
+                        // console.log(apiId, trailName);
                         $.post("/api/trailadd", {
                             userId: 1,
                             apiTrailId: apiId,
