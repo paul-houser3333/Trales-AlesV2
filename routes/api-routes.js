@@ -12,6 +12,8 @@ module.exports = function (app) {
       email: req.user.email,
       id: req.user.id
     });
+
+    
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -53,9 +55,28 @@ module.exports = function (app) {
   //     });
   // });
 
+  // app.post("/api/trailadd", async (req, res, next) => {
+  //   try {
+  //     const trailids = await db.Trail.findOrCreate({
+  //       where: {
+  //         api_trail_id: req.body.apiTrailId,
+  //         trail_name: req.body.trailName,
+  //         latitude: req.body.latitude,
+  //         longitude: req.body.longitude
+  //       }
+  //     });
+  //     const currentUser = await db.User.findByPk(req.user.user_id);
+  //     await currentUser.addTrail(trailids[0]);
+  //     res.json(trailids[0]);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // });
+
   app.post("/api/trailadd", async (req, res, next) => {
     try {
-      const trailids = await db.Trail.findOrCreate({
+      const currentUser = await db.User.findByPk(req.user.user_id);
+      const trailAdd = await db.Trail.findOrCreate({
         where: {
           api_trail_id: req.body.apiTrailId,
           trail_name: req.body.trailName,
@@ -63,10 +84,9 @@ module.exports = function (app) {
           longitude: req.body.longitude
         }
       });
-      const id = 1;
-      const currentUser = await db.User.findByPk(id);
-      await currentUser.addTrail(trailids[0]);
-      res.json(trailids[0]);
+      await currentUser.addTrail(trailAdd[0]);
+      res.json(trailAdd[0]);
+      // }
     } catch (error) {
       next(error);
     }
@@ -106,8 +126,8 @@ module.exports = function (app) {
   // order alphabetically (by first name? username?)
   // });
 
-  // app.get("/api/guides/:username", function (req, res) {
-  // sequelize findOne where username = req.params.username and get all user data in the user tbale row (except password)
+  // app.get("/api/guides/:user_id", function (req, res) {
+  // sequelize findOne where user_id = req.params.user_id and get all user data in the user tbale row (except password)
   // });
 
 };

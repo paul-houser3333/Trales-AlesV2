@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Guide Sign Up</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
@@ -15,14 +16,14 @@
 <body>
     <!-- This HTML file will be sent to logged-in user if they havent created a guide profile -->
     <!-- TO DO: add navbar with logo and menu/hamburger to hero -->
-    <section class="hero land-image">
+    <section class="hero land-image2">
 
         <div class="hero-head">
             <!-- TO DO: if removing "container", added a little left and right padding/margin to navbar header -->
             <header class="navbar">
                 <!-- <div class="container"> -->
                 <div class="navbar-brand">
-                    <a class="navbar-item logo-text" href="/">
+                    <a class="navbar-item logo-text green-color" href="/">
                         <!-- TO DO: replace with HIKE HIRE logo -->
                         <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
                         HOME
@@ -31,7 +32,7 @@
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
                         <span class="navbar-item">
-                            <a class="button is-success" href="/login">
+                            <a class="button is-success nav-app-button green-back" href="/login">
                                 Log In
                             </a>
                         </span>
@@ -43,7 +44,7 @@
 
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title logo-text-med">
+                <h1 class="title logo-text-med green-color">
                     SIGN UP
                 </h1>
             </div>
@@ -148,13 +149,10 @@
                 </div>
                 <!--use npm cloudinary package to sotre image file in Cloudinary and convert it to URL link to store in guide table  -->
                 <!-- <p class="label">Profile Image</p>
-                <div class="file is-success has-name field">
+                <div class="file has-name field">
                     <label class="file-label">
-                        <input class="file-input" type="file" name="image">
+                        <input class="file-input" type="file" name="image" >
                         <span class="file-cta">
-                            <span class="file-icon">
-                                <i class="fas fa-upload"></i>
-                            </span>
                             <span class="file-label">
                                 Upload image...
                             </span>
@@ -171,7 +169,8 @@
                     <p>Tell us a bit about yourself, and a lot about your hiking experiences and love of the outdoors!
                     </p>
                     <div class="control">
-                        <textarea class="textarea" placeholder="Where did you come from? Where did you go?" id="bio-input"></textarea>
+                        <textarea class="textarea" placeholder="Where did you come from? Where did you go?"
+                            id="bio-input"></textarea>
                     </div>
                 </div>
 
@@ -181,7 +180,8 @@
                         Wilderness First Responder? Any other qualifications? Brag about it and let our visitors know!
                     </p>
                     <div class="control">
-                        <textarea class="textarea" placeholder="The proof is in the pudding" id="credentials-input"></textarea>
+                        <textarea class="textarea" placeholder="The proof is in the pudding"
+                            id="credentials-input"></textarea>
                     </div>
                 </div>
 
@@ -203,18 +203,18 @@
 
                 <!-- error modal -->
                 <div id="error-modal" class="modal">
-                
-                  <!-- modal content -->
-                  <div class="modal-content">
-                    <span id="close-modal">&times;</span>
-                    <p id="error-message"></p>
-                  </div>
-                
+
+                    <!-- modal content -->
+                    <div class="modal-content">
+                        <span id="close-modal">&times;</span>
+                        <p id="error-message"></p>
+                    </div>
+
                 </div>
 
                 <!-- JS: on click will add guide model -->
                 <!-- Routes: will link to html route "/members" when profile is made -->
-                <button class="button is-success" type="submit" id="button">
+                <button class="button is-success app-button green-back" type="submit" id="button">
                     Sign Up
                 </button>
             </form>
