@@ -19,6 +19,9 @@ body {
 .purple-back {
     background-color: rgb(170, 156, 192) !important;
 }
+.white-color {
+    color: white !important;
+}
 
 .logo-text:hover {
     color: rgb(170, 156, 192) !important;
@@ -58,7 +61,7 @@ body {
 }
 
 #hamburger {
-    background-color:rgb(170, 156, 192);
+    color: white;
     border-radius: 1rem !important;
     margin-top: 0.5rem !important;
     margin-right: 0.5rem !important;
@@ -102,6 +105,16 @@ body {
     background-size: auto 100%;
     background-position: center;
     background-attachment: fixed;
+    border-bottom: black solid;
+    border-width: 0.1rem;
+}
+
+.land-image3 {
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* HOME.HTML LANDING PAGE*/
@@ -134,7 +147,61 @@ body {
 
 /* BOTH VIEW-PROFILE HTMLS */
 /* _____________________________________________________________________________________________________________ */
+#get-image {
+    border: solid;
+    border-color: rgb(125, 195, 59);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.308);
+    border-width: 0.5rem;
+}
 
+#image-wrapper {
+    float: left;
+}
+
+#guide-deep {
+    background-color: white;
+    padding-left: 2rem;
+
+}
+
+.move-down {
+    margin-top: 0.25rem;
+}
+
+#basic-info {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.text-location {
+    margin-top: -0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.content-wrapper {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 2rem;
+    padding-right: 0rem;
+    margin: 0 auto;
+}
+
+.clear-it {
+    clear: both;
+}
+
+.logo-text-prof {
+    font-family: 'Margarine', cursive;
+    font-size: 2rem;
+    text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
+}
+
+.prof-p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
 
 /* BOTH TRAIL-SEARCH HTMLS */
 /* _____________________________________________________________________________________________________________ */

@@ -20,7 +20,7 @@ $(document).ready(function () {
     }).addTo(theMap);
 
     //Click event on user input box
-    $("#npm-button").on("click", function (event) {
+    $("#map-button").on("click", function (event) {
         event.preventDefault();
         //Reset placeholder attribute value
         $(".input").attr("placeholder", "City, State");
