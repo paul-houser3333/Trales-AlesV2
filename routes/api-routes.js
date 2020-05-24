@@ -58,9 +58,9 @@ module.exports = function (app) {
       const trailids = await db.Trail.findOrCreate({
         where: {
           api_trail_id: req.body.apiTrailId,
-          trail_name: req.body.trailName,
-          latitude: req.body.latitude,
-          longitude: req.body.longitude
+          // trail_name: req.body.trailName,
+          // latitude: req.body.latitude,
+          // longitude: req.body.longitude
         }
       });
       const currentUser = await db.User.findByPk(req.user.user_id);
