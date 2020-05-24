@@ -121,6 +121,7 @@ $(document).ready(function () {
                         let apiId = $("button").data("id");
                         sessionStorage.setItem("trail-id", apiId);
                         console.log(apiId);
+                        window.location = "/available-guides";
                         // findGuide(apiId);
                     });
 
