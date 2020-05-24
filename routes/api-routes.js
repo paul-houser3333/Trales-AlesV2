@@ -13,7 +13,7 @@ module.exports = function (app) {
       id: req.user.id
     });
 
-    
+
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -128,6 +128,22 @@ module.exports = function (app) {
           model: db.Trail, as: 'trails'
         }
       })
+        .then(data => {
+          res.send(data);
+        })
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/api/trailguides/:id", async (req, res, next) => {
+    try {
+      const myguides = await db.Trail.findOne({
+        where: { api_trail_id:  req.params.id},
+        include: {
+          model: db.User, as: 'users'
+        }
+      })
       .then(data => {
               res.send(data);
             })
@@ -135,6 +151,37 @@ module.exports = function (app) {
             next(error);
           }
         });
+
+  app.get("/api/guidesdisplay", async (req, res, next) => {
+    try {
+      const mytrails = await db.User.findAll({
+        include: {
+          model: db.Trail, as: 'trails'
+        }
+      })
+        .then(data => {
+          res.send(data);
+        })
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/api/guideprofile/:id", async (req, res, next) => {
+    try {
+      const mytrails = await db.User.findOne({
+        where: { user_id: req.params.id },
+        include: {
+          model: db.Trail, as: 'trails'
+        }
+      })
+        .then(data => {
+          res.send(data);
+        })
+    } catch (error) {
+      next(error);
+    }
+  });
 
   // app.get("/api/guides", function (req, res) {
   // sequelize method for selecting all in users table
