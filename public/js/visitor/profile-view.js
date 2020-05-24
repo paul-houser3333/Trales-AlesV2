@@ -9,7 +9,11 @@ $(document).ready(function () {
     let servicesEl = $("#get-services");
     let emailEl = $("#get-email");
 
-    $.get("/api/user_data").then(function (data) {
+    // MAKE API CALL TO GET A USER WITH ID PASSED IN QUERY PARAMETER
+    // testing with guide ID=1
+    // how to pass in the a chaning id? variable that stores id of guide preview card that was clicked? store in local storage the changing number of each guide who is searched?
+    
+    $.get("/api/guide/1").then(function (data) {
         firstNameEl.text(data.firstName);
         lastNameEl.text(data.lastName);
         imgEl.attr("src", data.imgURL);

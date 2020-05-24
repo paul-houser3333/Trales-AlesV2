@@ -189,8 +189,8 @@ module.exports = function (app) {
   // order alphabetically (by first name? username?)
   // });
 
-  // app.get("/api/guides/:user_id", function (req, res) {
-  // sequelize findOne where user_id = req.params.user_id and get all user data in the user tbale row (except password)
+  // app.get("/api/guides/:id", function (req, res) {
+  // // sequelize findOne where user_id = req.params.user_id and get all user data in the user tbale row (except password)
   // });
 
 };
