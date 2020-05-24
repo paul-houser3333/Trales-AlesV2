@@ -132,7 +132,7 @@ $(document).ready(function () {
                     addTrail = (apiId, trailName, trailLat, trailLon) => {
                         // console.log(apiId, trailName);
                         $.post("/api/trailadd", {
-                            userId: 1,
+                            // userId: 1,
                             apiTrailId: apiId,
                             trailName: trailName,
                             latitude: trailLat,

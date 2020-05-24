@@ -119,6 +119,7 @@ $(document).ready(function () {
                     $("body").off().on("click", "button#find-guide", event => {
                         event.preventDefault();
                         let apiId = $("button").data("id");
+                        sessionStorage.setItem("trail-id", apiId);
                         console.log(apiId);
                         // findGuide(apiId);
                     });
