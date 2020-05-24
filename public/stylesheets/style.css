@@ -166,11 +166,10 @@ body {
 
 /* BOTH VIEW-PROFILE HTMLS */
 /* _____________________________________________________________________________________________________________ */
-#get-image {
+.prof-img {
     border: solid;
     border-color: rgb(125, 195, 59);
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.308);
     border-width: 0.5rem;
 }
 

@@ -128,12 +128,11 @@ $(document).ready(function () {
                         let trailLon = $("button").data("lon");
                         console.log(apiId, trailName, trailLat, trailLon);
                         addTrail(apiId, trailName, trailLat, trailLon);
-                        // console.log(apiId, trailName, trailLat, trailLon);
                     });
                     addTrail = (apiId, trailName, trailLat, trailLon) => {
                         // console.log(apiId, trailName);
                         $.post("/api/trailadd", {
-                            userId: 1,
+                            // userId: 1,
                             apiTrailId: apiId,
                             trailName: trailName,
                             latitude: trailLat,
@@ -154,4 +153,3 @@ $(document).ready(function () {
 //     event.preventDefault();
 //     console.log("hey dickhead");
 // });
-

@@ -13,7 +13,7 @@ let guideCard = `
     <div class="card" id="guide-card">
         <div class="card-image">
             <figure class="image is-256x256" id="image-wrapper">
-                <img class="is-rounded" src="${imageURL}">
+                <img class="is-rounded prof-image" src="${imageURL}">
             </figure>
         </div>
         <div class="card-content">
