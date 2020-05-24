@@ -11,7 +11,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript">  
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript">
     </script>
 </head>
 
@@ -72,7 +72,7 @@
 
                 <div class="column is-one-third content-wrapper">
 
-    <button onclick="showUploadWidget()">upload</button>
+                    <button onclick="showUploadWidget()">upload</button>
                     <figure class="image is-256x256" id="image-wrapper">
                         <img class="is-rounded" id="get-image" src="">
                     </figure>
@@ -84,6 +84,32 @@
                     </div>
 
                 </div>
+
+
+
+                <div class="column clear-it" id="guide-deep">
+                    <h1 class="logo-text-prof purple-color">ABOUT ME</h1>
+                    <p class="prof-p" id="get-bio"></p>
+                    <h1 class="logo-text-prof purple-color">CREDENTIALS</h1>
+                    <p class="prof-p" id="get-credentials"></p>
+                    <h1 class="logo-text-prof purple-color">SERVICES OFFERED</h1>
+                    <p class="prof-p" id="get-services"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-- HELP cant get map to render. I'm trying to pass the necessary JS from trail-search to get ONLY map to render (no noimatim or ajax calls, just a map) -->
+    <section class="hero is-fullheight">
+        <div class="hero-head">
+        </div>
+
+        <div class="hero-body" id="map-content">
+
+        </div>
+
+    </section>
+    <!-- scripts -->
 
 
     <script type="text/javascript">
@@ -129,40 +155,14 @@
                 (err, info) => {
                     if (!err) {
                         // console.log("Upload Widget event - ", info);
-                        if (info && info.event&& info.event === "queues-end"){
+                        if (info && info.event && info.event === "queues-end") {
                             console.log("this is the image url: " + info.info.files[0].uploadInfo.url)
                         }
-                        
+
                     }
                 });
         }
     </script>
-                <div class="column clear-it" id="guide-deep">
-                    <h1 class="logo-text-prof purple-color">ABOUT ME</h1>
-                    <p class="prof-p" id="get-bio"></p>
-                    <h1 class="logo-text-prof purple-color">CREDENTIALS</h1>
-                    <p class="prof-p" id="get-credentials"></p>
-                    <h1 class="logo-text-prof purple-color">SERVICES OFFERED</h1>
-                    <p class="prof-p" id="get-services"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br>
-    <!-- HELP cant get map to render. I'm trying to pass the necessary JS from trail-search to get ONLY map to render (no noimatim or ajax calls, just a map) -->
-    <section class="hero is-fullheight">
-        <div class="hero-head">
-        </div>
-
-        <div class="hero-body" id="map-content">
-
-        </div>
-
-    </section>
-    <!-- scripts -->
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="../js/user/profile-view.js"></script>
