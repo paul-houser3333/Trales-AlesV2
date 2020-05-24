@@ -1,7 +1,6 @@
  // Creating our trailUser model
 module.exports = function (sequelize, DataTypes) {
     const Trail_User = sequelize.define("Trail_User", {
-        // The email cannot be null, and must be a proper email before creation
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false

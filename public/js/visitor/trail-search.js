@@ -20,7 +20,7 @@ $(document).ready(function () {
     }).addTo(theMap);
 
     //Click event on user input box
-    $("#user-input").on("click", function (event) {
+    $("#map-button").on("click", function (event) {
         event.preventDefault();
         //Reset placeholder attribute value
         $(".input").attr("placeholder", "City, State");
@@ -114,6 +114,8 @@ $(document).ready(function () {
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
+
+                    // guide count
                 }
             });
         };

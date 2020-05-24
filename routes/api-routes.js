@@ -12,6 +12,8 @@ module.exports = function (app) {
       email: req.user.email,
       id: req.user.id
     });
+
+    
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -124,8 +126,8 @@ module.exports = function (app) {
   // order alphabetically (by first name? username?)
   // });
 
-  // app.get("/api/guides/:username", function (req, res) {
-  // sequelize findOne where username = req.params.username and get all user data in the user tbale row (except password)
+  // app.get("/api/guides/:user_id", function (req, res) {
+  // sequelize findOne where user_id = req.params.user_id and get all user data in the user tbale row (except password)
   // });
 
 };
