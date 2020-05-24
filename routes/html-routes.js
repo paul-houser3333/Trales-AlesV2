@@ -29,7 +29,7 @@ module.exports = function(app) {
 
   app.get("/trail-search", function(req, res) {
     if (req.user) {
-      res.sendFile(path.join(__dirname, "../public/user-views/trail-search.html"));
+      res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
     } else {
       res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
     }
