@@ -114,6 +114,8 @@ $(document).ready(function () {
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
+
+                    // guide count
                 }
             });
         };
