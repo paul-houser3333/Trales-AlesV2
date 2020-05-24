@@ -109,13 +109,20 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button class="button is-success is-small popup-button">test button</button>
+                        <button data-id="${selectedTrail.id}" class="button is-success is-small popup-button" id="find-guide">Find a Guide for this Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
 
                     // guide count
+                    $("body").off().on("click", "button#find-guide", event => {
+                        event.preventDefault();
+                        let apiId = $("button").data("id");
+                        console.log(apiId);
+                        // findGuide(apiId);
+                    });
+
                 }
             });
         };
