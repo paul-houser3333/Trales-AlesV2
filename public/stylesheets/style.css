@@ -20,14 +20,6 @@ body {
     background-color: rgb(170, 156, 192) !important;
 }
 
-/* #shadow {
-
-}
-
-#heavy-shadow {
-
-} */
-
 .logo-text:hover {
     color: rgb(170, 156, 192) !important;
     cursor: pointer;
@@ -61,7 +53,22 @@ body {
 }
 
 .app-button:hover, .nav-app-button:hover {
-    background-color: rgb(170, 156, 192) !important;
+    background-color: rgb(170, 156, 192);
+
+}
+
+#hamburger {
+    background-color:rgb(170, 156, 192);
+    border-radius: 1rem !important;
+    margin-top: 0.5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+#navbarMenuHeroC {
+    background-color: transparent;
+    align-content: center;
+    box-shadow: none;
+    text-align: right;
 }
 
 /* text on img backgrounds */
