@@ -73,33 +73,18 @@ module.exports = function (app) {
 
   app.post("/api/trailadd", async (req, res, next) => {
     try {
-      const trailids = await db.Trail.findAll({
+      const currentUser = await db.User.findByPk(req.user.user_id);
+      const trailAdd = await db.Trail.findOrCreate({
         where: {
           api_trail_id: req.body.apiTrailId,
+          trail_name: req.body.trailName,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude
         }
       });
-      const currentUser = await db.User.findByPk(req.user.user_id);
-
-      if (res.apiTrailId) {
-        const trailUserAdd = await db.Trail.findOrCreate({
-          where: {
-            api_trail_id: req.body.apiTrailId
-          }
-        });
-        await currentUser.addTrail(trailUserAdd[0]);
-        res.json(trailUserAdd[0]);
-      } else {
-        const trailAdd = await db.Trail.findOrCreate({
-          where: {
-            api_trail_id: req.body.apiTrailId,
-            trail_name: req.body.trailName,
-            latitude: req.body.latitude,
-            longitude: req.body.longitude
-          }
-        });
-        await currentUser.addTrail(trailAdd[0]);
-        res.json(trailAdd[0]);
-      }
+      await currentUser.addTrail(trailAdd[0]);
+      res.json(trailAdd[0]);
+      // }
     } catch (error) {
       next(error);
     }
