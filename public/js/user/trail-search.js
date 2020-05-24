@@ -109,7 +109,7 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
+                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();

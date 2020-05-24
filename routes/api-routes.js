@@ -63,8 +63,7 @@ module.exports = function (app) {
           longitude: req.body.longitude
         }
       });
-      const id = 1;
-      const currentUser = await db.User.findByPk(id);
+      const currentUser = await db.User.findByPk(req.user.user_id);
       await currentUser.addTrail(trailids[0]);
       res.json(trailids[0]);
     } catch (error) {
