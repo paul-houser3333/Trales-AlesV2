@@ -13,7 +13,7 @@ $(document).ready(function () {
                         <div class="card" id="guide-card">
                             <div class="card-image">
                                 <figure class="image is-256x256" id="image-wrapper">
-                                    <img class="is-rounded prof-img" src="${data[i].imageURL}">
+                                    <img class="is-rounded prof-img" src="${data[i].guide_icon}">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -22,16 +22,16 @@ $(document).ready(function () {
                                         ${data[i].first_name}
                                     </h1>
                                     <p class="text-location">${data[i].location}</p>
-                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small" id="profile-redirect">Visit Profile</button>
+                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small" id="${data[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
-                    console.log(`${data[i].user_id}`)
-                    $("button#profile-redirect").off().on("click", event => {
+                    // console.log(`${data[i].user_id}`)
+                    $("body").off().on("click", event => {
                         event.preventDefault();
-                        let userId = $("button").data("guideid");
+                        let userId = parseInt(event.target.id);
                         console.log(userId);
                         window.sessionStorage.setItem("guideid", userId);
                         console.log(window.sessionStorage.getItem("guideid"));

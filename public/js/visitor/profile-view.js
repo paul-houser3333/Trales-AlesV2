@@ -11,7 +11,7 @@ $(document).ready(function () {
     let theMap;
     let trailArray;
 
-    let userId = window.sessionStorage.getItem("user-id");
+    let userId = window.sessionStorage.getItem("guideid");
     console.log(userId);
 
     // MAKE API CALL TO GET A USER WITH ID PASSED IN QUERY PARAMETER
