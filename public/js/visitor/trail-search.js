@@ -118,7 +118,7 @@ $(document).ready(function () {
                     // guide count
                     $("body").off().on("click", "button#find-guide", event => {
                         event.preventDefault();
-                        let apiId = $("button").data("id");
+                        let apiId = $("button#find-guide").data("id");
                         sessionStorage.setItem("trail-id", apiId);
                         console.log(apiId);
                         window.location = "/available-guides";
