@@ -120,12 +120,12 @@ $(document).ready(function () {
                     // let trailLat = selectedTrail.latitude;
                     // let trailLon = selectedTrail.longitude;
 
-                    $("button.add-trail").off().on("click", event => {
+                    $("button#add-trail").off().on("click", event => {
                         event.preventDefault();
-                        let apiId = parseInt(event.target.dataset.id);
-                        let trailName = parseInt(event.target.dataset.name);
-                        let trailLat = parseInt(event.target.dataset.lat);
-                        let trailLon = parseInt(event.target.dataset.lon);
+                        let apiId = $("button#add-trail").data("id");
+                        let trailName = $("button#add-trail").data("name");
+                        let trailLat = $("button#add-trail").data("lat");
+                        let trailLon = $("button#add-trail").data("lon");
                         console.log(apiId, trailName, trailLat, trailLon);
                         addTrail(apiId, trailName, trailLat, trailLon);
                     });
