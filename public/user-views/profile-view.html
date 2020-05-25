@@ -57,9 +57,8 @@
 
         <div class="hero-body">
             <div class="container has-text-centered">
-                <!-- TO DO: make "WELCOME" title an image that matches logo -->
                 <h1 class="title logo-text-med green-color">
-                    GUIDE <span class="get-firstName"></span>
+                    GUIDE <span class="get-firstNameUp"></span>
                 </h1>
             </div>
         </div>
@@ -81,6 +80,9 @@
                                 class="get-lastName"></span></h1>
                         <p class="text-location" id="get-location"></p>
                         <p class="prof-light" id="get-email"></p>
+                        <a class="button is-success app-button green-back" id="edit-button" href="/edit-profile">
+                            Edit Profile
+                        </a>
                     </div>
 
                 </div>
@@ -101,7 +103,8 @@
     <br>
     <!-- HELP cant get map to render. I'm trying to pass the necessary JS from trail-search to get ONLY map to render (no noimatim or ajax calls, just a map) -->
     <section class="hero is-fullheight">
-        <div class="hero-head">
+        <div class="hero-head has-text-centered">
+            <h1 class="logo-text-prof green-color"><span class="get-firstName"></span>'s Guided Trails</h1>
         </div>
 
         <div class="hero-body" id="map-content">
