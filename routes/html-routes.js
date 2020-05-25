@@ -27,12 +27,37 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/visitor-views/signup.html"));
   });
 
-  app.get("/trail-search", function(req, res) {
+  app.get("/add-trails", function(req, res) {
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
     } else {
       res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
     }
+  });
+
+  app.get("/trail-search", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
+  });
+
+  app.get("/profile-view", function(req, res) {
+    if (req.user) {
+      res.redirect("/view-my-profile");
+    }
+    res.sendFile(path.join(__dirname, "../public/visitor-views/profile-view.html"));
+  });
+
+  app.get("/search-all-guides", function(req, res) {
+    if (req.user) {
+      res.redirect("/view-my-profile");
+    }
+    res.sendFile(path.join(__dirname, "../public/visitor-views/search-all-guides.html"));
+  });
+
+  app.get("/available-guides", function(req, res) {
+    if (req.user) {
+      res.redirect("/view-my-profile");
+    }
+    res.sendFile(path.join(__dirname, "../public/visitor-views/available-guides.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -44,8 +69,17 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/user-views/profile-view.html"));
   });
  
+<<<<<<< HEAD
   
   
+=======
+  app.get("/edit-profile", function(req, res) {
+    if (!req.user) {
+      res.redirect("/signup");
+    }
+    res.sendFile(path.join(__dirname, "../public/user-views/edit-profile.html"));
+  });
+>>>>>>> 1eac5869f6daf7c5ea0531627d086e85062cca12
 };
 
 

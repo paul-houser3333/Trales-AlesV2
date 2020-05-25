@@ -23,7 +23,7 @@
             <header class="navbar">
                 <!-- <div class="container"> -->
                 <div class="navbar-brand">
-                    <a class="navbar-item logo-text green-color" href="">
+                    <a class="navbar-item logo-text green-color" href="/">
                         <!-- TO DO: replace with HIKE HIRE logo -->
                         <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
                         HIKEHIRE
@@ -40,7 +40,7 @@
                             <!-- eventual sub options: View Profile (will show visitor view), Edit Profile -->
                             My Profile
                         </a>
-                        <a class="navbar-item over-img" id="menu-nav" href="/trail-search">
+                        <a class="navbar-item over-img" id="menu-nav" href="/add-trails">
                             <!-- maybe: eventual sub options: Add Trails, Edit Trails -->
                             Add Trails
                         </a>
@@ -57,9 +57,8 @@
 
         <div class="hero-body">
             <div class="container has-text-centered">
-                <!-- TO DO: make "WELCOME" title an image that matches logo -->
                 <h1 class="title logo-text-med green-color">
-                    GUIDE <span class="get-firstName"></span>
+                    GUIDE <span class="get-firstNameUp"></span>
                 </h1>
             </div>
         </div>
@@ -72,7 +71,7 @@
 
                 <div class="column is-one-third content-wrapper">
 
-                    <button onclick="showUploadWidget()">upload</button>
+                    <!-- <button onclick="showUploadWidget()">upload</button> -->
                     <figure class="image is-256x256" id="image-wrapper">
                         <img class="is-rounded prof-img" id="get-image" src="">
                     </figure>
@@ -81,6 +80,9 @@
                                 class="get-lastName"></span></h1>
                         <p class="text-location" id="get-location"></p>
                         <p class="prof-light" id="get-email"></p>
+                        <a class="button is-success app-button green-back" id="edit-button" href="/edit-profile">
+                            Edit Profile
+                        </a>
                     </div>
 
                 </div>
@@ -101,7 +103,8 @@
     <br>
     <!-- HELP cant get map to render. I'm trying to pass the necessary JS from trail-search to get ONLY map to render (no noimatim or ajax calls, just a map) -->
     <section class="hero is-fullheight">
-        <div class="hero-head">
+        <div class="hero-head has-text-centered">
+            <h1 class="logo-text-prof green-color"><span class="get-firstName"></span>'s Guided Trails</h1>
         </div>
 
         <div class="hero-body" id="map-content">
@@ -112,7 +115,7 @@
     <!-- scripts -->
 
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         function showUploadWidget() {
             cloudinary.openUploadWidget({
                 cloudName: "dcyyaezfa",
@@ -163,9 +166,10 @@
                     }
                 });
         }
-    </script>
+    </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/user/my-profile-view.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="../js/hamburger.js"></script>
 
 
