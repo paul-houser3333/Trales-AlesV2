@@ -22,14 +22,14 @@ $(document).ready(function () {
                                         ${data[i].first_name}
                                     </h1>
                                     <p class="text-location">${data[i].location}</p>
-                                    <button data-guideid="${data[i].user_id}" class="find-guide button is-success green-back app-button" id="${data[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data[i].user_id}" class="guideProf button is-success green-back app-button" id="${data[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
                     // console.log(`${data[i].user_id}`)
-                    $("button.find-guide").off().on("click", event => {
+                    $("button.guideProf").off().on("click", event => {
                         event.preventDefault();
                         let userId = parseInt(event.target.id);
                         console.log(userId);

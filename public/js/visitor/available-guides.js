@@ -28,13 +28,13 @@ $(document).ready(function () {
                                         ${data.users[i].first_name}
                                     </h1>
                                     <p class="text-location">${data.users[i].location}</p>
-                                    <button data-guideid="${data.users[i].user_id}" class="button is-success green-back app-button" id="${data.users[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data.users[i].user_id}" class="availGuideProf button is-success green-back app-button" id="${data.users[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
-                    $("button").off().on("click", event => {
+                    $("button.availGuideProf").off().on("click", event => {
                         event.preventDefault();
                         let userId = parseInt(event.target.id);
                         console.log(userId);
