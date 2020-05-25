@@ -9,23 +9,10 @@ $(document).ready(function () {
     let servicesEl = $("#get-services");
     let emailEl = $("#get-email");
     let theMap;
-    let trailArray
-    let marker
+    let trailArray;
+    let marker;
 
-    $.get("/api/user_data").then(function (data) {
-        firstNameEl.text(data.firstName);
-        lastNameEl.text(data.lastName);
-        imgEl.attr("src", data.imgURL);
-        usernameEl.text(data.username);
-        locationEl.text(data.location);
-        bioEl.text(data.bio);
-        credentialsEl.text(data.credentials);
-        servicesEl.text(data.services);
-        emailEl.text(data.email);
-
-        // add JS for making map on profiles to render
-        // here (nested api calls)
-    });
+    
 
     // leaflet map
     theMap = L.map("map-content", {
@@ -47,21 +34,28 @@ $(document).ready(function () {
     });
     
     // PUT SERVER CALL HERE
-    let databaseResponse;
-    if (databaseResponse) {
-        for (let i = 0; i < databaseResponse; i++) {
+    $.get("/api/traildisplay").then(function (data) {
+        console.log(data.trails);
+        trailArray = data.trails;
+        firstNameEl.text(data.first_name);
+        lastNameEl.text(data.last_name);
+        imgEl.attr("src", data.guide_icon);
+        usernameEl.text(data.username);
+        locationEl.text(data.location);
+        bioEl.text(data.bio);
+        credentialsEl.text(data.credentials);
+        servicesEl.text(data.services);
+        emailEl.text(data.email);
 
-            let trailTemplate = "hi";
-            // `
-            // <b class="trail-name">${selectedTrail.name}</b>
-            // <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
-            // <img src="${image}">
-            // <p>${trailSummary}</p>
-            // <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
-            // `;
-            let marker = L.marker([databaseResponse.latitude, databaseResponse.longitude], { icon: trailIcon }).addTo(theMap);
+        for (let i = 0; i < data.trails.length; i++) {
+
+            let trailTemplate =
+            `
+            <b class="trail-name">${data.trails[i].trail_name}</b>
+            `;
+            let marker = L.marker([data.trails[i].latitude, data.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
             marker.bindPopup(trailTemplate).openPopup();
             trailArray.push(marker);
-        }
-    };
-})
+        };
+    }); 
+});
