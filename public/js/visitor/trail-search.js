@@ -116,7 +116,7 @@ $(document).ready(function () {
                     trailArray.push(marker);
 
                     // guide count
-                    $("button.find-guide").off().on("click", event => {
+                    $("button#find-guide").off().on("click", event => {
                         event.preventDefault();
                         // let apiId = $("button#find-guide").data("id");
                         let apiId = parseInt(event.target.id);

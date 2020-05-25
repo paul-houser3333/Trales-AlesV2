@@ -14,9 +14,6 @@ $(document).ready(function () {
         .then(function (data) {
             if (data == "") {
                 console.log("Uh oh! No guides currently service this route.");
-            //    let uhohMessage = `
-
-            //    `
             }
 
             for (let i = 0; i < data.users.length; i++) {
@@ -34,13 +31,13 @@ $(document).ready(function () {
                                         ${data.users[i].first_name}
                                     </h1>
                                     <p class="text-location">${data.users[i].location}</p>
-                                    <button data-guideid="${data.users[i].user_id}" class="availGuideProf button is-success green-back app-button" id="${data.users[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data.users[i].user_id}" class="button is-success is-small card-button" id="${data.users[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
-                    $("button.availGuideProf").off().on("click", event => {
+                    $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
                         let userId = parseInt(event.target.id);
                         console.log(userId);
