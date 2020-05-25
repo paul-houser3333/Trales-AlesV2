@@ -12,6 +12,12 @@ $(document).ready(function () {
 
     $.get(`/api/trailguides/${apiId}`)
         .then(function (data) {
+            if (data == "") {
+                console.log("Uh oh! No guides currently service this route.");
+            //    let uhohMessage = `
+
+            //    `
+            }
 
             for (let i = 0; i < data.users.length; i++) {
                 let guideCard = `                
