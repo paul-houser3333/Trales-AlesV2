@@ -73,7 +73,7 @@ $(document).ready(function () {
 
         //Call to REI hiking trails api
         trailSearch = (searchLat, searchLon) => {
-            let reiURL = "https://www.hikingproject.com/data/get-trails?lat=" + searchLat + "&lon=" + searchLon + "&maxDistance=40&maxResults=500&key=200708264-a5ce732ab3823333a148cde68ddfa0ce";
+            let reiURL = "https://www.hikingproject.com/data/get-trails?lat=" + searchLat + "&lon=" + searchLon + "&maxDistance=40&maxResults=150&key=200708264-a5ce732ab3823333a148cde68ddfa0ce";
             $.ajax({
                 url: reiURL,
                 method: "GET"
@@ -116,9 +116,9 @@ $(document).ready(function () {
                     trailArray.push(marker);
 
                     // guide count
-                    $("body").off().on("click", "button#find-guide", event => {
+                    $("button#find-guide").off().on("click", event => {
                         event.preventDefault();
-                        let apiId = $("button").data("id");
+                        let apiId = $("button#find-guide").data("id");
                         sessionStorage.setItem("trail-id", apiId);
                         console.log(apiId);
                         window.location = "/available-guides";

@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     $.get(`/api/trailguides/${apiId}`)
         .then(function (data) {
+            console.log(data);
 
             for (let i = 0; i < data.users.length; i++) {
                 let guideCard = `                
@@ -28,13 +29,13 @@ $(document).ready(function () {
                                         ${data.users[i].first_name}
                                     </h1>
                                     <p class="text-location">${data.users[i].location}</p>
-                                    <button data-guideid="${data.users[i].user_id}" class="button is-success is-small" id="${data.users[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data.users[i].user_id}" class="button is-success is-small card-button" id="${data.users[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
-                    $("body").off().on("click", event => {
+                    $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
                         let userId = parseInt(event.target.id);
                         console.log(userId);
