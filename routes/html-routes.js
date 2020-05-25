@@ -39,15 +39,24 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
   });
 
-  app.get("/profile-view", function(res, res) {
+  app.get("/profile-view", function(req, res) {
+    if (req.user) {
+      res.redirect("/view-my-profile");
+    }
     res.sendFile(path.join(__dirname, "../public/visitor-views/profile-view.html"));
   });
 
   app.get("/search-all-guides", function(req, res) {
+    if (req.user) {
+      res.redirect("/view-my-profile");
+    }
     res.sendFile(path.join(__dirname, "../public/visitor-views/search-all-guides.html"));
   });
 
   app.get("/available-guides", function(req, res) {
+    if (req.user) {
+      res.redirect("/view-my-profile");
+    }
     res.sendFile(path.join(__dirname, "../public/visitor-views/available-guides.html"));
   });
 
@@ -60,4 +69,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/user-views/profile-view.html"));
   });
  
+  app.get("/edit-profile", function(req, res) {
+    if (!req.user) {
+      res.redirect("/signup");
+    }
+    res.sendFile(path.join(__dirname, "../public/user-views/edit-profile.html"));
+  });
 };

@@ -179,7 +179,7 @@ body {
 
 #guide-deep {
     background-color: white;
-    padding-left: 2rem;
+    padding-left: 3rem;
 
 }
 
@@ -249,6 +249,11 @@ body {
     margin-top: 0.25rem;
     margin-left: 0.5rem;
     font-size: 2rem;
+}
+
+.unbutton {
+    border: none;
+    background-color: transparent;
 }
 
 .trail-name{
