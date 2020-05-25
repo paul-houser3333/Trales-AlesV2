@@ -10,7 +10,6 @@ $(document).ready(function () {
     let emailEl = $("#get-email");
     let theMap;
     let trailArray;
-    let marker;
 
     
 
