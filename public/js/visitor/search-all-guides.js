@@ -22,18 +22,27 @@ $(document).ready(function () {
                                         ${data[i].first_name}
                                     </h1>
                                     <p class="text-location">${data[i].location}</p>
-                                    <a class="green-color logo-text-smaller" href="">
-                                        Visit Profile
-                                    </a>
+                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small" id="profile-redirect">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
-                    cardEl.append(guideCard);
-            }
-
+                    console.log(`${data[i].user_id}`)
+                    $("button#profile-redirect").off().on("click", event => {
+                        event.preventDefault();
+                        let userId = $("button").data("guideid");
+                        console.log(userId);
+                        window.sessionStorage.setItem("guideid", userId);
+                        console.log(window.sessionStorage.getItem("guideid"));
+                        window.location.replace("/profile-view");
+                    });
+                cardEl.append(guideCard);
+                
+            };
+            
         });
+        
 });
 
 // TO DO: make href route of "Visit Profile" button 
