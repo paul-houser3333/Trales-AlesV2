@@ -109,7 +109,7 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
+                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success is-small popup-button">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
@@ -120,12 +120,12 @@ $(document).ready(function () {
                     // let trailLat = selectedTrail.latitude;
                     // let trailLon = selectedTrail.longitude;
 
-                    $("body").off().on("click", "button#add-trail", event => {
+                    $("button.add-trail").off().on("click", event => {
                         event.preventDefault();
-                        let apiId = $("button").data("id");
-                        let trailName = $("button").data("name");
-                        let trailLat = $("button").data("lat");
-                        let trailLon = $("button").data("lon");
+                        let apiId = parseInt(event.target.dataset.id);
+                        let trailName = parseInt(event.target.dataset.name);
+                        let trailLat = parseInt(event.target.dataset.lat);
+                        let trailLon = parseInt(event.target.dataset.lon);
                         console.log(apiId, trailName, trailLat, trailLon);
                         addTrail(apiId, trailName, trailLat, trailLon);
                     });
