@@ -4,7 +4,7 @@
 // ON THIS JS FILE
 // grab that id from local storage to make an api call to display all users that service that trail
 // for each user in that data object, use template literals and push to body of available
-let cardEl = $("#guide-cards");
+let cardEl = $("#guide-cards1");
 let apiId = parseInt(sessionStorage.getItem("trail-id"));
 console.log(apiId);
 
@@ -24,11 +24,11 @@ $(document).ready(function () {
                             </div>
                             <div class="card-content">
                                 <div class="content has-text-centered" id="basic-info">
-                                    <h1 class="white-color logo-text-prof">
+                                    <h1 class="white-color logo-text-prof card-name">
                                         ${data.users[i].first_name}
                                     </h1>
                                     <p class="text-location">${data.users[i].location}</p>
-                                    <button data-guideid="${data.users[i].user_id}" class="button is-success is-small" id="${data.users[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data.users[i].user_id}" class="button is-success green-back app-button" id="${data.users[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>

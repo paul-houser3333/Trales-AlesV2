@@ -42,9 +42,11 @@ $(document).ready(function () {
     $.get(`/api/guideprofile/${userId}`).then(function (data) {
         let firstName = data.first_name;
         console.log(data);
+
         trailArray = data.trails;
         firstNameEl.text(firstName);
-        lastNameEl.text(firstName.toUpperCase());
+        firstNameUpEl.text(firstName.toUpperCase());
+        lastNameEl.text(data.last_name);
         imgEl.attr("src", data.guide_icon);
         usernameEl.text(data.username);
         locationEl.text(data.location);
@@ -64,7 +66,4 @@ $(document).ready(function () {
             trailArray.push(marker);
         };
     });
-
-    // or here?
-
 });

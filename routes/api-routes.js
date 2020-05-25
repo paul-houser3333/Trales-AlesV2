@@ -107,6 +107,7 @@ module.exports = function (app) {
       // Otherwise send back the guides's info
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        userId: req.user.user_id,
         firstName: req.user.first_name,
         lastName: req.user.last_name,
         username: req.user.username,
