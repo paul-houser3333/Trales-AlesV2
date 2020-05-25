@@ -192,8 +192,22 @@ module.exports = function (app) {
   });
 
 
-
   
+  app.put("/api/updateprofile", function(req, res) {
+    db.User.update(req.body,
+      {
+        where: {
+          user_id: req.user.user_id 
+        }
+      })
+      .then(function(dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+
+
+
 
   
 
