@@ -39,6 +39,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
   });
 
+  app.get("/profile-view", function(res, res) {
+    res.sendFile(path.join(__dirname, "../public/visitor-views/profile-view.html"));
+  });
+
   app.get("/search-all-guides", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/visitor-views/search-all-guides.html"));
   });
