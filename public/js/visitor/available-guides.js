@@ -34,7 +34,7 @@ $(document).ready(function () {
                         </div>
                     </div>
                     `;
-                    $("body").off().on("click", event => {
+                    $("button").off().on("click", event => {
                         event.preventDefault();
                         let userId = parseInt(event.target.id);
                         console.log(userId);
