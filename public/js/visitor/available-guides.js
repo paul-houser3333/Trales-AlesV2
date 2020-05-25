@@ -6,7 +6,6 @@
 // for each user in that data object, use template literals and push to body of available
 let cardEl = $("#guide-cards");
 let apiId = parseInt(sessionStorage.getItem("trail-id"));
-let usersArray = [];
 console.log(apiId);
 
 $(document).ready(function () {
