@@ -69,17 +69,12 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/user-views/profile-view.html"));
   });
  
-<<<<<<< HEAD
-  
-  
-=======
   app.get("/edit-profile", function(req, res) {
     if (!req.user) {
       res.redirect("/signup");
     }
     res.sendFile(path.join(__dirname, "../public/user-views/edit-profile.html"));
   });
->>>>>>> 1eac5869f6daf7c5ea0531627d086e85062cca12
 };
 
 
