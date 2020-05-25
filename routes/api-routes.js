@@ -183,6 +183,24 @@ module.exports = function (app) {
     }
   });
 
+  app.delete('/api/deleteprofile/:id', function(req, res) {
+    db.User.destroy({ 
+      where: { user_id: req.params.id } })
+    .then(user => res.json(user));
+  });
+
+  app.put("/api/updateprofile", function(req, res) {
+    db.User.update(req.body,
+      {
+        where: {
+          user_id: req.user.user_id 
+        }
+      })
+      .then(function(dbUser) {
+        res.json(dbUser);
+      });
+  });
+
   // app.get("/api/guides", function (req, res) {
   // sequelize method for selecting all in users table
   // get back basic data for each (no password)
