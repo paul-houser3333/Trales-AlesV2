@@ -1,5 +1,6 @@
 $(document).ready(function () {
     let firstNameEl = $(".get-firstName");
+    let firstNameUpEl = $(".get-firstNameUp");
     let lastNameEl = $(".get-lastName");
     let imgEl = $("#get-image");
     let usernameEl = $("#get-username");
@@ -8,10 +9,9 @@ $(document).ready(function () {
     let credentialsEl = $("#get-credentials");
     let servicesEl = $("#get-services");
     let emailEl = $("#get-email");
+
     let theMap;
     let trailArray;
-
-    
 
     // leaflet map
     theMap = L.map("map-content", {
@@ -34,9 +34,12 @@ $(document).ready(function () {
     
     // PUT SERVER CALL HERE
     $.get("/api/traildisplay").then(function (data) {
+        let firstName = data.first_name;
+        
         console.log(data.trails);
         trailArray = data.trails;
-        firstNameEl.text(data.first_name);
+        firstNameEl.text(firstName);
+        firstNameUpEl.text(firstName.toUpperCase());
         lastNameEl.text(data.last_name);
         imgEl.attr("src", data.guide_icon);
         usernameEl.text(data.username);
@@ -57,4 +60,6 @@ $(document).ready(function () {
             trailArray.push(marker);
         };
     }); 
+
+    
 });

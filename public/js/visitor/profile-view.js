@@ -1,5 +1,6 @@
 $(document).ready(function () {
     let firstNameEl = $(".get-firstName");
+    let firstNameUpEl = $(".get-firstNameUp");
     let lastNameEl = $(".get-lastName");
     let imgEl = $("#get-image");
     let usernameEl = $("#get-username");
@@ -39,10 +40,11 @@ $(document).ready(function () {
 
     // PUT SERVER CALL HERE
     $.get(`/api/guideprofile/${userId}`).then(function (data) {
+        let firstName = data.first_name;
         console.log(data);
         trailArray = data.trails;
-        firstNameEl.text(data.first_name);
-        lastNameEl.text(data.last_name);
+        firstNameEl.text(firstName);
+        lastNameEl.text(firstName.toUpperCase());
         imgEl.attr("src", data.guide_icon);
         usernameEl.text(data.username);
         locationEl.text(data.location);
