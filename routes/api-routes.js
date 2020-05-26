@@ -64,11 +64,6 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/delete", function (req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
   // Route for getting some data about our user to be used client side
   app.get("/api/guide_data", function (req, res) {
     if (!req.user) {
