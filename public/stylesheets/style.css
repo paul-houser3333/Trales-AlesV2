@@ -159,13 +159,11 @@ body {
     margin-top: -0.5rem;
 }
 
-.is-256x256 {
-    width: 256px;
-}
-
 /* BOTH VIEW-PROFILE HTMLS */
 /* _____________________________________________________________________________________________________________ */
 .prof-img {
+    position: relative;
+    width: 100%;
     border: solid;
     border-color: rgb(125, 195, 59);
     background-color: white;
@@ -192,8 +190,8 @@ body {
 }
 
 .text-location {
-    margin-top: -0.5rem;
-    padding-bottom: 0.5rem;
+    margin-top: -0.25rem;
+    padding-bottom: 0rem;
 }
 
 .content-wrapper {

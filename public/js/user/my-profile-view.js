@@ -4,10 +4,11 @@ $(document).ready(function () {
     let lastNameEl = $(".get-lastName");
     let iconEl = $("#get-image");
     let locationEl = $("#get-location");
+    let emailEl = $("#get-email");
     let bioEl = $("#get-bio");
     let credentialsEl = $("#get-credentials");
     let servicesEl = $("#get-services");
-    let emailEl = $("#get-email");
+    
 
     let theMap;
     let trailArray;
