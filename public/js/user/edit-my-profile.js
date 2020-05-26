@@ -1,10 +1,6 @@
 $(document).ready(function () {
 
-<<<<<<< HEAD
-    $.get("/api/guide_data").then(function (data) {
-=======
     $.get("/api/user_data").then(function (data) {
->>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6
 
         //grabs state from data location by selecting all characters after comma and space
         const state = data.location.match(/[^,\s]+$/g);
@@ -20,11 +16,7 @@ $(document).ready(function () {
         $("#last-name-input").val(data.lastName);
         $("#username-input").val(data.username);
         $("#get-image").attr("src", data.guide_icon);
-<<<<<<< HEAD
-        console.log(data.guideIcon);
-=======
         console.log(data.guide_icon);
->>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6
         $("#get-bio").val(data.bio);
         $("#get-credentials").val(data.credentials);
         $("#get-services").val(data.services);

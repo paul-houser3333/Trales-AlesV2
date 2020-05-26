@@ -1,10 +1,10 @@
 // api call to get all guide's picture, name, and location
 // Store those data objects in an array and for each, create a card with template literals to push to a body section
 // let 
-let cardEl = $("#guide-cards");
+let cardEl = $("#guide-cards2");
 console.log("hello");
 $(document).ready(function () {
-    $.get("/api/guidesdisplay")
+    $.get("/api/guides")
         .then(function (data) {
             console.log(data);
             for (let i = 0; i < data.length; i++) {
@@ -18,11 +18,11 @@ $(document).ready(function () {
                             </div>
                             <div class="card-content">
                                 <div class="content has-text-centered" id="basic-info">
-                                    <h1 class="white-color logo-text-prof">
+                                    <h1 class="white-color logo-text-prof card-name">
                                         ${data[i].first_name}
                                     </h1>
                                     <p class="text-location">${data[i].location}</p>
-                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small card-button" id="${data[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data[i].guide_id}" class="button is-success is-small card-button" id="${data[i].guide_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
@@ -31,15 +31,14 @@ $(document).ready(function () {
                     // console.log(`${data[i].user_id}`)
                     $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
-                        console.log("hey dickhead");
-                        let userId = parseInt(event.target.id);
-                        console.log(userId);
-                        window.sessionStorage.setItem("guideid", userId);
+                        let guideId = parseInt(event.target.id);
+                        console.log(guideId);
+                        window.sessionStorage.setItem("guideid", guideId);
                         console.log(window.sessionStorage.getItem("guideid"));
                         window.location.replace("/profile-view");
                     });
+
                 cardEl.append(guideCard);
-                
             };
             
         });
