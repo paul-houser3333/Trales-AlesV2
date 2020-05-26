@@ -127,7 +127,7 @@ $(document).ready(function () {
                                 <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                                 <img src="${image}">
                                 <p>${trailSummary}</p>
-                                <button data-id="${selectedTrail.id}" class="find-guide button is-success green-back app-button" id="${selectedTrail.id}">Find Guides</button>
+                                <button data-id="${selectedTrail.id}" class="find-guide button is-success green-back app-button bigger" id="${selectedTrail.id}">Find Guides</button>
                                 `;
                             }
 
