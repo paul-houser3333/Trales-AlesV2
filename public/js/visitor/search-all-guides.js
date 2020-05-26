@@ -33,8 +33,8 @@ $(document).ready(function () {
                         event.preventDefault();
                         let guideId = parseInt(event.target.id);
                         console.log(guideId);
-                        window.sessionStorage.setItem("guideid", guideId);
-                        console.log(window.sessionStorage.getItem("guideid"));
+                        window.sessionStorage.setItem("guide-id", guideId);
+                        console.log(window.sessionStorage.getItem("guide-id"));
                         window.location.replace("/profile-view");
                     });
 
