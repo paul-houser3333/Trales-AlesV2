@@ -27,11 +27,11 @@ $(document).ready(function () {
                             </div>
                             <div class="card-content">
                                 <div class="content has-text-centered" id="basic-info">
-                                    <h1 class="white-color logo-text-prof card-name">
+                                    <h1 class="purple-color logo-text-prof card-name">
                                         ${data.guides[i].first_name}
                                     </h1>
                                     <p class="text-location">${data.guides[i].location}</p>
-                                    <button data-guideid="${data.guides[i].guide_id}" class="button is-success is-small card-button" id="${data.guides[i].guide_id}">Visit Profile</button>
+                                    <button data-guideid="${data.guides[i].guide_id}" class="button is-success green-back app-button card-button" id="${data.guides[i].guide_id}">View Profile</button>
                                 </div>
                             </div>
                         </div>
