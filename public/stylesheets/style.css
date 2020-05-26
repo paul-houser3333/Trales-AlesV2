@@ -357,17 +357,22 @@ form.signup {
 /* Modal Content/Box */
 .modal-content {
 background-color: #fefefe;
+border-radius: 5rem;
 margin: 15% auto; /* 15% from the top and centered */
-padding: 20px;
-border: 1px solid #888;
+padding: 3rem;
+border: 0.05rem solid rgba(5, 5, 5, 0.335);
 width: 80%; /* Could be more or less, depending on screen size */
+}
+
+#error-message {
+    width: 90%;
 }
   
 /* The Close Button */
 #close-modal {
-color: #aaa;
+color: rgba(0, 0, 0, 0.438);
 float: right;
-font-size: 28px;
+font-size: 3rem;
 font-weight: bold;
 }
   

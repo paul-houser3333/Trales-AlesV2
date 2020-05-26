@@ -76,7 +76,7 @@ $(document).ready(function () {
 
   handleLoginErr = err => {
     console.log(err);
-    errorMessage.text("Oops! It looks like something went wrong. Please try again! (Hints: You may not have filled out all the required fields. Your email address may not be unique.");
+    errorMessage.text("It looks like something went wrong. Please try again! (Hints: You may not have filled out all the required fields. Your email address may not be unique.");
     modal.style.display = "block";
     span.onclick = function() {
       modal.style.display = "none";
