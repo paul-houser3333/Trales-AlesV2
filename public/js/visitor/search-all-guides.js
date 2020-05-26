@@ -12,17 +12,18 @@ $(document).ready(function () {
                     <div class="column">
                         <div class="card" id="guide-card">
                             <div class="card-image">
-                                <figure class="image is-256x256" id="image-wrapper">
+                                <figure class="image" id="image-wrapper">
                                     <img class="is-rounded prof-img" src="${data[i].guide_icon}">
                                 </figure>
                             </div>
                             <div class="card-content">
                                 <div class="content has-text-centered" id="basic-info">
-                                    <h1 class="white-color logo-text-prof card-name">
+                                    <h1 class="purple-color logo-text-prof card-name">
                                         ${data[i].first_name}
                                     </h1>
+                                    <p class="text-location logo-text-prof green-color" id="card-username">-${data[i].username}-</p>
                                     <p class="text-location">${data[i].location}</p>
-                                    <button data-guideid="${data[i].guide_id}" class="button is-success is-small card-button" id="${data[i].guide_id}">Visit Profile</button>
+                                    <button data-guideid="${data[i].guide_id}" class="button is-success green-back app-button card-button" id="${data[i].guide_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
@@ -33,8 +34,8 @@ $(document).ready(function () {
                         event.preventDefault();
                         let guideId = parseInt(event.target.id);
                         console.log(guideId);
-                        window.sessionStorage.setItem("guideid", guideId);
-                        console.log(window.sessionStorage.getItem("guideid"));
+                        window.sessionStorage.setItem("guide-id", guideId);
+                        console.log(window.sessionStorage.getItem("guide-id"));
                         window.location.replace("/profile-view");
                     });
 

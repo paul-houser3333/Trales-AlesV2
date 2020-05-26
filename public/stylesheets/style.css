@@ -45,14 +45,14 @@ body {
     font-size: 1.25rem;
     border-radius: 1.5rem;
     /* text-shadow: 0; */
-    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.466);
 }
 
 .nav-app-button {
     font-size: 1.15rem;
     border-radius: 1.25rem;
     /* text-shadow: 0; */
-    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.466);
 }
 
 .app-button:hover, .nav-app-button:hover {
@@ -77,7 +77,7 @@ body {
 .over-img {
     color: white;
     font-size: 1.25rem;
-    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.466);
 }
 
 #menu-nav {
@@ -105,7 +105,7 @@ body {
     background-size: auto 100%;
     background-position: center;
     background-attachment: fixed;
-    border-bottom: rgba(0, 0, 0, 0.308) solid;
+    border-bottom: rgba(0, 0, 0, 0.315) solid;
     border-width: 0.05rem;
 }
 
@@ -124,9 +124,10 @@ body {
     width: fit-content;
     color: white;
     margin: 0 auto;
-    margin-bottom: 0.75rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
     font-size: 2rem;
-    text-shadow: -1.5px 1.5px black, -0.9px 0 black, 0 0.9px black, 0.9px 0 black, 0 -0.9px black;
+    text-shadow: -2px 2px black, -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
 }
 
 .logo-text-big1 {
@@ -152,20 +153,23 @@ body {
     width: fit-content;
     padding: 2rem 2rem 1rem 2rem;
     box-shadow: 5px 10px 18px #888888;
+    border-radius: 5rem;
 }
 
 .card-name {
     font-size: 2.5rem !important;
     margin-top: -0.5rem;
+    margin-bottom: 0.5rem !important;
 }
 
-.is-256x256 {
-    width: 256px;
+#card-username {
+    margin-bottom: 0rem;
 }
 
 /* BOTH VIEW-PROFILE HTMLS */
 /* _____________________________________________________________________________________________________________ */
 .prof-img {
+    position: relative;
     border: solid;
     border-color: rgb(125, 195, 59);
     background-color: white;
@@ -173,6 +177,7 @@ body {
 }
 
 #image-wrapper {
+    width: 85%;
     margin: 0 auto;
 }
 
@@ -192,8 +197,9 @@ body {
 }
 
 .text-location {
-    margin-top: -0.5rem;
-    padding-bottom: 0.5rem;
+    font-size: 1.15rem;
+    margin-top: 0rem;
+    padding-bottom: 0.25rem;
 }
 
 .content-wrapper {
@@ -211,13 +217,42 @@ body {
 
 .logo-text-prof {
     font-family: 'Margarine', cursive;
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
 }
 
 .prof-p {
     font-size: 1.15rem;
     margin-bottom: 2rem;
+}
+
+.prof-light {
+    padding-bottom: 0.85rem;
+    color: rgb(122, 122, 122);
+}
+
+#map-text-header {
+    font-size: 2.5rem !important;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.border-topper {
+    border-top: solid  rgba(0, 0, 0, 0.315);
+    border-bottom: solid  rgba(0, 0, 0, 0.315);
+    box-shadow: 0.5px -2px 9px  rgba(0, 0, 0, 0.315);
+    border-width: 0.05rem;
+}
+
+/* EDIT PROFILE HTML */
+/* _____________________________________________________________________________________________________________ */
+
+#delete-button {
+    background-color: rgb(98, 75, 136);
+    float: right;
+}
+
+#delete-button:hover {
+    background-color: rgb(255, 1, 1) !important;
 }
 
 /* BOTH TRAIL-SEARCH/ADD-TRAILS HTMLS */
@@ -255,6 +290,14 @@ body {
     background-color: transparent;
 }
 
+.unbutton:focus {
+    outline: none !important;
+}
+
+.find-guide, .add-trail {
+    font-size: 1rem;
+}
+
 .trail-name{
     font-size: 18px;
     font-family: "'Open Sans', sans-serif" !important;
@@ -266,16 +309,12 @@ body {
     width: 300px;
 }
 
-.popup-button{
-    color: blue;
-}
-
 .logo-sub {
     font-family: "Margarine", cursive;
     font-size: 2rem;
     color: white;
     margin-top: -2rem;
-    text-shadow: -1.5px 1.5px black, -0.9px 0 black, 0 0.9px black, 0.9px 0 black, 0 -0.9px black;
+    text-shadow: -2px 2px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 /* SIGN UP / LOG IN HTMLS */
@@ -288,8 +327,18 @@ body {
 @media only screen and (max-width: 645px) {
     .center-yourself {
         margin: 0 auto;
-        width: 95%;
+        width: 100%;
     }
+}
+
+.description {
+    color: rgb(122, 122, 122);
+    font-style: italic;
+}
+
+form.signup {
+    margin: 0 auto;
+    width: 90%;
 }
 
 .modal {
@@ -308,17 +357,22 @@ body {
 /* Modal Content/Box */
 .modal-content {
 background-color: #fefefe;
+border-radius: 5rem;
 margin: 15% auto; /* 15% from the top and centered */
-padding: 20px;
-border: 1px solid #888;
+padding: 3rem;
+border: 0.05rem solid rgba(5, 5, 5, 0.335);
 width: 80%; /* Could be more or less, depending on screen size */
+}
+
+#error-message {
+    width: 90%;
 }
   
 /* The Close Button */
 #close-modal {
-color: #aaa;
+color: rgba(0, 0, 0, 0.438);
 float: right;
-font-size: 28px;
+font-size: 3rem;
 font-weight: bold;
 }
   

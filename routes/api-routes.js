@@ -31,7 +31,7 @@ module.exports = function (app) {
       username: req.body.username,
       email: req.body.email,
       location: req.body.location,
-      guide_icon: req.body.guideIcon,
+      guide_icon: req.body.iconURL,
       bio: req.body.bio,
       credentials: req.body.credentials,
       services: req.body.services,

@@ -2,6 +2,7 @@ $(document).ready(function () {
     let firstNameEl = $(".get-firstName");
     let firstNameUpEl = $(".get-firstNameUp");
     let lastNameEl = $(".get-lastName");
+    let usernameEl = $("#get-username");
     let iconEl = $("#get-image");
     let locationEl = $("#get-location");
     let bioEl = $("#get-bio");
@@ -33,13 +34,14 @@ $(document).ready(function () {
     
     // PUT SERVER CALL HERE
     $.get("/api/my-trails").then(function (data) {
+
         let firstName = data.first_name;
         
-        console.log(data.trails);
         trailArray = data.trails;
         firstNameEl.text(firstName);
         firstNameUpEl.text(firstName.toUpperCase());
         lastNameEl.text(data.last_name);
+        usernameEl.text(data.username);
         iconEl.attr("src", data.guide_icon);
         locationEl.text(data.location);
         bioEl.text(data.bio);

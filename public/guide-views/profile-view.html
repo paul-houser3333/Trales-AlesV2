@@ -71,13 +71,14 @@
 
                 <div class="column is-one-third content-wrapper">
 
-                    <!-- <button onclick="showUploadWidget()">upload</button> -->
-                    <figure class="image is-256x256" id="image-wrapper">
-                        <img class="is-rounded prof-img" id="get-image" src="">
+                    <figure class="image" id="image-wrapper">
+                        <img class="is-rounded prof-img" id="get-image">
                     </figure>
                     <div class="has-text-centered" id="basic-info">
                         <h1 class="white-color logo-text-prof"><span class="get-firstName"></span> <span
-                                class="get-lastName"></span></h1>
+                                class="get-lastName"></span>
+                        </h1>
+                        <p class="text-location logo-text-prof green-color">-<span id="get-username"></span>-</p>
                         <p class="text-location" id="get-location"></p>
                         <p class="prof-light" id="get-email"></p>
                         <a class="button is-success app-button green-back" id="edit-button" href="/edit-profile">
@@ -101,10 +102,10 @@
         </div>
     </section>
     <br>
-    <!-- HELP cant get map to render. I'm trying to pass the necessary JS from trail-search to get ONLY map to render (no noimatim or ajax calls, just a map) -->
+
     <section class="hero is-fullheight">
-        <div class="hero-head has-text-centered">
-            <h1 class="logo-text-prof green-color"><span class="get-firstName"></span>'s Guided Trails</h1>
+        <div class="hero-head has-text-centered border-topper">
+            <h1 class="logo-text-prof green-color" id="map-text-header"><span class="get-firstName"></span>'s Guided Trails</h1>
         </div>
 
         <div class="hero-body" id="map-content">
@@ -112,64 +113,10 @@
         </div>
 
     </section>
-    <!-- scripts -->
 
-
-    <!-- <script type="text/javascript">
-        function showUploadWidget() {
-            cloudinary.openUploadWidget({
-                cloudName: "dcyyaezfa",
-                uploadPreset: "apncsmvw",
-                sources: [
-                    "local",
-                    "url",
-                    "camera",
-                    "dropbox",
-                    "instagram",
-                    "shutterstock"
-                ],
-                showAdvancedOptions: false,
-                cropping: true,
-                multiple: false,
-                defaultSource: "local",
-                styles: {
-                    palette: {
-                        window: "#FFFFFF",
-                        windowBorder: "#90A0B3",
-                        tabIcon: "#0078FF",
-                        menuIcons: "#5A616A",
-                        textDark: "#000000",
-                        textLight: "#FFFFFF",
-                        link: "#0078FF",
-                        action: "#FF620C",
-                        inactiveTabIcon: "#0E2F5A",
-                        error: "#F44235",
-                        inProgress: "#0078FF",
-                        complete: "#20B832",
-                        sourceBg: "#E4EBF1"
-                    },
-                    fonts: {
-                        default: {
-                            active: true
-                        }
-                    }
-                }
-            },
-                (err, info) => {
-                    if (!err) {
-                        // console.log("Upload Widget event - ", info);
-                        if (info && info.event && info.event === "queues-end") {
-                            console.log("this is the image url: " + info.info.files[0].uploadInfo.url)
-                            // ajax call to update just picture url in user table beloning to  (id of user logged on)
-                        }
-
-                    }
-                });
-        }
-    </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../js/user/my-profile-view.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="../js/guide/my-profile-view.js"></script>
     <script src="../js/hamburger.js"></script>
 
 

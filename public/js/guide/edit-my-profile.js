@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    $.get("/api/user_data").then(function (data) {
+    $.get("/api/guide_data").then(function (data) {
 
         //grabs state from data location by selecting all characters after comma and space
         const state = data.location.match(/[^,\s]+$/g);
-        selectElement("#state-input", state)
+        selectElement("#state-input", state);
 
         //selects option from input list
         function selectElement(id, optionVal) {
@@ -15,8 +15,8 @@ $(document).ready(function () {
         $("#first-name-input").val(data.firstName);
         $("#last-name-input").val(data.lastName);
         $("#username-input").val(data.username);
-        $("#get-image").attr("src", data.guide_icon);
-        console.log(data.guide_icon);
+        $("#get-currentImage").attr("src", data.guideIcon);
+        console.log(data.guideIcon);
         $("#get-bio").val(data.bio);
         $("#get-credentials").val(data.credentials);
         $("#get-services").val(data.services);
@@ -28,17 +28,18 @@ $(document).ready(function () {
         // });
     });
 
-    $("button#edit-button").on("click", event => {
+    $("button#save-button").on("click", event => {
         event.preventDefault();
-        console.log($("#get-image").attr("src"));
+        console.log($("#get-currentImage").attr("src"));
+        let newState = $("#state-input").val();
 
-        let data = {
-            firstName: $("#first-name-input").val(),
-            lastName: $("#last-name-input").val(),
+        let guideData = {
+            first_name: $("#first-name-input").val(),
+            last_name: $("#last-name-input").val(),
             username: $("#username-input").val(),
             email: $("#get-email").val(),
-            location: $("#city-input").val(),
-            guide_icon: $("#get-image").attr("src"),
+            location: $("#city-input").val() + ", " + newState,
+            guide_icon: $("#get-currentImage").attr("src"),
             bio: $("#get-bio").val(),
             credentials: $("#get-credentials").val(),
             services: $("#get-services").val()
@@ -46,12 +47,12 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'PUT',
-            url: "/api/updateprofile",
+            url: "/api/update-profile",
             contentType: 'application/json',
-            data: JSON.stringify(data), // access in body
+            data: JSON.stringify(guideData), // access in body
         }).done(function () {
             console.log('SUCCESS');
-            console.log($("#get-image").attr("src"));
+            console.log($("#get-currentImage").attr("src"));
             window.location.replace("/view-my-profile");
         }).fail(function (msg) {
             console.log('FAIL');
@@ -82,7 +83,7 @@ $(document).ready(function () {
             //   }
 
             $.ajax({
-                url: "/api/deleteprofile",
+                url: "/api/delete-profile",
                 type: "DELETE"
             })
                 .then(function () {
