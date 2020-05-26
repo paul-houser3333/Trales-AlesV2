@@ -29,7 +29,7 @@ module.exports = function(app) {
 
   app.get("/add-trails", function(req, res) {
     if (req.user) {
-      res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
+      res.sendFile(path.join(__dirname, "../public/guide-views/add-trails.html"));
     } else {
       res.sendFile(path.join(__dirname, "../public/visitor-views/search-trails.html"));
     }
@@ -37,7 +37,7 @@ module.exports = function(app) {
 
   app.get("/search-trails", function(req, res) {
     if (req.user) {
-      res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
+      res.sendFile(path.join(__dirname, "../public/guide-views/add-trails.html"));
     }
     res.sendFile(path.join(__dirname, "../public/visitor-views/search-trails.html"));
   });
@@ -69,13 +69,13 @@ module.exports = function(app) {
     if (!req.user) {
       res.redirect("/login");
     }
-    res.sendFile(path.join(__dirname, "../public/user-views/profile-view.html"));
+    res.sendFile(path.join(__dirname, "../public/guide-views/profile-view.html"));
   });
  
   app.get("/edit-profile", function(req, res) {
     if (!req.user) {
       res.redirect("/login");
     }
-    res.sendFile(path.join(__dirname, "../public/user-views/edit-profile.html"));
+    res.sendFile(path.join(__dirname, "../public/guide-views/edit-profile.html"));
   });
 };
