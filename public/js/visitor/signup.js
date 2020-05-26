@@ -5,7 +5,21 @@ $(document).ready(function () {
   let lastNameInput = $("input#last-name-input");
   let usernameInput = $("input#username-input");
   let emailInput = $("input#email-input");
+<<<<<<< HEAD:public/js/signup.js
   let passwordInput = $("input#password-input");
+=======
+  let cityInput = $("input#city-input");
+  let stateSelect = $("select#state-input");
+  let imageUrlInput = $("input#image-input");
+  let bioInput = $("textarea#bio-input");
+  let credentialsInput = $("textarea#credentials-input");
+  let servicesInput = $("textarea#services-input");
+  let passwordInput = $("input#password-input");
+  let modal = document.getElementById("error-modal");
+  let span = document.getElementById("close-modal");
+  let errorMessage = $("#error-message");
+  
+>>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6:public/js/visitor/signup.js
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function (event) {
@@ -24,6 +38,7 @@ $(document).ready(function () {
     };
 
     if (!userData.firstName || !userData.username || !userData.email || !userData.password) {
+      handleLoginErr();
       return;
     }
     // If we have an email and password, run the signUpUser function
@@ -43,7 +58,11 @@ $(document).ready(function () {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
+<<<<<<< HEAD:public/js/signup.js
   signUpUser = (firstName, lastName, username, email, password) => {
+=======
+  signUpUser = (firstName, lastName, username, email, location, imgURL, bio, credentials, services, password) => {
+>>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6:public/js/visitor/signup.js
     $.post("/api/signup", {
       firstName: firstName,
       lastName: lastName,
@@ -57,14 +76,29 @@ $(document).ready(function () {
       password: password
     })
       .then(function (data) {
-        window.location.replace("/members");
+        window.location.replace("/view-my-profile");
 
       })
       .catch(handleLoginErr);
   }
 
   handleLoginErr = err => {
+<<<<<<< HEAD:public/js/signup.js
     $("#alert .msg").text("Oops! Something went wrong. Try again!");
     $("#alert").fadeIn(500);
   }
+=======
+    console.log(err);
+    errorMessage.text("Oops! It looks like something went wrong. Please try again! (Hints: You may not have filled out all the required fields. Your email address may not be unique.");
+    modal.style.display = "block";
+    span.onclick = function() {
+      modal.style.display = "none";
+    };
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      };
+    };
+  };
+>>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6:public/js/visitor/signup.js
 });

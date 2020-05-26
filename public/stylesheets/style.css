@@ -1,4 +1,331 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+/* MULTIPLE HTML PAGES */
+/* _____________________________________________________________________________________________________________ */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.green-back {
+    background-color: rgb(125, 195, 59) !important;
+}
+
+.green-color {
+    color: rgb(125, 195, 59) ;
+}
+
+.purple-color {
+    color: rgb(170, 156, 192) !important;
+}
+
+.purple-back {
+    background-color: rgb(170, 156, 192) !important;
+}
+.white-color {
+    color: white !important;
+}
+
+.logo-text:hover {
+    color: rgb(170, 156, 192) !important;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-family: 'Margarine', cursive;
+    font-size: 2rem;
+    text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
+}
+
+.logo-text-med {
+    font-family: 'Margarine', cursive;
+    text-shadow: -2px 2px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding: 0;
+    font-size: 4rem;
+}
+
+.app-button {
+    font-size: 1.25rem;
+    border-radius: 1.5rem;
+    /* text-shadow: 0; */
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+.nav-app-button {
+    font-size: 1.15rem;
+    border-radius: 1.25rem;
+    /* text-shadow: 0; */
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+.app-button:hover, .nav-app-button:hover {
+    background-color: rgb(170, 156, 192) !important;
+
+}
+
+#hamburger {
+    color: white;
+    border-radius: 1rem !important;
+    margin-top: 0.5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+#navbarMenuHeroC {
+    background-color: transparent;
+    box-shadow: none;
+    text-align: right;
+}
+
+/* text on img backgrounds */
+.over-img {
+    color: white;
+    font-size: 1.25rem;
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.308);
+}
+
+#menu-nav {
+    font-size: 1.15rem;
+}
+
+#menu-nav:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.246) !important;
+}
+
+/* background image for fullheight heros */
+.land-image {
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* background image for regular heros */
+.land-image2 {
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: black solid;
+    border-width: 0.1rem;
+}
+
+.land-image3 {
+    background-image: url(https://images.discerningassets.com/image/upload/q_auto:best/v1569332992/Wolf_Mountain_Sunset_crramv.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HOME.HTML LANDING PAGE*/
+/* _____________________________________________________________________________________________________________ */
+.over-img-sub {
+    font-family: 'Margarine', cursive;
+    width: fit-content;
+    color: white;
+    margin: 0 auto;
+    margin-bottom: 0.75rem !important;
+    font-size: 2rem;
+    text-shadow: -1.5px 1.5px black, -0.9px 0 black, 0 0.9px black, 0.9px 0 black, 0 -0.9px black;
+}
+
+.logo-text-big1 {
+    font-family: 'Margarine', cursive;
+    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin-bottom: 0 !important;
+    padding: 0;
+    font-size: 8rem;
+}
+
+.logo-text-big2 {
+    font-family: 'Margarine', cursive;
+    text-shadow: -3px 3px black, -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    padding: 0;
+    margin-top: -1.5rem !important;
+    font-size: 8rem;
+}
+
+/* CARD PREVIEWS FOR GUIDES */
+/* _____________________________________________________________________________________________________________ */
+
+#guide-card {
+    width: fit-content;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.logo-text-smaller {
+    font-family: 'Margarine', cursive;
+    font-size: 1.5rem;
+    text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
+}
+
+.logo-text-smaller:hover {
+    color: rgb(170, 156, 192) !important;
+    cursor: pointer;
+}
+
+/* BOTH VIEW-PROFILE HTMLS */
+/* _____________________________________________________________________________________________________________ */
+.prof-img {
+    border: solid;
+    border-color: rgb(125, 195, 59);
+    background-color: white;
+    border-width: 0.5rem;
+}
+
+#image-wrapper {
+    float: left;
+}
+
+#guide-deep {
+    background-color: white;
+    padding-left: 3rem;
+
+}
+
+.move-down {
+    margin-top: 0.25rem;
+}
+
+#basic-info {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.text-location {
+    margin-top: -0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.content-wrapper {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 2rem;
+    padding-right: 0rem;
+    margin: 0 auto;
+}
+
+.clear-it {
+    clear: both;
+}
+
+.logo-text-prof {
+    font-family: 'Margarine', cursive;
+    font-size: 2rem;
+    text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
+}
+
+.prof-p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+
+/* BOTH TRAIL-SEARCH/ADD-TRAILS HTMLS */
+/* _____________________________________________________________________________________________________________ */
+.search-wrap {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+/* rename: city-search-input*/
+.city-search {
+    border-radius: 1rem;
+    width: 20rem;
+}
+
+@media only screen and (max-width: 493px) {
+    .city-search {
+        border-radius: 2rem;
+        width: 70%;
+    }
+}
+
+.map-back {
+    background-color: transparent !important;
+}
+
+#map-button {
+    margin-top: 0.25rem;
+    margin-left: 0.5rem;
+    font-size: 2rem;
+}
+
+.unbutton {
+    border: none;
+    background-color: transparent;
+}
+
+.trail-name{
+    font-size: 18px;
+    font-family: "'Open Sans', sans-serif" !important;
+    color: black !important;
+    text-shadow: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    width: 300px;
+}
+
+.popup-button{
+    color: blue;
+}
+
+.logo-sub {
+    font-family: "Margarine", cursive;
+    font-size: 2rem;
+    color: white;
+    margin-top: -2rem;
+    text-shadow: -1.5px 1.5px black, -0.9px 0 black, 0 0.9px black, 0.9px 0 black, 0 -0.9px black;
+}
+
+/* SIGN UP / LOG IN HTMLS */
+/* _____________________________________________________________________________________________________________ */
+.center-yourself {
+    margin: 0 auto;
+    width: 40rem;
+}
+
+@media only screen and (max-width: 645px) {
+    .center-yourself {
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+}
+  
+/* The Close Button */
+#close-modal {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+  
+#close-modal:hover,
+#close-modal:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
 }

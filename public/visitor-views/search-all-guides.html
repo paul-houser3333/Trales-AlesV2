@@ -4,26 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Profile</title>
+    <title>Search Guides</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-    <link rel="stylesheet" href="./stylesheets/style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 
 <body>
-    <section class="hero land-image">
+    <section class="hero land-image2">
 
         <div class="hero-head">
             <!-- TO DO: if removing "container", added a little left and right padding/margin to navbar header -->
             <header class="navbar">
                 <!-- <div class="container"> -->
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="/">
+                    <a class="navbar-item logo-text green-color" href="/">
                         <!-- TO DO: replace with HIKE HIRE logo -->
                         <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
-                        HIKE HIRE
+                        HIKEHIRE
                     </a>
-                    <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                    <span class="navbar-burger burger" id="hamburger" data-target="navbarMenuHeroC">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -31,17 +34,17 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item">
+                        <a class="navbar-item over-img" id="menu-nav" href="/trail-search">
                             <!-- eventual sub options: View Profile (will show visitor view), Edit Profile -->
-                            My Profile
+                            Search Trails
                         </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item over-img" id="menu-nav" href="">
                             <!-- maybe: eventual sub options: Add Trails, Edit Trails -->
-                            My Trails
+                            Search Guides
                         </a>
                         <span class="navbar-item ">
-                            <a class="button is-success" href="/logout">
-                                Log Out
+                            <a class="button is-success nav-app-button green-back" href="/signup">
+                                Become a Guide
                             </a>
                         </span>
                     </div>
@@ -53,35 +56,26 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <!-- TO DO: make "WELCOME" title an image that matches logo -->
-                <h1 class="title over-img">
-                    GUIDE
-                 </h1>
-                <h1 class="title over-img">
-                   <span id="get-firstName"></span> 
+                <h1 class="title logo-text-med green-color">
+                    TRAIL GUIDES
                 </h1>
             </div>
         </div>
     </section>
-
-    <img id="get-image" src="">
-    <h2 id="get-username"></h2>
-    <p id="get-location"></p>
-    <h2>About Me</h2>
-    <p id="get-bio"></p>
-    <h2>Credentials</h2>
-    <p id="get-credentials"></p>
-    <h2>Guide Services Offered</h2>
-    <p id="get-services"></p>
-    <h2>Contact</h2>
-    <p id="get-email"></p>
-
-
+    <br>
+    <section>
+        <div class="container">
+            <!-- cards created in JS will be pushed here -->
+            <div class="columns is-multiline is-centered" id="guide-cards">
+               <!-- push cards into this div -->
+            </div>
+        </div>
+    </section>
     
-
-
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./js/profile-view.js"></script>
+    <script src="../js/visitor/search-all-guides.js"></script>
+    <script src="../js/hamburger.js"></script>
 
 
 </body>

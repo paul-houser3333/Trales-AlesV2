@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+let db = require("../models");
+let passport = require("../config/passport");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -12,6 +12,8 @@ module.exports = function (app) {
       email: req.user.email,
       id: req.user.id
     });
+
+
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -39,10 +41,62 @@ module.exports = function (app) {
       });
   });
 
+  // app.post("/api/trail-search", function (req, res) {
+  //   console.log(req.body.userId);
+  //   db.Trail.create({
+  //     user_id: req.body.userId,
+  //     api_trail_id: req.body.apiTrailId,
+  //     trail_name: req.body.trailName,
+  //     latitude: req.body.latitude,
+  //     longitude: req.body.longitude
+  //   })
+  //     .catch(function (err) {
+  //       res.status(401).json(err);
+  //     });
+  // });
+
+  // app.post("/api/trailadd", async (req, res, next) => {
+  //   try {
+  //     const trailids = await db.Trail.findOrCreate({
+  //       where: {
+  //         api_trail_id: req.body.apiTrailId,
+  //         trail_name: req.body.trailName,
+  //         latitude: req.body.latitude,
+  //         longitude: req.body.longitude
+  //       }
+  //     });
+  //     const currentUser = await db.User.findByPk(req.user.user_id);
+  //     await currentUser.addTrail(trailids[0]);
+  //     res.json(trailids[0]);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // });
+
+  app.post("/api/trailadd", async (req, res, next) => {
+    try {
+      const currentUser = await db.User.findByPk(req.user.user_id);
+      const trailAdd = await db.Trail.findOrCreate({
+        where: {
+          api_trail_id: req.body.apiTrailId,
+          trail_name: req.body.trailName,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude
+        }
+      });
+      await currentUser.addTrail(trailAdd[0]);
+      res.json(trailAdd[0]);
+      // }
+    } catch (error) {
+      next(error);
+    }
+  });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
+    console.log("logged out");
   });
 
   // Route for getting some data about our user to be used client side
@@ -59,7 +113,7 @@ module.exports = function (app) {
         username: req.user.username,
         email: req.user.email,
         location: req.user.location,
-        imgURL: req.user.guide_icon,
+        guide_icon: req.user.guide_icon,
         bio: req.user.bio,
         credentials: req.user.credentials,
         services: req.user.services
@@ -67,14 +121,105 @@ module.exports = function (app) {
     }
   });
 
+  app.get("/api/traildisplay", async (req, res, next) => {
+    try {
+      const mytrails = await db.User.findOne({
+        where: { user_id: req.user.user_id },
+        include: {
+          model: db.Trail, as: 'trails'
+        }
+      })
+        .then(data => {
+          res.send(data);
+        })
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/api/trailguides/:id", async (req, res, next) => {
+    try {
+      const myguides = await db.Trail.findOne({
+        where: { api_trail_id:  req.params.id},
+        include: {
+          model: db.User, as: 'users'
+        }
+      })
+      .then(data => {
+              res.send(data);
+            })
+          } catch (error) {
+            next(error);
+          }
+        });
+
+  app.get("/api/guidesdisplay", async (req, res, next) => {
+    try {
+      const mytrails = await db.User.findAll({
+        include: {
+          model: db.Trail, as: 'trails'
+        }
+      })
+        .then(data => {
+          res.send(data);
+        })
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/api/guideprofile/:id", async (req, res, next) => {
+    try {
+      const mytrails = await db.User.findOne({
+        where: { user_id: req.params.id },
+        include: {
+          model: db.Trail, as: 'trails'
+        }
+      })
+        .then(data => {
+          res.send(data);
+        })
+    } catch (error) {
+      next(error);
+    }
+  });
+
+
+  
+  app.delete("/api/deleteprofile/", function(req, res) {
+    db.User.destroy({ 
+      where: { user_id: req.user.user_id } })
+    .then(user => res.json(user));
+  });
+
+
+  
+  app.put("/api/updateprofile", function(req, res) {
+    db.User.update(req.body,
+      {
+        where: {
+          user_id: req.user.user_id 
+        }
+      })
+      .then(function(dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+
+
+
+
+  
+
   // app.get("/api/guides", function (req, res) {
   // sequelize method for selecting all in users table
   // get back basic data for each (no password)
   // order alphabetically (by first name? username?)
   // });
 
-  // app.get("/api/guides/:username", function (req, res) {
-  // sequelize findOne where username = req.params.username and get all user data in the user tbale row (except password)
+  // app.get("/api/guides/:id", function (req, res) {
+  // // sequelize findOne where user_id = req.params.user_id and get all user data in the user tbale row (except password)
   // });
 
 };
