@@ -94,7 +94,7 @@ $(document).ready(function () {
                         image = selectedTrail.imgSmall;
                     }
                     else {
-                        image = "https://via.placeholder.com/150"
+                        image = "https://image.flaticon.com/icons/png/512/184/184977.png"
                     }
                     //sets description to empty string if api summary is "needs summary" or "needs adoption"
                     if (selectedTrail.summary.trim() !== "Needs Summary" && selectedTrail.summary !== "Needs Adoption!" && selectedTrail.summary !== "This trail could use a short summary!" && selectedTrail.summary !== "Needs Adoption") {
@@ -103,14 +103,45 @@ $(document).ready(function () {
                     else {
                         trailSummary = "";
                     }
-                    let trailTemplate =
-                        `
-                        <b class="trail-name">${selectedTrail.name}</b>
-                        <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
-                        <img src="${image}">
-                        <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success green-back app-button">Add Trail</button>
-                        `;
+                    let trailTemplate;
+                    $.get("/api/my-trails")
+                        .then(function (data) {
+                            let trailTemplate = checkid(selectedTrail, data)
+                            function checkid(selectedTrail, usertrails) {
+                                
+                                if (usertrails.trails) {
+                                    for (let i = 0; i < usertrails.trails.length; i++) {
+                                        
+                                        if (selectedTrail.id == usertrails.trails[i].api_trail_id) {
+                                            return `
+                                    <b class="trail-name">${selectedTrail.name}</b>
+                                    <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
+                                    <img src="${image}">
+                                    <p>${trailSummary}</p>
+                                    <p data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class=" is-success ">Trail Added</p>
+                                    `;
+                                        }
+                                    }
+                                }
+                                return `
+                            <b class="trail-name">${selectedTrail.name}</b>
+                            <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
+                            <img src="${image}">
+                            <p>${trailSummary}</p>
+                            <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success green-back app-button">Add Trail</button>
+                            
+                            `;
+
+
+
+                                // <button class="button is-success green-back app-button" href="/signup">Sign Up</button>
+                            }
+
+                            let marker = L.marker([selectedTrail.latitude, selectedTrail.longitude], { icon: trailIcon }).addTo(theMap);
+                            marker.bindPopup(trailTemplate);
+                            trailArray.push(marker);
+                        });
+
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate);
                     trailArray.push(marker);
@@ -120,15 +151,15 @@ $(document).ready(function () {
                     // let trailLat = selectedTrail.latitude;
                     // let trailLon = selectedTrail.longitude;
 
-                    $("body").off().on("click","button.add-trail", event => {
+                    $("body").off().on("click", "button.add-trail", event => {
                         event.preventDefault();
                         $("button.add-trail").animate({
                             opacity: 0.75,
-                            
-                          }, 200, function() {
+
+                        }, 200, function () {
                             $("button.add-trail").text("Trail Added!");
                             $("button.add-trail").removeClass("green-back").addClass("purple-back");
-                          });
+                        });
                         let apiId = $("button.add-trail").data("id");
                         let trailName = $("button.add-trail").data("name");
                         let trailLat = $("button.add-trail").data("lat");
@@ -144,12 +175,12 @@ $(document).ready(function () {
                             latitude: trailLat,
                             longitude: trailLon
                         })
-                        .then(function(){
-                           
-                        })
-                        .catch(function(err) {
-                            console.log(err);
-                        })
+                            .then(function () {
+
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                            })
                     };
                 };
             });

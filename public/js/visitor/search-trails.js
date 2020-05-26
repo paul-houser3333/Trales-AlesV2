@@ -94,7 +94,7 @@ $(document).ready(function () {
                         image = selectedTrail.imgSmall;
                     }
                     else {
-                        image = "https://via.placeholder.com/150"
+                        image = "https://image.flaticon.com/icons/png/512/184/184977.png"
                     }
                     //sets description to empty string if api summary is "needs summary" or "needs adoption"
                     if (selectedTrail.summary.trim() !== "Needs Summary" && selectedTrail.summary !== "Needs Adoption!" && selectedTrail.summary !== "This trail could use a short summary!" && selectedTrail.summary !== "Needs Adoption") {
