@@ -4,11 +4,10 @@ $(document).ready(function () {
     let lastNameEl = $(".get-lastName");
     let iconEl = $("#get-image");
     let locationEl = $("#get-location");
-    let emailEl = $("#get-email");
     let bioEl = $("#get-bio");
     let credentialsEl = $("#get-credentials");
     let servicesEl = $("#get-services");
-    
+    let emailEl = $("#get-email");
 
     let theMap;
     let trailArray;
@@ -36,7 +35,7 @@ $(document).ready(function () {
     $.get("/api/my-trails").then(function (data) {
         let firstName = data.first_name;
         
-        console.log(data.trails);
+        console.log(data);
         trailArray = data.trails;
         firstNameEl.text(firstName);
         firstNameUpEl.text(firstName.toUpperCase());

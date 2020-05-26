@@ -294,13 +294,18 @@ body {
 @media only screen and (max-width: 645px) {
     .center-yourself {
         margin: 0 auto;
-        width: 95%;
+        width: 100%;
     }
 }
 
 .description {
     color: rgb(122, 122, 122);
     font-style: italic;
+}
+
+form.signup {
+    margin: 0 auto;
+    width: 90%;
 }
 
 .modal {
