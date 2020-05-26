@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "keenan",
+    "password": "1234567890",
     "database": "hike_hire",
     "host": "127.0.0.1",
     "dialect": "mysql"

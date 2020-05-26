@@ -122,6 +122,12 @@ $(document).ready(function () {
 
                     $("body").off().on("click","button.add-trail", event => {
                         event.preventDefault();
+                        $("button.add-trail").animate({
+                            opacity: 0.75,
+                            
+                          }, 200, function() {
+                            $("button.add-trail").text("trail added!")
+                          });
                         let apiId = $("button.add-trail").data("id");
                         let trailName = $("button.add-trail").data("name");
                         let trailLat = $("button.add-trail").data("lat");
@@ -138,7 +144,9 @@ $(document).ready(function () {
                             longitude: trailLon
                         })
                         // change button text/color, or make modal or reveal hidden div that hides after 2 secs, or delete alert if no time?
-                        .then(alert(`Successfully added ${trailName} to your trails!`))
+                        .then(function(){
+                           
+                        })
                         .catch(function(err) {
                             console.log(err);
                         })
