@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Search Trails</title>
+    <title>Add Trails</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
@@ -33,18 +33,19 @@
                         </span>
                     </div>
                     <div id="navbarMenuHeroC" class="navbar-menu">
-                        <div class="navbar-end over-img">
-                            <a class="navbar-item over-img" id="menu-nav">
-                                Search Trails
+                        <div class="navbar-end">
+                            <a class="navbar-item over-img" id="menu-nav" href="/view-my-profile">
+                                My Profile
                             </a>
-                            <a class="navbar-item over-img" id="menu-nav" href="/search-all-guides">
-                                Search Guides
+                            <a class="navbar-item over-img" id="menu-nav" href="/add-trails">
+                                Add Trails
                             </a>
-                            <span class="navbar-item ">
-                                <a class="button is-success nav-app-button green-back" href="/signup">
-                                    Become a Guide
+                            <span class="navbar-item" id="button">
+                                <a class="button is-success nav-app-button green-back" href="/logout">
+                                    Log Out
                                 </a>
                             </span>
+                           
                         </div>
                     </div>
                 <!-- </div> -->
@@ -55,15 +56,11 @@
             <div class="container has-text-centered">
                 <!-- TO DO: make "HELLO HIKER" title an image that matches logo -->
                 <h1 class="title logo-text-med green-color">
-                    HELLO, HIKER!
+                    ADD TRAILS
                 </h1>
-                <p class="title has-text-centered logo-sub green-color">
-                    Where are you going?
-                </p>
             </div>
         </div>
     </section>
-    
     <!-- TO DO: add some sotr of guiding text/inviting text for users to search trails and their guides? some kind of text -->
     <section class="hero is-fullheight">
         <div class="hero-head land-image2">
@@ -86,7 +83,9 @@
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="../js/visitor/trail-search.js"></script>
+    <!-- needs to js for having trails they can interact with and add to their services -->
+    <!-- or whatever we eventually decide for this feature -->
+    <script src="../js/guide/add-trails.js"></script>
     <script src="../js/hamburger.js"></script>
 
 </body>
