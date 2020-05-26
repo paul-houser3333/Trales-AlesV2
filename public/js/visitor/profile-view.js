@@ -12,7 +12,7 @@ $(document).ready(function () {
     let theMap;
     let trailArray;
 
-    let guideId = window.sessionStorage.getItem("guide-id");
+    let guideId = window.sessionStorage.getItem("guideid");
     console.log(guideId);
 
     // MAKE API CALL TO GET A USER WITH ID PASSED IN QUERY PARAMETER
