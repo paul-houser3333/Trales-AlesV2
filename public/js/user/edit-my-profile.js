@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         //grabs state from data location by selecting all characters after comma and space
         const state = data.location.match(/[^,\s]+$/g);
-        selectElement("#state-input", state)
+        selectElement("#state-input", state);
 
         //selects option from input list
         function selectElement(id, optionVal) {
@@ -32,13 +32,14 @@ $(document).ready(function () {
     $("button#save-button").on("click", event => {
         event.preventDefault();
         console.log($("#get-currentImage").attr("src"));
+        let newState = $("#state-input").val();
 
         let guideData = {
             first_name: $("#first-name-input").val(),
             last_name: $("#last-name-input").val(),
             username: $("#username-input").val(),
             email: $("#get-email").val(),
-            location: $("#city-input").val(),
+            location: $("#city-input").val() + ", " + newState,
             guide_icon: $("#get-currentImage").attr("src"),
             bio: $("#get-bio").val(),
             credentials: $("#get-credentials").val(),
