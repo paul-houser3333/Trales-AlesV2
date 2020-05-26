@@ -12,7 +12,6 @@ $(document).ready(function () {
 
     $.get(`/api/trailguides/${apiId}`)
         .then(function (data) {
-            console.log(data);
 
             for (let i = 0; i < data.users.length; i++) {
                 let guideCard = `                
