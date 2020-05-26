@@ -261,6 +261,10 @@ body {
     background-color: transparent;
 }
 
+.unbutton:focus {
+    outline: none !important;
+}
+
 .trail-name{
     font-size: 18px;
     font-family: "'Open Sans', sans-serif" !important;
