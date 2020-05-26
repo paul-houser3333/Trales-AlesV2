@@ -64,7 +64,13 @@ module.exports = function (app) {
     }
   });
 
-  // THIS ROUTE CAN BE DELETED IF NOT USED ANYWHERE
+  // Route for logging user out
+  app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+    console.log("logged out");
+  });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/guide_data", function (req, res) {
     if (!req.user) {
@@ -153,11 +159,11 @@ module.exports = function (app) {
 
 
   
-  // app.delete('/api/deleteprofile/:id', function(req, res) {
-  //   db.User.destroy({ 
-  //     where: { user_id: req.params.id } })
-  //   .then(user => res.json(user));
-  // });
+  app.delete("/api/deleteprofile/", function(req, res) {
+    db.User.destroy({ 
+      where: { user_id: req.user.user_id } })
+    .then(user => res.json(user));
+  });
 
 
   

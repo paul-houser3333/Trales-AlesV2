@@ -120,7 +120,11 @@ $(document).ready(function () {
                     // let trailLat = selectedTrail.latitude;
                     // let trailLon = selectedTrail.longitude;
 
+<<<<<<< HEAD:public/js/user/add-trails.js
                     $("body").off().on("click","button.add-trail", event => {
+=======
+                    $("body").off().on("click", "button#add-trail", event => {
+>>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6:public/js/user/trail-search.js
                         event.preventDefault();
                         let apiId = $("button.add-trail").data("id");
                         let trailName = $("button.add-trail").data("name");
