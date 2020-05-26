@@ -305,6 +305,10 @@ body {
     text-shadow: 0 !important;
 }
 
+.bigger {
+    font-size: 0.9rem !important;
+}
+
 .leaflet-popup-content-wrapper {
     width: 300px;
 }

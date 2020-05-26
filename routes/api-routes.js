@@ -124,7 +124,10 @@ module.exports = function (app) {
       const allGuides = await db.Guide.findAll({
         include: {
           model: db.Trail, as: 'trails'
-        }
+        },
+        order: [
+          ["first_name", "ASC"]
+        ]
       })
         .then(data => {
           res.send(data);

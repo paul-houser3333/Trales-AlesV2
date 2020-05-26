@@ -108,18 +108,18 @@ $(document).ready(function () {
                         .then(function (data) {
                             let trailTemplate = checkid(selectedTrail, data)
                             function checkid(selectedTrail, usertrails) {
-                                
+
                                 if (usertrails.trails) {
                                     for (let i = 0; i < usertrails.trails.length; i++) {
-                                        
+
                                         if (selectedTrail.id == usertrails.trails[i].api_trail_id) {
                                             return `
-                                    <b class="trail-name">${selectedTrail.name}</b>
-                                    <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
-                                    <img src="${image}">
-                                    <p>${trailSummary}</p>
-                                    <p data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class=" is-success ">Trail Added</p>
-                                    `;
+                                            <b class="trail-name">${selectedTrail.name}</b>
+                                            <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
+                                            <img src="${image}">
+                                            <p>${trailSummary}</p>
+                                            <p class="green-color bigger">This trail has already been added!</p>
+                                            `;
                                         }
                                     }
                                 }
