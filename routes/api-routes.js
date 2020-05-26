@@ -96,6 +96,7 @@ module.exports = function (app) {
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
+    console.log("logged out");
   });
 
   // Route for getting some data about our user to be used client side
@@ -112,7 +113,7 @@ module.exports = function (app) {
         username: req.user.username,
         email: req.user.email,
         location: req.user.location,
-        imgURL: req.user.guide_icon,
+        guide_icon: req.user.guide_icon,
         bio: req.user.bio,
         credentials: req.user.credentials,
         services: req.user.services
@@ -182,6 +183,34 @@ module.exports = function (app) {
       next(error);
     }
   });
+
+
+  
+  app.delete("/api/deleteprofile/", function(req, res) {
+    db.User.destroy({ 
+      where: { user_id: req.user.user_id } })
+    .then(user => res.json(user));
+  });
+
+
+  
+  app.put("/api/updateprofile", function(req, res) {
+    db.User.update(req.body,
+      {
+        where: {
+          user_id: req.user.user_id 
+        }
+      })
+      .then(function(dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+
+
+
+
+  
 
   // app.get("/api/guides", function (req, res) {
   // sequelize method for selecting all in users table

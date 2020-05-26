@@ -22,15 +22,16 @@ $(document).ready(function () {
                                         ${data[i].first_name}
                                     </h1>
                                     <p class="text-location">${data[i].location}</p>
-                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small" id="${data[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small card-button" id="${data[i].user_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     `;
                     // console.log(`${data[i].user_id}`)
-                    $("body").off().on("click", event => {
+                    $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
+                        console.log("hey dickhead");
                         let userId = parseInt(event.target.id);
                         console.log(userId);
                         window.sessionStorage.setItem("guideid", userId);
