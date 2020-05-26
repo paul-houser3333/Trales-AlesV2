@@ -61,38 +61,31 @@ $(document).ready(function () {
         });
     });
 
-    $("button#delete-button").on("click", event => {
+    let deleteModal = document.getElementById("confirm-delete-modal");
+    $(".delete-profile").on("click", event => {
         event.preventDefault();
-        if (window.confirm("Uh oh! It looks you're about to take this one off the map. Is this really what you want to do?")) {
+        // confirm delete modal
+        deleteModal.style.display = "block";
 
-            // $.delete = function(url, data, callback, type){
-
-            //     if ( $.isFunction(data) ){
-            //       type = type || callback,
-            //           callback = data,
-            //           data = {}
-            //     }
-
-            //     return $.ajax({
-            //       url: url,
-            //       type: 'DELETE',
-            //       success: callback,
-            //       data: data,
-            //       contentType: type
-            //     });
-            //   }
-
-            $.ajax({
-                url: "/api/delete-profile",
-                type: "DELETE"
-            })
-                .then(function () {
-                    $.get("/logout")
-                        .then(function () {
-                            location.reload();
-                        });
+        // When the user clicks anywhere outside of the modal or on the "x" button
+        $("body").on("click", event => {
+            event.preventDefault();
+            if (event.target == deleteModal || event.target.id === "close-modal" || event.target.id === "closeToo") {
+                deleteModal.style.display = "none";
+            } else if (event.target.id === "deleteBtn") {
+                $.ajax({
+                    url: "/api/delete-profile",
+                    type: "DELETE"
+                })
+                    .then(function () {
+                        $.get("/logout")
+                            .then(function () {
+                                location.reload();
+                    });
                 });
-        };
+            }
+        })
 
     });
+
 });

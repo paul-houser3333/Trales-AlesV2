@@ -126,7 +126,8 @@ $(document).ready(function () {
                             opacity: 0.75,
                             
                           }, 200, function() {
-                            $("button.add-trail").text("trail added!")
+                            $("button.add-trail").text("Trail Added!");
+                            $("button.add-trail").removeClass("green-back").addClass("purple-back");
                           });
                         let apiId = $("button.add-trail").data("id");
                         let trailName = $("button.add-trail").data("name");
@@ -143,7 +144,6 @@ $(document).ready(function () {
                             latitude: trailLat,
                             longitude: trailLon
                         })
-                        // change button text/color, or make modal or reveal hidden div that hides after 2 secs, or delete alert if no time?
                         .then(function(){
                            
                         })
@@ -156,8 +156,3 @@ $(document).ready(function () {
         };
     };
 });
-
-// addTrail.on("click", function (event) {
-//     event.preventDefault();
-//     console.log("hey dickhead");
-// });
