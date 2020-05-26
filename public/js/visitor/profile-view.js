@@ -32,7 +32,7 @@ $(document).ready(function () {
     }).addTo(theMap);
     // map icon 
     trailIcon = L.icon({
-        iconUrl: "assets/hiker-pin-green.png",
+        iconUrl: "assets/greenhiker.png",
         iconSize: [20, 39.7],
         iconAnchor: [10, 39.7],
         popupAnchor: [-9, -39.7]
@@ -62,7 +62,7 @@ $(document).ready(function () {
             <b class="trail-name">${data.trails[i].trail_name}</b>
             `;
             let marker = L.marker([data.trails[i].latitude, data.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
-            marker.bindPopup(trailTemplate).openPopup();
+            marker.bindPopup(trailTemplate);
             trailArray.push(marker);
         };
     });
