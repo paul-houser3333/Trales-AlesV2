@@ -109,7 +109,7 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
+                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success is-small popup-button">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
@@ -120,11 +120,7 @@ $(document).ready(function () {
                     // let trailLat = selectedTrail.latitude;
                     // let trailLon = selectedTrail.longitude;
 
-<<<<<<< HEAD:public/js/user/add-trails.js
                     $("body").off().on("click","button.add-trail", event => {
-=======
-                    $("body").off().on("click", "button#add-trail", event => {
->>>>>>> 1b6eef61e220cd319bde7383ee0b4e7fd159a8c6:public/js/user/trail-search.js
                         event.preventDefault();
                         let apiId = $("button.add-trail").data("id");
                         let trailName = $("button.add-trail").data("name");

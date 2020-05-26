@@ -64,11 +64,9 @@ module.exports = function (app) {
     }
   });
 
-  // Route for logging user out
-  app.get("/logout", function (req, res) {
+  app.get("/delete", function (req, res) {
     req.logout();
     res.redirect("/");
-    console.log("logged out");
   });
 
   // Route for getting some data about our user to be used client side
@@ -159,25 +157,23 @@ module.exports = function (app) {
 
 
   
-  app.delete("/api/deleteprofile/", function(req, res) {
-    db.User.destroy({ 
-      where: { user_id: req.user.user_id } })
-    .then(user => res.json(user));
+  app.delete("/api/delete-profile/", function(req, res) {
+    db.Guide.destroy({ 
+      where: { guide_id: req.user.guide_id } })
+    .then(guide => res.json(guide));
   });
 
-
-  
-  // app.put("/api/updateprofile", function(req, res) {
-  //   db.User.update(req.body,
-  //     {
-  //       where: {
-  //         user_id: req.user.guide_id 
-  //       }
-  //     })
-  //     .then(function(dbUser) {
-  //       res.json(dbUser);
-  //     });
-  // });
+  app.put("/api/update-profile", function(req, res) {
+    db.Guide.update(req.body,
+      {
+        where: {
+          guide_id: req.user.guide_id 
+        }
+      })
+      .then(function(dbGuide) {
+        res.json(dbGuide);
+      });
+  });
 
 
 

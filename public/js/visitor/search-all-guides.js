@@ -31,7 +31,6 @@ $(document).ready(function () {
                     // console.log(`${data[i].user_id}`)
                     $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
-                        console.log("hey dickhead");
                         let guideId = parseInt(event.target.id);
                         console.log(guideId);
                         window.sessionStorage.setItem("guideid", guideId);

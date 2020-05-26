@@ -2,7 +2,7 @@ $(document).ready(function () {
     let firstNameEl = $(".get-firstName");
     let firstNameUpEl = $(".get-firstNameUp");
     let lastNameEl = $(".get-lastName");
-    let imgEl = $("#get-image");
+    let iconEl = $("#get-image");
     let locationEl = $("#get-location");
     let bioEl = $("#get-bio");
     let credentialsEl = $("#get-credentials");
@@ -40,7 +40,7 @@ $(document).ready(function () {
         firstNameEl.text(firstName);
         firstNameUpEl.text(firstName.toUpperCase());
         lastNameEl.text(data.last_name);
-        imgEl.attr("src", data.guide_icon);
+        iconEl.attr("src", data.guide_icon);
         locationEl.text(data.location);
         bioEl.text(data.bio);
         credentialsEl.text(data.credentials);
