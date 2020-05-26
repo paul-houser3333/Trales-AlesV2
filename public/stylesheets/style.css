@@ -223,7 +223,7 @@ body {
 
 .prof-light {
     padding-bottom: 0.75rem;
-    color: rgb(104, 104, 104);
+    color: rgb(122, 122, 122);
 }
 
 /* BOTH TRAIL-SEARCH/ADD-TRAILS HTMLS */
@@ -296,6 +296,11 @@ body {
         margin: 0 auto;
         width: 95%;
     }
+}
+
+.description {
+    color: rgb(122, 122, 122);
+    font-style: italic;
 }
 
 .modal {

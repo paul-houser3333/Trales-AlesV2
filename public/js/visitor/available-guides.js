@@ -21,8 +21,8 @@ $(document).ready(function () {
                     <div class="column">
                         <div class="card" id="guide-card">
                             <div class="card-image">
-                                <figure class="image is-256x256" id="image-wrapper">
-                                    <img class="is-rounded prof-image" src="${data.guides[i].guide_icon}">
+                                <figure class="image" id="image-wrapper">
+                                    <img class="is-rounded prof-img" src="${data.guides[i].guide_icon}">
                                 </figure>
                             </div>
                             <div class="card-content">

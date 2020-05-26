@@ -26,7 +26,7 @@ $(document).ready(function () {
       username: usernameInput.val().trim(),
       email: emailInput.val().trim(),
       location: cityInput.val().trim() + ", " + stateSelect.val(),
-      imgURL: imageUrlInput.val().trim(),
+      // imgURL: imageUrlInput.val().trim(),
       bio: bioInput.val().trim(),
       credentials: credentialsInput.val().trim(),
       services: servicesInput.val().trim(),
