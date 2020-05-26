@@ -21,6 +21,7 @@ $(document).ready(function () {
                                     <h1 class="purple-color logo-text-prof card-name">
                                         ${data[i].first_name}
                                     </h1>
+                                    <p class="text-location logo-text-prof green-color" id="card-username">-${data[i].username}-</p>
                                     <p class="text-location">${data[i].location}</p>
                                     <button data-guideid="${data[i].guide_id}" class="button is-success green-back app-button card-button" id="${data[i].guide_id}">Visit Profile</button>
                                 </div>

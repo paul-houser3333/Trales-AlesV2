@@ -30,6 +30,7 @@ $(document).ready(function () {
                                     <h1 class="purple-color logo-text-prof card-name">
                                         ${data.guides[i].first_name}
                                     </h1>
+                                    <p class="text-location logo-text-prof green-color" id="card-username">-${data.guides[i].username}-</p>
                                     <p class="text-location">${data.guides[i].location}</p>
                                     <button data-guideid="${data.guides[i].guide_id}" class="button is-success green-back app-button card-button" id="${data.guides[i].guide_id}">View Profile</button>
                                 </div>

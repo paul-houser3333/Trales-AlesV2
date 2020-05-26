@@ -162,11 +162,14 @@ body {
     margin-bottom: 0.5rem !important;
 }
 
+#card-username {
+    margin-bottom: 0rem;
+}
+
 /* BOTH VIEW-PROFILE HTMLS */
 /* _____________________________________________________________________________________________________________ */
 .prof-img {
     position: relative;
-    width: 100%;
     border: solid;
     border-color: rgb(125, 195, 59);
     background-color: white;
@@ -174,6 +177,7 @@ body {
 }
 
 #image-wrapper {
+    width: 85%;
     margin: 0 auto;
 }
 
