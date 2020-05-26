@@ -72,7 +72,8 @@
 
                 <div class="column is-one-third content-wrapper has-text-centered">
 
-                    <button class="button is-success app-button green-back" onclick="showUploadWidget()">EDIT IMAGE</button>
+                    <button class="button is-success app-button green-back" onclick="showUploadWidget()">EDIT
+                        IMAGE</button>
                     <figure class="image is-256x256" id="image-wrapper">
                         <img class="is-rounded prof-img" id="get-currentImage" src="">
                     </figure>
@@ -80,25 +81,29 @@
                         <div class="field">
                             <label class="label">First Name</label>
                             <div class="control">
-                                <input class="input" type="text" id="first-name-input" placeholder="First Name" value="Current first name">
+                                <input class="input" type="text" id="first-name-input" placeholder="First Name"
+                                    value="Current first name">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">Last Name</label>
                             <div class="control">
-                                <input class="input" type="text" id="last-name-input" placeholder="Last Name" value="Current last name">
+                                <input class="input" type="text" id="last-name-input" placeholder="Last Name"
+                                    value="Current last name">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">Username</label>
                             <div class="control">
-                                <input class="input" type="text" id="username-input" placeholder="Username" value="Current username">
+                                <input class="input" type="text" id="username-input" placeholder="Username"
+                                    value="Current username">
                             </div>
                         </div>
                         <label class="label">Location</label>
                         <div class="field has-addons">
                             <div class="control">
-                                <input class="input" type="text" id="city-input" placeholder="City" value="Current city name" name="city">
+                                <input class="input" type="text" id="city-input" placeholder="City"
+                                    value="Current city name" name="city">
                             </div>
                             <div class="control">
                                 <div class="select is-fullwidth">
@@ -166,47 +171,48 @@
                     <h1 class="logo-text-prof purple-color">ABOUT ME</h1>
                     <div class="field">
                         <div class="control">
-                            <textarea class="textarea" id="get-bio" name="bio"value=""></textarea>
+                            <textarea class="textarea" id="get-bio" name="bio" value=""></textarea>
                         </div>
                     </div>
                     <h1 class="logo-text-prof purple-color">CREDENTIALS</h1>
                     <div class="field">
                         <div class="control">
-                            <textarea class="textarea" id="get-credentials" name="creds"value=""></textarea>
+                            <textarea class="textarea" id="get-credentials" name="creds" value=""></textarea>
                         </div>
                     </div>
                     <h1 class="logo-text-prof purple-color">SERVICES OFFERED</h1>
                     <div class="field">
                         <div class="control">
-                            <textarea class="textarea" id="get-services" name="services"value=""></textarea>
+                            <textarea class="textarea" id="get-services" name="services" value=""></textarea>
                         </div>
                     </div>
                     <button class="button is-success app-button green-back" id="save-button">
                         Save Changes
                     </button>
-                    <button class="button is-success app-button" id="delete-button">
+                    <button class="button is-success app-button delete-profile" id="delete-button">
                         Delete Profile
                     </button>
+
+                    <div id="confirm-delete-modal" class="modal">
+                        <form class="modal-content">
+                            <span id="close-modal">&times;</span>
+                            <div class="container">
+                                <h1 class="logo-text-prof green-color">Delete Account?</h1>
+                                <p class="text-location">Are you sure you want to delete your account?</p>
+                                <br>
+                                <div class="button-options">
+                                    <button type="button" class="button is-success green-back app-button cancel-button" id="closeToo">Cancel</button>
+                                    <button type="button" class="button is-success app-button modal-delete-button delete-modal" id="deleteBtn">Delete</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <br>
     <br>
-    <!-- eventually, have map here iwth trails having "remove" buttons that will remove that will unassociate that trail from that user on click -->
-    <!-- <br>
-    <section class="hero is-fullheight">
-        <div class="hero-head">
-        </div>
-
-        <div class="hero-body" id="map-content">
-
-        </div>
-
-    </section> -->
-    <!-- scripts -->
-
-
     <script type="text/javascript">
         function showUploadWidget() {
             cloudinary.openUploadWidget({
@@ -221,7 +227,7 @@
                     "shutterstock"
                 ],
                 showAdvancedOptions: false,
-                cropping: true,
+                cropping: false,
                 multiple: false,
                 defaultSource: "local",
                 styles: {
@@ -253,7 +259,7 @@
                         if (info && info.event && info.event === "queues-end") {
                             console.log("this is the image url: " + info.info.files[0].uploadInfo.url);
                             $("#get-currentImage").attr("src", info.info.files[0].uploadInfo.url);
-                            console.log($("#get-image").attr("src"));
+                            console.log($("#get-currentImage").attr("src"));
                             // ajax call to update just picture url in user table beloning to  (id of user logged on)
                         }
 

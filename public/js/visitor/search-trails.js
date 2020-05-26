@@ -79,7 +79,7 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (response) {
                 trailIcon = L.icon({
-                    iconUrl: "assets/hiker-pin-green.png",
+                    iconUrl: "assets/greenhiker.png",
                     iconSize: [20, 39.7],
                     iconAnchor: [10, 39.7],
                     popupAnchor: [-9, -39.7]
@@ -94,7 +94,7 @@ $(document).ready(function () {
                         image = selectedTrail.imgSmall;
                     }
                     else {
-                        image = "https://via.placeholder.com/150"
+                        image = "https://image.flaticon.com/icons/png/512/184/184977.png"
                     }
                     //sets description to empty string if api summary is "needs summary" or "needs adoption"
                     if (selectedTrail.summary.trim() !== "Needs Summary" && selectedTrail.summary !== "Needs Adoption!" && selectedTrail.summary !== "This trail could use a short summary!" && selectedTrail.summary !== "Needs Adoption") {
@@ -103,19 +103,39 @@ $(document).ready(function () {
                     else {
                         trailSummary = ""
                     }
-                    let trailTemplate =
-                        `
-                        <b class="trail-name">${selectedTrail.name}</b>
-                        <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
-                        <img src="${image}">
-                        <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" class="find-guide button is-success green-back app-button" id="${selectedTrail.id}">Find Guides</button>
-                        `;
-                    let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
-                    marker.bindPopup(trailTemplate).openPopup();
-                    trailArray.push(marker);
 
-                    // guide count
+                    let trailTemplate;
+
+                    $.get(`/api/available-guides/${selectedTrail.id}`)
+                        .then(function (data) {
+
+                            if (!data.guides || data.guides && data.guides.length === 0) {
+                                trailTemplate =
+                                    `
+                                <b class="trail-name">${selectedTrail.name}</b>
+                                <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
+                                <img src="${image}">
+                                <p>${trailSummary}</p>
+                                <p class="green-color">There are currently no guides available for this trail. You should join us!</p>
+            
+                                `;
+                                // <button class="button is-success green-back app-button" href="/signup">Sign Up</button>
+                            } else {
+                                trailTemplate =
+                                    `
+                                <b class="trail-name">${selectedTrail.name}</b>
+                                <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
+                                <img src="${image}">
+                                <p>${trailSummary}</p>
+                                <button data-id="${selectedTrail.id}" class="find-guide button is-success green-back app-button" id="${selectedTrail.id}">Find Guides</button>
+                                `;
+                            }
+
+                            let marker = L.marker([selectedTrail.latitude, selectedTrail.longitude], { icon: trailIcon }).addTo(theMap);
+                            marker.bindPopup(trailTemplate);
+                            trailArray.push(marker);
+                        });
+
                     $("body").off().on("click", "button.find-guide", event => {
                         event.preventDefault();
                         // let apiId = $("button#find-guide").data("id");

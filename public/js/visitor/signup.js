@@ -12,9 +12,7 @@ $(document).ready(function () {
   // let credentialsInput = $("textarea#credentials-input");
   // let servicesInput = $("textarea#services-input");
   let passwordInput = $("input#password-input");
-  let modal = document.getElementById("error-modal");
-  let span = document.getElementById("close-modal");
-  let errorMessage = $("#error-message");
+ 
   
 
   // When the signup button is clicked, we validate the email and password are not blank
@@ -74,6 +72,10 @@ $(document).ready(function () {
       .catch(handleLoginErr);
   }
 
+  let modal = document.getElementById("error-modal");
+  let span = document.getElementById("close-modal");
+  let errorMessage = $("#error-message");
+  
   handleLoginErr = err => {
     console.log(err);
     errorMessage.text("It looks like something went wrong. Please try again! (Hints: You may not have filled out all the required fields. Your email address may not be unique.");
