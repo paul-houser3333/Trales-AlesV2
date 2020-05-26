@@ -79,7 +79,7 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (response) {
                 trailIcon = L.icon({
-                    iconUrl: "assets/hiker-pin-green.png",
+                    iconUrl: "assets/greenhiker.png",
                     iconSize: [20, 39.7],
                     iconAnchor: [10, 39.7],
                     popupAnchor: [-9, -39.7]
@@ -112,7 +112,7 @@ $(document).ready(function () {
                         <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success green-back app-button">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
-                    marker.bindPopup(trailTemplate).openPopup();
+                    marker.bindPopup(trailTemplate);
                     trailArray.push(marker);
 
                     // let apiId = selectedTrail.id;
@@ -122,6 +122,13 @@ $(document).ready(function () {
 
                     $("body").off().on("click","button.add-trail", event => {
                         event.preventDefault();
+                        $("button.add-trail").animate({
+                            opacity: 0.75,
+                            
+                          }, 200, function() {
+                            $("button.add-trail").text("Trail Added!");
+                            $("button.add-trail").removeClass("green-back").addClass("purple-back");
+                          });
                         let apiId = $("button.add-trail").data("id");
                         let trailName = $("button.add-trail").data("name");
                         let trailLat = $("button.add-trail").data("lat");
@@ -137,8 +144,9 @@ $(document).ready(function () {
                             latitude: trailLat,
                             longitude: trailLon
                         })
-                        // change button text/color, or make modal or reveal hidden div that hides after 2 secs, or delete alert if no time?
-                        .then(alert(`Successfully added ${trailName} to your trails!`))
+                        .then(function(){
+                           
+                        })
                         .catch(function(err) {
                             console.log(err);
                         })
@@ -148,8 +156,3 @@ $(document).ready(function () {
         };
     };
 });
-
-// addTrail.on("click", function (event) {
-//     event.preventDefault();
-//     console.log("hey dickhead");
-// });

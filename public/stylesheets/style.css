@@ -150,7 +150,7 @@ body {
 /* _____________________________________________________________________________________________________________ */
 
 #guide-card {
-    width: fit-content;
+    width: 25rem;
     padding: 2rem 2rem 1rem 2rem;
     box-shadow: 5px 10px 18px #888888;
     border-radius: 5rem;
@@ -341,6 +341,10 @@ form.signup {
     width: 90%;
 }
 
+/* MODALS ON VARIOUS HTMLS */
+/* _____________________________________________________________________________________________________________ */
+
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -356,29 +360,37 @@ form.signup {
   
 /* Modal Content/Box */
 .modal-content {
-background-color: #fefefe;
-border-radius: 5rem;
-margin: 15% auto; /* 15% from the top and centered */
-padding: 3rem;
-border: 0.05rem solid rgba(5, 5, 5, 0.335);
-width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #fefefe;
+    border-radius: 5rem;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 3rem 4rem 3rem 4rem;
+    border: 0.05rem solid rgba(5, 5, 5, 0.335);
+    width: 80%; /* Could be more or less, depending on screen size */
 }
 
-#error-message {
-    width: 90%;
+
+#deleteBtn {
+    background-color: rgb(98, 75, 136);
+}
+
+
+#deleteBtn:hover {
+    background-color: rgb(255, 1, 1) !important;
 }
   
 /* The Close Button */
 #close-modal {
-color: rgba(0, 0, 0, 0.438);
-float: right;
-font-size: 3rem;
-font-weight: bold;
+    position: absolute;
+    top: 1rem;
+    right: 2.5rem;
+    color: rgba(0, 0, 0, 0.438);
+    font-size: 3rem;
+    font-weight: bold;
 }
   
 #close-modal:hover,
 #close-modal:focus {
-color: black;
-text-decoration: none;
-cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
