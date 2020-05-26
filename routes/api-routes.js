@@ -31,7 +31,7 @@ module.exports = function (app) {
       username: req.body.username,
       email: req.body.email,
       location: req.body.location,
-      guide_icon: req.body.imgURL,
+      guide_icon: req.body.guideIcon,
       bio: req.body.bio,
       credentials: req.body.credentials,
       services: req.body.services,
@@ -80,7 +80,7 @@ module.exports = function (app) {
         username: req.user.username,
         email: req.user.email,
         location: req.user.location,
-        imgURL: req.user.guide_icon,
+        guideIcon: req.user.guide_icon,
         bio: req.user.bio,
         credentials: req.user.credentials,
         services: req.user.services
@@ -104,10 +104,10 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/api/available-guides/:id", async (req, res, next) => {
+  app.get("/api/available-guides/:trailId", async (req, res, next) => {
     try {
       const availableGuides = await db.Trail.findOne({
-        where: { api_trail_id:  req.params.id},
+        where: { api_trail_id:  req.params.trailId},
         include: {
           model: db.Guide, as: 'guides'
         }
@@ -153,25 +153,25 @@ module.exports = function (app) {
 
 
   
-  app.delete('/api/deleteprofile/:id', function(req, res) {
-    db.User.destroy({ 
-      where: { user_id: req.params.id } })
-    .then(user => res.json(user));
-  });
+  // app.delete('/api/deleteprofile/:id', function(req, res) {
+  //   db.User.destroy({ 
+  //     where: { user_id: req.params.id } })
+  //   .then(user => res.json(user));
+  // });
 
 
   
-  app.put("/api/updateprofile", function(req, res) {
-    db.User.update(req.body,
-      {
-        where: {
-          user_id: req.user.user_id 
-        }
-      })
-      .then(function(dbUser) {
-        res.json(dbUser);
-      });
-  });
+  // app.put("/api/updateprofile", function(req, res) {
+  //   db.User.update(req.body,
+  //     {
+  //       where: {
+  //         user_id: req.user.guide_id 
+  //       }
+  //     })
+  //     .then(function(dbUser) {
+  //       res.json(dbUser);
+  //     });
+  // });
 
 
 

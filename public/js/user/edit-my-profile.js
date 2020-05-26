@@ -14,7 +14,7 @@ $(document).ready(function () {
         //page forms are populated with database information
         $("#first-name-input").val(data.firstName);
         $("#last-name-input").val(data.lastName);
-        $("#get-image").attr("src", data.guide_icon);
+        $("#get-image").attr("src", data.guideIcon);
         $("#get-bio").val(data.bio);
         $("#get-credentials").val(data.credentials);
         $("#get-services").val(data.services);
