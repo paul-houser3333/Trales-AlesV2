@@ -62,7 +62,7 @@ $(document).ready(function () {
             <b class="trail-name">${data.trails[i].trail_name}</b>
             `;
             let marker = L.marker([data.trails[i].latitude, data.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
-            marker.bindPopup(trailTemplate).openPopup();
+            marker.bindPopup(trailTemplate);
             trailArray.push(marker);
         };
     });

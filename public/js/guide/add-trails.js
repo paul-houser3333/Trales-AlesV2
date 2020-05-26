@@ -112,7 +112,7 @@ $(document).ready(function () {
                         <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success green-back app-button">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
-                    marker.bindPopup(trailTemplate).openPopup();
+                    marker.bindPopup(trailTemplate);
                     trailArray.push(marker);
 
                     // let apiId = selectedTrail.id;
