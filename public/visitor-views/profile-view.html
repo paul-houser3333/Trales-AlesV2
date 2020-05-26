@@ -34,7 +34,7 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item over-img" href="/trail-search" id="menu-nav">
+                        <a class="navbar-item over-img" href="/search-trails" id="menu-nav">
                             Search Trails
                         </a>
                         <!-- add href for html route that dispays all guide alphabetically or by location in cards or list -->
@@ -54,9 +54,8 @@
 
         <div class="hero-body">
             <div class="container has-text-centered">
-                <!-- TO DO: make "WELCOME" title an image that matches logo -->
                 <h1 class="title logo-text-med green-color">
-                    GUIDE <span id="get-firstName"></span>
+                    GUIDE <span class="get-firstNameUp"></span>
                 </h1>
             </div>
         </div>
@@ -69,12 +68,13 @@
 
                 <div class="column is-one-third content-wrapper">
 
-                    <figure class="image is-256x256" id="image-wrapper">
+                    <figure class="image" id="image-wrapper">
                         <img class="is-rounded prof-img" id="get-image" src="">
                     </figure>
                     <div class="has-text-centered" id="basic-info">
-                        <h1 class="white-color logo-text-prof"><span class="get-firstNameUp"></span> <span
+                        <h1 class="white-color logo-text-prof"><span class="get-firstName"></span> <span
                                 class="get-lastName"></span></h1>
+                                <p class="text-location logo-text-prof green-color">-<span id="get-username"></span>-</p>
                         <p class="text-location" id="get-location"></p>
                         <p class="prof-light" id="get-email"></p>
                     </div>
@@ -95,8 +95,8 @@
     <br>
     <!-- HELP cant get map to render. I'm trying to pass the necessary JS from trail-search to get ONLY map to render (no noimatim or ajax calls, just a map) -->
     <section class="hero is-fullheight">
-        <div class="hero-head has-text-centered">
-            <h1 class="logo-text-prof green-color"><span class="get-firstName"></span>'s Guided Trails</h1>
+        <div class="hero-head has-text-centered border-topper">
+            <h1 class="logo-text-prof green-color" id="map-text-header"><span class="get-firstName"></span>'s Guided Trails</h1>
         </div>
 
         <div class="hero-body" id="map-content">

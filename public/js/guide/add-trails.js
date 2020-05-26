@@ -109,7 +109,7 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="button is-success is-small popup-button" id="add-trail">Add Trail</button>
+                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success green-back app-button">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
@@ -120,24 +120,24 @@ $(document).ready(function () {
                     // let trailLat = selectedTrail.latitude;
                     // let trailLon = selectedTrail.longitude;
 
-                    $("button#add-trail").off().on("click", event => {
+                    $("body").off().on("click","button.add-trail", event => {
                         event.preventDefault();
-                        let apiId = $("button#add-trail").data("id");
-                        let trailName = $("button#add-trail").data("name");
-                        let trailLat = $("button#add-trail").data("lat");
-                        let trailLon = $("button#add-trail").data("lon");
+                        let apiId = $("button.add-trail").data("id");
+                        let trailName = $("button.add-trail").data("name");
+                        let trailLat = $("button.add-trail").data("lat");
+                        let trailLon = $("button.add-trail").data("lon");
                         console.log(apiId, trailName, trailLat, trailLon);
                         addTrail(apiId, trailName, trailLat, trailLon);
                     });
                     addTrail = (apiId, trailName, trailLat, trailLon) => {
                         // console.log(apiId, trailName);
-                        $.post("/api/trailadd", {
-                            // userId: 1,
+                        $.post("/api/add-trail", {
                             apiTrailId: apiId,
                             trailName: trailName,
                             latitude: trailLat,
                             longitude: trailLon
                         })
+                        // change button text/color, or make modal or reveal hidden div that hides after 2 secs, or delete alert if no time?
                         .then(alert(`Successfully added ${trailName} to your trails!`))
                         .catch(function(err) {
                             console.log(err);
