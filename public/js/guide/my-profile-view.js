@@ -26,7 +26,7 @@ $(document).ready(function () {
     }).addTo(theMap);
     // map icon 
     trailIcon = L.icon({
-        iconUrl: "assets/hiker-pin-green.png",
+        iconUrl: "assets/greenhiker.png",
         iconSize: [20, 39.7],
         iconAnchor: [10, 39.7],
         popupAnchor: [-9, -39.7]
