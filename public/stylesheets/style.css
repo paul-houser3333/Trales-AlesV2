@@ -217,7 +217,7 @@ body {
 
 .logo-text-prof {
     font-family: 'Margarine', cursive;
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-shadow: -1.3px 1.3px black, -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
 }
 
@@ -227,8 +227,20 @@ body {
 }
 
 .prof-light {
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.85rem;
     color: rgb(122, 122, 122);
+}
+
+#map-text-header {
+    font-size: 2.5rem !important;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.border-topper {
+    border-top: solid  rgba(0, 0, 0, 0.315);
+    border-bottom: solid  rgba(0, 0, 0, 0.315);
+    box-shadow: 0.5px -2px 9px  rgba(0, 0, 0, 0.315);
+    border-width: 0.05rem;
 }
 
 /* EDIT PROFILE HTML */
