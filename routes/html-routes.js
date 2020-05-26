@@ -31,12 +31,15 @@ module.exports = function(app) {
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
     } else {
-      res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
+      res.sendFile(path.join(__dirname, "../public/visitor-views/search-trails.html"));
     }
   });
 
-  app.get("/trail-search", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/visitor-views/trail-search.html"));
+  app.get("/search-trails", function(req, res) {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/user-views/add-trails.html"));
+    }
+    res.sendFile(path.join(__dirname, "../public/visitor-views/search-trails.html"));
   });
 
   app.get("/profile-view", function(req, res) {
@@ -64,14 +67,14 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/view-my-profile", isAuthenticated, function(req, res) {
     if (!req.user) {
-      res.redirect("/signup");
+      res.redirect("/login");
     }
     res.sendFile(path.join(__dirname, "../public/user-views/profile-view.html"));
   });
  
   app.get("/edit-profile", function(req, res) {
     if (!req.user) {
-      res.redirect("/signup");
+      res.redirect("/login");
     }
     res.sendFile(path.join(__dirname, "../public/user-views/edit-profile.html"));
   });

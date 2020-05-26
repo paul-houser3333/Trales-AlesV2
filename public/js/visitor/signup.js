@@ -20,7 +20,7 @@ $(document).ready(function () {
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function (event) {
     event.preventDefault();
-    let userData = {
+    let guideData = {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
       username: usernameInput.val().trim(),
@@ -33,12 +33,12 @@ $(document).ready(function () {
       password: passwordInput.val().trim()
     };
 
-    if (!userData.firstName || !userData.username || !userData.email || !userData.password) {
+    if (!guideData.firstName || !guideData.email || !guideData.password) {
       handleLoginErr();
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.firstName, userData.lastName, userData.username, userData.email, userData.location, userData.imgURL, userData.bio, userData.credentials, userData.services, userData.password);
+    signUpUser(guideData.firstName, guideData.lastName, guideData.username, guideData.email, guideData.location, guideData.imgURL, guideData.bio, guideData.credentials, guideData.services, guideData.password);
     firstNameInput.val("");
     lastNameInput.val("");
     usernameInput.val("");

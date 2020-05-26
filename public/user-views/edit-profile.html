@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Profile</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Margarine&family=Open+Sans:wght@600&display=swap"
@@ -74,7 +74,7 @@
 
                     <button class="button is-success app-button green-back" onclick="showUploadWidget()">EDIT IMAGE</button>
                     <figure class="image is-256x256" id="image-wrapper">
-                        <img class="is-rounded prof-img" id="get-image" src="">
+                        <img class="is-rounded prof-img" id="get-currentImage" src="">
                     </figure>
                     <div class="has-text-centered" id="basic-info">
                         <div class="field">
@@ -181,8 +181,8 @@
                             <textarea class="textarea" id="get-services" name="services"value=""></textarea>
                         </div>
                     </div>
-                    <button class="button is-success app-button green-back" id="edit-button">
-                        Edit Profile
+                    <button class="button is-success app-button green-back" id="save-button">
+                        Save
                     </button>
                     <button class="button is-success app-button green-back" id="delete-button">
                         Delete Profile
@@ -250,7 +250,7 @@
                         // console.log("Upload Widget event - ", info);
                         if (info && info.event && info.event === "queues-end") {
                             console.log("this is the image url: " + info.info.files[0].uploadInfo.url);
-                            $("#get-image").attr("src", info.info.files[0].uploadInfo.url);
+                            $("#get-currentImage").attr("src", info.info.files[0].uploadInfo.url);
                             console.log($("#get-image").attr("src"));
                             // ajax call to update just picture url in user table beloning to  (id of user logged on)
                         }

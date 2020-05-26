@@ -2,7 +2,7 @@ $(document).ready(function () {
     let firstNameEl = $(".get-firstName");
     let firstNameUpEl = $(".get-firstNameUp");
     let lastNameEl = $(".get-lastName");
-    let imgEl = $("#get-image");
+    let iconEl = $("#get-image");
     let usernameEl = $("#get-username");
     let locationEl = $("#get-location");
     let bioEl = $("#get-bio");
@@ -12,8 +12,8 @@ $(document).ready(function () {
     let theMap;
     let trailArray;
 
-    let userId = window.sessionStorage.getItem("guideid");
-    console.log(userId);
+    let guideId = window.sessionStorage.getItem("guide-id");
+    console.log(guideId);
 
     // MAKE API CALL TO GET A USER WITH ID PASSED IN QUERY PARAMETER
     // testing with guide ID=1
@@ -39,13 +39,15 @@ $(document).ready(function () {
     });
 
     // PUT SERVER CALL HERE
-    $.get(`/api/guideprofile/${userId}`).then(function (data) {
+    $.get(`/api/guides/${guideId}`).then(function (data) {
         let firstName = data.first_name;
         console.log(data);
+
         trailArray = data.trails;
         firstNameEl.text(firstName);
-        lastNameEl.text(firstName.toUpperCase());
-        imgEl.attr("src", data.guide_icon);
+        firstNameUpEl.text(firstName.toUpperCase());
+        lastNameEl.text(data.last_name);
+        iconEl.attr("src", data.guide_icon);
         usernameEl.text(data.username);
         locationEl.text(data.location);
         bioEl.text(data.bio);
@@ -64,7 +66,4 @@ $(document).ready(function () {
             trailArray.push(marker);
         };
     });
-
-    // or here?
-
 });
