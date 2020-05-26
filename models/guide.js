@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
-    const User = sequelize.define("User", {
-        user_id: {
+    const Guide = sequelize.define("Guide", {
+        guide_id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
@@ -55,23 +55,23 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     // Creating a custom method for our guide model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
-    User.prototype.validPassword = function (password) {
+    Guide.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
     };
     // Hooks are automatic methods that run during various phases of the guide Model lifecycle
     // In this case, before a guide is created, we will automatically hash their password
-    User.addHook("beforeCreate", function (user) {
-        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    Guide.addHook("beforeCreate", function (guide) {
+        guide.password = bcrypt.hashSync(guide.password, bcrypt.genSaltSync(10), null);
     });
 
-    User.associate = function(models) {
-        User.belongsToMany(models.Trail, {
-            through: "trail_user",
+    Guide.associate = function(models) {
+        Guide.belongsToMany(models.Trail, {
+            through: "trail_guide",
             as: "trails",
-            foreignKey: "user_id",
+            foreignKey: "guide_id",
             // defaultValue: 1
         });
     };
 
-    return User;
+    return Guide;
 };

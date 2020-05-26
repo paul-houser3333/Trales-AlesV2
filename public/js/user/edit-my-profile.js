@@ -1,19 +1,6 @@
 $(document).ready(function () {
-<<<<<<< HEAD
-    let firstNameInput = $("#first-name-input");
-    let lastNameInput = $("#last-name-input");
-    let imgDisplay = $("#get-image");
-    let locationEl = $("#get-location");
-    let bioEl = $("#get-bio");
-    let credentialsEl = $("#get-credentials");
-    let servicesEl = $("#get-services");
-    let emailEl = $("#get-email");
 
-    // ajax call to get user data and prepopulate the profile with current user data
-    // click event on edit button that will make a second ajax call to update all user data based on changes in the form
-=======
-
-    $.get("/api/user_data").then(function (data) {
+    $.get("/api/guide_data").then(function (data) {
 
         //grabs state from data location by selecting all characters after comma and space
         const state = data.location.match(/[^,\s]+$/g);
@@ -37,5 +24,4 @@ $(document).ready(function () {
 
         // click event on edit button that will make a second ajax call to update all user data based on changes in the form
     });
->>>>>>> 1eac5869f6daf7c5ea0531627d086e85062cca12
 });

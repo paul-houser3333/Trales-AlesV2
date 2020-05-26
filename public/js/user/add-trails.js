@@ -101,7 +101,7 @@ $(document).ready(function () {
                         trailSummary = selectedTrail.summary;
                     }
                     else {
-                        trailSummary = ""
+                        trailSummary = "";
                     }
                     let trailTemplate =
                         `
@@ -109,26 +109,47 @@ $(document).ready(function () {
                         <h4>Difficulty: ${selectedTrail.difficulty} | Rating: ${selectedTrail.stars}</h4>
                         <img src="${image}">
                         <p>${trailSummary}</p>
-                        <button data-id="${selectedTrail.id}" class="find-guide button is-success green-back app-button" id="${selectedTrail.id}">Guides for this Trail</button>
+                        <button data-id="${selectedTrail.id}" data-name="${selectedTrail.name}" data-lat="${selectedTrail.latitude}" data-lon="${selectedTrail.longitude}" class="add-trail button is-success is-small popup-button">Add Trail</button>
                         `;
                     let marker = L.marker([response.trails[i].latitude, response.trails[i].longitude], { icon: trailIcon }).addTo(theMap);
                     marker.bindPopup(trailTemplate).openPopup();
                     trailArray.push(marker);
 
-                    // guide count
-                    $("button#find-guide").off().on("click", event => {
-                        event.preventDefault();
-                        // let apiId = $("button#find-guide").data("id");
-                        let apiId = parseInt(event.target.id);
-                        sessionStorage.setItem("trail-id", apiId);
-                        console.log(apiId);
-                        window.location = "/available-guides";
-                        // findGuide(apiId);
-                    });
+                    // let apiId = selectedTrail.id;
+                    // let trailName = selectedTrail.name;
+                    // let trailLat = selectedTrail.latitude;
+                    // let trailLon = selectedTrail.longitude;
 
-                }
+                    $("body").off().on("click","button.add-trail", event => {
+                        event.preventDefault();
+                        let apiId = $("button.add-trail").data("id");
+                        let trailName = $("button.add-trail").data("name");
+                        let trailLat = $("button.add-trail").data("lat");
+                        let trailLon = $("button.add-trail").data("lon");
+                        console.log(apiId, trailName, trailLat, trailLon);
+                        addTrail(apiId, trailName, trailLat, trailLon);
+                    });
+                    addTrail = (apiId, trailName, trailLat, trailLon) => {
+                        // console.log(apiId, trailName);
+                        $.post("/api/add-trail", {
+                            apiTrailId: apiId,
+                            trailName: trailName,
+                            latitude: trailLat,
+                            longitude: trailLon
+                        })
+                        // change button text/color, or make modal or reveal hidden div that hides after 2 secs, or delete alert if no time?
+                        .then(alert(`Successfully added ${trailName} to your trails!`))
+                        .catch(function(err) {
+                            console.log(err);
+                        })
+                    };
+                };
             });
         };
-
     };
 });
+
+// addTrail.on("click", function (event) {
+//     event.preventDefault();
+//     console.log("hey dickhead");
+// });

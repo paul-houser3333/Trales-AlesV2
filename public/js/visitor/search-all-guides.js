@@ -4,7 +4,7 @@
 let cardEl = $("#guide-cards2");
 console.log("hello");
 $(document).ready(function () {
-    $.get("/api/guidesdisplay")
+    $.get("/api/guides")
         .then(function (data) {
             console.log(data);
             for (let i = 0; i < data.length; i++) {
@@ -22,7 +22,7 @@ $(document).ready(function () {
                                         ${data[i].first_name}
                                     </h1>
                                     <p class="text-location">${data[i].location}</p>
-                                    <button data-guideid="${data[i].user_id}" class="button is-success is-small card-button" id="${data[i].user_id}">Visit Profile</button>
+                                    <button data-guideid="${data[i].guide_id}" class="button is-success is-small card-button" id="${data[i].guide_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
@@ -32,9 +32,9 @@ $(document).ready(function () {
                     $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
                         console.log("hey dickhead");
-                        let userId = parseInt(event.target.id);
-                        console.log(userId);
-                        window.sessionStorage.setItem("guideid", userId);
+                        let guideId = parseInt(event.target.id);
+                        console.log(guideId);
+                        window.sessionStorage.setItem("guideid", guideId);
                         console.log(window.sessionStorage.getItem("guideid"));
                         window.location.replace("/profile-view");
                     });

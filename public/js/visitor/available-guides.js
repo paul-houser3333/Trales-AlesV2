@@ -5,33 +5,33 @@
 // grab that id from local storage to make an api call to display all users that service that trail
 // for each user in that data object, use template literals and push to body of available
 let cardEl = $("#guide-cards1");
-let apiId = parseInt(sessionStorage.getItem("trail-id"));
-console.log(apiId);
+let apiTrailId = parseInt(sessionStorage.getItem("trail-id"));
+console.log(apiTrailId);
 
 $(document).ready(function () {
 
-    $.get(`/api/trailguides/${apiId}`)
+    $.get(`/api/available-guides/${apiTrailId}`)
         .then(function (data) {
             if (data == "") {
                 console.log("Uh oh! No guides currently service this route.");
             }
 
-            for (let i = 0; i < data.users.length; i++) {
+            for (let i = 0; i < data.guides.length; i++) {
                 let guideCard = `                
                     <div class="column">
                         <div class="card" id="guide-card">
                             <div class="card-image">
                                 <figure class="image is-256x256" id="image-wrapper">
-                                    <img class="is-rounded prof-image" src="${data.users[i].guide_icon}">
+                                    <img class="is-rounded prof-image" src="${data.guides[i].guide_icon}">
                                 </figure>
                             </div>
                             <div class="card-content">
                                 <div class="content has-text-centered" id="basic-info">
                                     <h1 class="white-color logo-text-prof card-name">
-                                        ${data.users[i].first_name}
+                                        ${data.guides[i].first_name}
                                     </h1>
-                                    <p class="text-location">${data.users[i].location}</p>
-                                    <button data-guideid="${data.users[i].user_id}" class="button is-success is-small card-button" id="${data.users[i].user_id}">Visit Profile</button>
+                                    <p class="text-location">${data.guides[i].location}</p>
+                                    <button data-guideid="${data.guides[i].guide_id}" class="button is-success is-small card-button" id="${data.guides[i].guide_id}">Visit Profile</button>
                                 </div>
                             </div>
                         </div>
@@ -39,12 +39,13 @@ $(document).ready(function () {
                     `;
                     $("body").off().on("click", "button.card-button", event => {
                         event.preventDefault();
-                        let userId = parseInt(event.target.id);
-                        console.log(userId);
-                        window.sessionStorage.setItem("guideid", userId);
-                        console.log(window.sessionStorage.getItem("guideid"));
+                        let guideId = parseInt(event.target.id);
+                        console.log(guideId);
+                        window.sessionStorage.setItem("guide-id", guideId);
+                        console.log(window.sessionStorage.getItem("guide-id"));
                         window.location.replace("/profile-view");
                     });
+                    
                 cardEl.append(guideCard);
                 
             };

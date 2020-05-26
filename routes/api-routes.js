@@ -10,10 +10,14 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.guide_id
     });
-
-
+  });
+  
+  // Route for logging user out
+  app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -21,7 +25,7 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
     // console.log(req.body);
-    db.User.create({
+    db.Guide.create({
       first_name: req.body.firstName,
       last_name: req.body.lastName,
       username: req.body.username,
@@ -41,42 +45,10 @@ module.exports = function (app) {
       });
   });
 
-  // app.post("/api/trail-search", function (req, res) {
-  //   console.log(req.body.userId);
-  //   db.Trail.create({
-  //     user_id: req.body.userId,
-  //     api_trail_id: req.body.apiTrailId,
-  //     trail_name: req.body.trailName,
-  //     latitude: req.body.latitude,
-  //     longitude: req.body.longitude
-  //   })
-  //     .catch(function (err) {
-  //       res.status(401).json(err);
-  //     });
-  // });
-
-  // app.post("/api/trailadd", async (req, res, next) => {
-  //   try {
-  //     const trailids = await db.Trail.findOrCreate({
-  //       where: {
-  //         api_trail_id: req.body.apiTrailId,
-  //         trail_name: req.body.trailName,
-  //         latitude: req.body.latitude,
-  //         longitude: req.body.longitude
-  //       }
-  //     });
-  //     const currentUser = await db.User.findByPk(req.user.user_id);
-  //     await currentUser.addTrail(trailids[0]);
-  //     res.json(trailids[0]);
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // });
-
-  app.post("/api/trailadd", async (req, res, next) => {
+  app.post("/api/add-trail", async (req, res, next) => {
     try {
-      const currentUser = await db.User.findByPk(req.user.user_id);
-      const trailAdd = await db.Trail.findOrCreate({
+      const loggedGuide = await db.Guide.findByPk(req.user.guide_id);
+      const addTrail = await db.Trail.findOrCreate({
         where: {
           api_trail_id: req.body.apiTrailId,
           trail_name: req.body.trailName,
@@ -84,22 +56,17 @@ module.exports = function (app) {
           longitude: req.body.longitude
         }
       });
-      await currentUser.addTrail(trailAdd[0]);
-      res.json(trailAdd[0]);
+      await loggedGuide.addTrail(addTrail[0]);
+      res.json(addTrail[0]);
       // }
     } catch (error) {
       next(error);
     }
   });
 
-  // Route for logging user out
-  app.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
+  // THIS ROUTE CAN BE DELETED IF NOT USED ANYWHERE
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
+  app.get("/api/guide_data", function (req, res) {
     if (!req.user) {
       // The guide is not logged in, send back an empty object
       res.json({});
@@ -107,7 +74,7 @@ module.exports = function (app) {
       // Otherwise send back the guides's info
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        userId: req.user.user_id,
+        guideId: req.user.guide_id,
         firstName: req.user.first_name,
         lastName: req.user.last_name,
         username: req.user.username,
@@ -121,10 +88,10 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/api/traildisplay", async (req, res, next) => {
+  app.get("/api/my-trails", async (req, res, next) => {
     try {
-      const mytrails = await db.User.findOne({
-        where: { user_id: req.user.user_id },
+      const myTrails = await db.Guide.findOne({
+        where: { guide_id: req.user.guide_id },
         include: {
           model: db.Trail, as: 'trails'
         }
@@ -137,25 +104,25 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/api/trailguides/:id", async (req, res, next) => {
+  app.get("/api/available-guides/:id", async (req, res, next) => {
     try {
-      const myguides = await db.Trail.findOne({
+      const availableGuides = await db.Trail.findOne({
         where: { api_trail_id:  req.params.id},
         include: {
-          model: db.User, as: 'users'
+          model: db.Guide, as: 'guides'
         }
       })
       .then(data => {
-              res.send(data);
-            })
-          } catch (error) {
-            next(error);
-          }
-        });
+        res.send(data);
+      })
+    } catch (error) {
+      next(error);
+    }
+  });
 
-  app.get("/api/guidesdisplay", async (req, res, next) => {
+  app.get("/api/guides", async (req, res, next) => {
     try {
-      const mytrails = await db.User.findAll({
+      const allGuides = await db.Guide.findAll({
         include: {
           model: db.Trail, as: 'trails'
         }
@@ -168,10 +135,10 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/api/guideprofile/:id", async (req, res, next) => {
+  app.get("/api/guides/:id", async (req, res, next) => {
     try {
-      const mytrails = await db.User.findOne({
-        where: { user_id: req.params.id },
+      const guideTrails = await db.Guide.findOne({
+        where: { guide_id: req.params.id },
         include: {
           model: db.Trail, as: 'trails'
         }

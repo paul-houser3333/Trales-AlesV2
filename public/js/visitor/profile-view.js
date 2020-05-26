@@ -12,8 +12,8 @@ $(document).ready(function () {
     let theMap;
     let trailArray;
 
-    let userId = window.sessionStorage.getItem("guideid");
-    console.log(userId);
+    let guideId = window.sessionStorage.getItem("guide-id");
+    console.log(guideId);
 
     // MAKE API CALL TO GET A USER WITH ID PASSED IN QUERY PARAMETER
     // testing with guide ID=1
@@ -39,7 +39,7 @@ $(document).ready(function () {
     });
 
     // PUT SERVER CALL HERE
-    $.get(`/api/guideprofile/${userId}`).then(function (data) {
+    $.get(`/api/guides/${guideId}`).then(function (data) {
         let firstName = data.first_name;
         console.log(data);
 

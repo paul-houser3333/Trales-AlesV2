@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
     
     // PUT SERVER CALL HERE
-    $.get("/api/traildisplay").then(function (data) {
+    $.get("/api/my-trails").then(function (data) {
         let firstName = data.first_name;
         
         console.log(data.trails);
