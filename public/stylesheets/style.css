@@ -227,6 +227,18 @@ body {
     color: rgb(122, 122, 122);
 }
 
+/* EDIT PROFILE HTML */
+/* _____________________________________________________________________________________________________________ */
+
+#delete-button {
+    background-color: rgb(98, 75, 136);
+    float: right;
+}
+
+#delete-button:hover {
+    background-color: rgb(255, 1, 1) !important;
+}
+
 /* BOTH TRAIL-SEARCH/ADD-TRAILS HTMLS */
 /* _____________________________________________________________________________________________________________ */
 .search-wrap {
