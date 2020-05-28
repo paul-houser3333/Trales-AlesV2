@@ -3,7 +3,6 @@
 *Our goal is to connect you with the trails and local trail guides in your desired location.
 
  
-
 *Hike Hire is a interactive app that allows a non-native hikers to figure out there next hike; as well, as to procure a hiking guide for a multitude of different trails in any given area.  This app will allow you to create a profile/ log in, to be a guide and mark trails that you service in order for your services to be procured. 
 
  
@@ -36,6 +35,7 @@ Mysql ( Data base connection )
 Passport ( allows for various authentication methods)
 Passport-local (authenticate username and password locally)
 Sequelize (object relational mapper provides easy access to databases)
+Bulma (CSS libary for styling)
 
 ### Libraries
 
@@ -53,39 +53,30 @@ Sequelize (object relational mapper provides easy access to databases)
 
 ```
 GIVEN a map with a search input
-WHEN I hover over the input field
-THEN a tooltip message appears with example search 
-WHEN I search for a city and state
-THEN I am presented with pins for trails in that area
-WHEN I click on a trail pin
-THEN I am presented with the trail name and guides
-WHEN I scroll or drag the map
-THEN the map moves accordingly
-WHEN I type a new city and state in the search field
-THEN the new location is centered on the map
-AND new trails and breweriers are populated
-WHENEVER a search is submitted
-THEN the search field is cleared
-SO that I can easily search the next destination
+WHEN input field is entered
+THEN a map populates with hiking pins 
+WHEN trail are clicked on 
+THEN it displays info on the trail, as well as if a trail guide adivable  
+WHEN the guide button is clicked
+THEN I am presented with a form to sign up to be a trail guide
+WHEN guide profile is creathe 
+THEN the guide is able to add a profile picture and trails that he will guide
+
 ```
-### Future Development 
+### Future Development APP Expansion
 
-### API Improvements
+This app is optimized for global trail maps. With additional knowlage of how to incorpate  how to connect many to many tables so a user could create a (hiker account), Then the hiker can plan future hikes and have sugested guides to populate as recomaditions for the trails they have slected. 
 
-### Upcoming Functionality
+
+
+### Upcoming Functionality/ Inter-Connectivity**
+
+As this app is a planning tool, it would be beneficial to have options for connecting with personal guides and calendars on user's devices, as well as the ability to text or email locations to friends' devices all from within the app. 
 
 **Previews**
 <iframe src="https://drive.google.com/file/d/1Me9bYWa_Q0WJyCTORq8Nj3yXgu1oR40Z/preview" width="640" height="480"></iframe>
 
-**Inter-Connectivity**
 
-As this app is a planning tool, it would be beneficial to have options for connecting with personal guides and calendars on user's devices, as well as the ability to text or email locations to friends' devices all from within the app. 
-
-As an app that supports physical activity, it would also be convenient to link it with users' health and fitness apps. Trail information (like length, difficulty, ascent/descent) can be sent to outside apps which can then use it to generate accurate exercise logs.
-
-### Global Expansion
-
-This app is optimized for searches within the United States of America. With additional API's and research, it can extend beyond the current national limits and render accurate trail and guide data for other countries and world regions.
 
 ## Creators
 
