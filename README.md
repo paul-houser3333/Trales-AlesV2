@@ -2,13 +2,15 @@
 
 *Our goal is to connect you with the trails and local trail guides in your desired location.
 
-*Hike Hire is a interactive app that allows a non-native hiker figure out there next hike;as well, as to procure a hiking guide for a multitude of different trails in any given area.  This app will allow you to create a profile/ log in, and select whether you are a hiking guide or a hiker, that is looking for different trails to take on.  If you are a hiking guide it allows you to create a profile in order for your services to be procured. 
+ 
 
-A fun interaction with this app is being able to type in a city and state, ex (Richmond, VA) and bring up all the local trails within a large radius of Richmond. 
+*Hike Hire is a interactive app that allows a non-native hikers to figure out there next hike; as well, as to procure a hiking guide for a multitude of different trails in any given area.  This app will allow you to create a profile/ log in, to be a guide and mark trails that you service in order for your services to be procured. 
 
-If you are a hiker you can mark the trail as being hiked and add it to you profile or request a guide for a new trail. Which then the app will render local guides and their contact methods. 
+ 
+*A fun interaction with this app is being able to type in a city and state, ex (Richmond, VA) and bring up all the local trails and all guides within a large radius of any given city and state 
 
-A web application intergrating multiple server-side APIs and data that takes a user's search input to populate pins for both trails guide on a  interactive map.
+*This is a web application intergrating multiple server-side APIs and many to many table interactions. This allows guides to input and populate pins for trails that they are willing to take potinical clients on and allow hikers to view this on a interactive map.
+
 
 https://github.com/paul-houser3333/Trales-AlesV2
 https://shrouded-anchorage-20263.herokuapp.com/    (deployed link)
@@ -73,7 +75,7 @@ SO that I can easily search the next destination
 ### Upcoming Functionality
 
 **Previews**
-GIF
+<iframe src="https://drive.google.com/file/d/1Me9bYWa_Q0WJyCTORq8Nj3yXgu1oR40Z/preview" width="640" height="480"></iframe>
 
 **Inter-Connectivity**
 
